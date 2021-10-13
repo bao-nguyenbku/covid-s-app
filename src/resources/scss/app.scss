@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #ecf0f3;
+  min-height: 100%;
+}
+
+@import 'variables';
+@import 'navbar';
+@import 'login';
+@import 'footer';
+@import 'banner';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
