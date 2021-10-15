@@ -2,15 +2,67 @@
   <div class="menu">
     <input type="checkbox" id="check">
     <div class="logo"><a href="#">COVID-S</a></div>
-    <ul>
+    <ul class="text-bar">
       <label class="btn cancel" for="check"><i class="fas fa-times"></i></label>
       <li><a href="/">Trang chủ</a></li>
       <li><a href="/#about">Về chúng tôi</a></li>
       <li><a href="#">Liên hệ</a></li>
+      {{#if (isEmpty session.user)}}
       <li><a href="/login">Đăng nhập</a></li>
       <li class="sign-up"><a href="/register">Đăng ký</a></li>
+      {{/if}}
     </ul>
+    {{#if session.user}}
+      <div class="account">
+          <img src="/upload/{{session.user.image}}" alt="avatar" class="avatar">
+          <h5>{{session.user.firstName}}</h5>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false"><i class="fas fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+              <li><a class="dropdown-item loggout" href="/loggout">Đăng xuất</a></li>
+            </ul>
+          </div>
+          
+      </div>
+    {{/if}}
     <label for="check" class="btn bars"><i class="fas fa-bars"></i></label>
   </div>
   </div>
 </nav>
+{{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> --}}

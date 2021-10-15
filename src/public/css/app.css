@@ -28,23 +28,44 @@ nav .menu {
   justify-content: space-between;
   align-items: center; }
 
+.account {
+  position: relative;
+  display: flex;
+  width: 200px;
+  float: right; }
+  .account .avatar {
+    width: 30%;
+    margin: auto 5px; }
+  .account h5 {
+    margin: auto 5px; }
+  .account .dropdown {
+    margin: auto 0; }
+    .account .dropdown button {
+      background: none;
+      border: none; }
+    .account .dropdown button i {
+      color: #000; }
+    .account .dropdown ul .loggout {
+      color: red; }
+
 .menu .logo a {
   font-size: 28px;
   font-weight: 600;
   text-decoration: none;
   color: #31344b; }
 
-.menu ul {
+.menu .text-bar {
   list-style: none;
-  display: flex; }
-  .menu ul .sign-up {
+  display: flex;
+  margin: auto; }
+  .menu .text-bar .sign-up {
     background: #f47f41;
     background: linear-gradient(78deg, #f47f41 0%, #f1556a 100%);
     border-radius: 10px; }
-  .menu ul .sign-up a {
+  .menu .text-bar .sign-up a {
     color: #ffffff; }
 
-.menu ul a {
+.menu .text-bar a {
   margin: 0 8px;
   text-decoration: none;
   font-size: 18px;
@@ -73,10 +94,10 @@ nav .menu {
   font-weight: 600;
   color: #31344b; }
 
-.menu ul a:hover {
+.menu .text-bar a:hover {
   color: #f36d52; }
 
-.menu ul .sign-up a:hover {
+.menu .text-bar .sign-up a:hover {
   color: #fff;
   font-weight: bold; }
 
@@ -108,7 +129,7 @@ nav label.cancel {
     box-shadow: 0 5px 10px #b0b0b5;
     z-index: 12;
     transition: all 0.3s ease; }
-  .menu ul a {
+  .menu .text-bar a {
     display: block;
     font-size: 23px;
     width: 100%;
@@ -136,7 +157,7 @@ nav label.cancel {
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
   margin-bottom: 200px;
-  margin-top: 300px;
+  margin-top: 350px;
   padding-bottom: 20px; }
 
 .center h2 {
@@ -309,5 +330,5 @@ footer {
   .social-media h3 {
     font-size: 90%; } }
 
-.home-banner .banner {
+.home-banner .banner img {
   border-radius: 50%; }

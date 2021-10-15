@@ -1,13 +1,16 @@
+{{#if message}}
+<h2>{{message}}</h2>
+{{/if}}
 <div class="center">
     <h2>Đăng nhập</h2>
-    <form method="post">
+    <form action="/login" method="POST">
         <div class="txt_field">
-            <input type="text" required>
+            <input type="text" name="phoneNumber" required>
             <span></span>
-            <label>Tên đăng nhập</label>
+            <label>Số điện thoại</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" name="password" required>
             <span></span>
             <label>Mật khẩu</label>
         </div>

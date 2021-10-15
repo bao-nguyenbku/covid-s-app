@@ -37,10 +37,11 @@ app.engine('hbs', expresshbs({
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/resources/views/layouts/',
     partialsDir: __dirname + '/resources/views/partials/',
-    // helpers: {
-    //     mul: function (qty, price) { return price * qty; },
-    //     sum: function (qty, num) { return qty + num; }
-    // }
+    helpers: {
+        mul: function (qty, price) { return price * qty; },
+        sum: function (qty, num) { return qty + num; },
+        isEmpty: function (item) { return item == null; }
+    }
 }));
 app.set('view engine', 'hbs');
 //------------------------------
