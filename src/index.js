@@ -40,7 +40,10 @@ app.engine('hbs', expresshbs({
     helpers: {
         mul: function (qty, price) { return price * qty; },
         sum: function (qty, num) { return qty + num; },
-        isEmpty: function (item) { return item == null; }
+        isEmpty: function (item) { return item == null; },
+        isAdmin: function (User) {
+            return User == 'admin';
+        }
     }
 }));
 app.set('view engine', 'hbs');

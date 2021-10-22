@@ -2,58 +2,144 @@
 @import 'variables';
 nav {
   width: 100%;
-  padding: 12px 0;
-  background: #ffffff;
-  box-shadow: 2px 2px 2px #b0b0b5;
+  height: 60px;
+  padding: 0;
+  background: $back-grey;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+.nav-scrolled {
+  background: #fff;
+  box-shadow: $shadow;
 }
 nav .menu {
-  max-width: 1270px;
+  max-width: 100%;
+  height: 60px;
   margin: auto;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: $dark-blue;
 }
-.account {
+//-------------------
+// Acount Area      |
+//-------------------
+.account-container {
   position: relative;
-  display: flex;
-  width: 200px;
+  display: block;
+  width: fit-content;
   float: right;
   .avatar {
-    width: 30%;
+    width: 50px;
+    height: 50px;
     margin: auto 5px;
   }
-  h5 {
+  // Name of user
+  span {
     margin: auto 5px;
+    color: $dark-blue;
+    font-size: 20px;
   }
-  .dropdown {
-    margin: auto 0;
-    button {
-      background: none;
-      border: none;
+  .account-btn {
+    cursor: pointer;
+    display: flex;
+    border: none;
+    outline: none;
+    background: none;
+    margin: 3px;
+    padding: 3px;
+    img {
+      border-radius: 50%;
     }
-    button i {
+  }
+  .account-btn:hover {
+    background: #ecf0f3;
+    border-radius: 8px;
+  }
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  width: max-content;
+  padding: 8px;
+  height: max-content;
+  list-style: none;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  li {
+    float: none;
+    display: block;
+  }
+  a {
+    text-decoration: none;
+  }
+  .loggout a {
+    color: red;
+  }
+  .my-account {
+    a {
+      color: $dark-blue;
+    }
+  }
+  .loggout,
+  .my-account {
+    padding: 10px;
+  }
+  .loggout:hover,
+  .my-account:hover {
+    background: $back-grey;
+    border-radius: 8px;
+  }
+}
+.show {
+  display: block;
+}
+//-----------------------
+// Sign in, Sign up Area|
+// ----------------------
+.sign-in-container {
+  .sign-button {
+    list-style: none;
+    a {
       color: #000;
     }
-    ul .loggout {
-      color: red;
+    a:hover {
+      color: $orange;
     }
   }
 }
-
 .menu .logo a {
   font-size: 28px;
   font-weight: 600;
   text-decoration: none;
-  color: #31344b;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    78deg,
+    rgba(244, 127, 65, 1) 0%,
+    rgba(241, 85, 106, 1) 100%
+  );
 }
 .menu .text-bar {
   list-style: none;
   display: flex;
   margin: auto;
   .sign-up {
-    background: rgb(244,127,65);
-    background: linear-gradient(78deg, rgba(244,127,65,1) 0%, rgba(241,85,106,1) 100%);
+    background: rgb(244, 127, 65);
+    background: linear-gradient(
+      78deg,
+      rgba(244, 127, 65, 1) 0%,
+      rgba(241, 85, 106, 1) 100%
+    );
     border-radius: 10px;
   }
   .sign-up a {
@@ -64,7 +150,7 @@ nav .menu {
   margin: 0 8px;
   text-decoration: none;
   font-size: 18px;
-  color: #31344b;
+  color: $dark-blue;
   font-weight: 400;
   display: inline-flex;
   padding: 10px 12px;

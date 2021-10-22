@@ -1,20 +1,36 @@
+@import 'variables';
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
-  background: #ecf0f3;
+  background: $back-grey;
   min-height: 100%;
 }
 
-@import 'variables';
+.content-container {
+  width: 100%;
+  margin: 0;
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+  }
+}
 @import 'navbar';
 @import 'login';
 @import 'footer';
 @import 'banner';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import 'sidebar';
+@import 'profile';

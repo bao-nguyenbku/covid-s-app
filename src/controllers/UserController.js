@@ -12,10 +12,15 @@ exports.login = (req, res, next) => {
     db.query(sql, userInput.phoneNumber, (err, result) => {
         if (err) throw err;
         if (result) {
-            // console.log(result[0]);
             if (bcrypt.compareSync(userInput.password, result[0].password)) {
                 req.session.user = result[0];
-                res.render('index');
+               
+                if (result[0].role == 'admin') {
+                    res.render('admin/dashboard');
+                }
+                else {
+                    res.render('index');
+                }
             }
             else {
                 res.render('login', { message: "Password is wrong" });
