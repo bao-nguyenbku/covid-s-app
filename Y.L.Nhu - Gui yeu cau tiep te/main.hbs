@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        {{!-- Fontawesome --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        {{!-- Bootstrap --}}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="/css/app.css">
+
+        <title>COVID-S</title>
+    </head>
+    <body>
+<nav>
+  <div class="menu">
+    <input type="checkbox" id="check">
+    <div class="logo"><a href="#">COVID-S</a></div>
+    <ul class="text-bar">
+      <label class="btn cancel" for="check"><i class="fas fa-times"></i></label>
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="/#about">Về chúng tôi</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+      <div class="account">
+          <div class = "image-for-account">
+            Hi, Bảo
+          </div>
+          <div class = "avatar">
+            <img id="img-a" src ="https://vietmytour.vn/wp-content/uploads/2018/10/Size-Avatar-3.jpg">
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false"><i class="fas fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Tài khoản của tôi</a></li>
+              <li><a class="dropdown-item loggout" href="/loggout">Đăng xuất</a></li>
+            </ul>
+          </div>
+          
+      </div>
+    <label for="check" class="btn bars"><i class="fas fa-bars"></i></label>
+  </div>
+  </div>
+</nav>
+<div class = "content" id="main">
+  <div class="title-for-body">YÊU CẦU TIẾP TẾ</div>
+<div class="box-address">
+  <div class="address">
+    <form>
+    <input type="text" id="addrName" name="Address">
+    </form>
+  </div>
+  <div class ="addr-button">
+    <button type = "button" class ="button1"><span class="btn1">Chọn</span></button>
+  </div>
+  <div class="foodType">
+        <select name="field4" class="field-select">
+        <option value="Lương thực">Lương thực</option>
+        <option value="Thuốc">Thuốc</option>
+
+        </select>
+  </div>
+</div>
+<div class ="box-IQN">
+    <div class="form1">
+      <form>
+        <label for="tb1">Tên sản phẩm</label><br>
+        <input type="text" class = "tb-1" id="tb1" name="itemName">
+      </form>
+    </div>
+    <div class="form2">
+      <form>
+      <label for="tb2">Số lượng</label><br>
+      <input type="text" class = "tb-2" id="tb2" name="quantity">
+      </form>
+    </div>
+    <div class="form3">
+      <form>
+      <label for="tb2">Ghi chú</label><br>
+      <input type="text" class = "tb-3" id="tb3" name="note">
+      </form>
+    </div>
+</div>
+<div class ="box-IQN-2">
+    <div class="form1">
+      <form>
+        <input type="text" class = "tb-1" id="tb1" name="itemName">
+      </form>
+    </div>
+    <div class="form2">
+      <form>
+      <input type="text" class = "tb-2" id="tb2" name="quantity">
+      </form>
+    </div>
+    <div class="form3">
+      <form>
+      <input type="text" class = "tb-3" id="tb3" name="note">
+      </form>
+    </div>
+    <div class="addRow">
+      <button type = "button" class ="buttonAddRow"><span class="btn1">+</span></button>
+    </div>
+</div>
+<div class ="submits">
+  <div class="submitCheck"> 
+    <div class ="addr-button">
+      <button type = "button" class ="buttonCheck"><span class="btn1">Kiểm tra</span></button>
+    </div>
+  </div>
+  <div class ="submitItems">
+    <button type = "button" class ="buttonSubmitItems"><span class="btn1">Gửi</span></button>
+  </div>
+</div>
+</div>
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+</script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!--=============== MAIN JS ===============-->
+        {{!-- <script src="/js/main.js"></script> --}}
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+      
+    </body>
+</html>
