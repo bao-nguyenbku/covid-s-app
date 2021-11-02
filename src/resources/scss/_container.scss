@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+  margin-top: 60px;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.content-container {
+  width: 100%;
+  padding-left: 260px;
+  padding-right: 30px;
+  transition: all 0.5s ease;
+  &.content-active {
+    padding-left: 80px;
+  }
+}

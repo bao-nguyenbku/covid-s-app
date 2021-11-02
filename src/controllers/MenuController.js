@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const db = require('../config/db/DBconnection');
+
 exports.show = (req, res) => {
     db.getConnection((err, connection) => {
         if (err) throw err;

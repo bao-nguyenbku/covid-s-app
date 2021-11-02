@@ -4,16 +4,16 @@ let closeBtn = document.querySelector('#btn');
 
 closeBtn.addEventListener('click', () => {
   sidebar.classList.toggle('open');
-  menuBtnChange(); //calling the function(optional)
+  // menuBtnChange(); //calling the function(optional)
 });
 
-window.onclick = (event) => {
-  if (!event.target.matches('#btn')) {
-    if (sidebar.classList.contains('open')) {
-      sidebar.classList.remove('open');
-    }    
-  }
-}
+// window.onclick = (event) => {
+//   if (!event.target.matches('#btn')) {
+//     if (sidebar.classList.contains('open')) {
+//       sidebar.classList.remove('open');
+//     }    
+//   }
+// }
 // searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
 //   sidebar.classList.toggle("open");
 //   menuBtnChange(); //calling the function(optional)

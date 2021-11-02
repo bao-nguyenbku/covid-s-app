@@ -1,92 +1,94 @@
-<div class="content-container">
+<div class="main-container">
     {{>sidebar}}
-    <div class="profile-container">
-        <h1 class="header-title">THÔNG TIN CHI TIẾT</h1>
-        <div class="avatar-and-name">
-            <div class="a-edit">
-                <span><i class="fas fa-camera"></i></span>
-                <img src="/upload/avatar-default.jpg" alt="user-avatar">
-            </div>
-
-            <div>
-                <h2>Nguyễn Thiên Bảo</h2>
-                <h4>Người dùng</h4>
-            </div>
-        </div>
-
-        <div class="personal-info">
-
-            <form action="#" method="POST" class="edit-profile">
-                <div class="left-side">
-                    {{!-- First Name --}}
-                    <div class="info">
-                        <label for="first-name">Tên</label>
-                        <input class="first-name" type="text" value="Bảo" name="firstName">
-                    </div>
-
-                    {{!-- Last Name --}}
-                    <div class="info">
-                        <label for="last-name">Họ và tên lót</label>
-                        <input class="last-name" type="text" value="Nguyễn Thiên" name="lastName">
-                    </div>
-
-                    {{!-- Sex --}}
-                    <div class="sex-info">
-                         <label>
-                            <input type="radio" name="radio" checked />
-                            <span>Nam</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio" />
-                            <span>Nữ</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio" />
-                            <span>Khác</span>
-                        </label>
-                    </div>
-                    {{!-- Phone Number --}}
-                    <div class="info">
-                        <label for="phone-number">Số điện thoại</label>
-                        <input class="phone-number" type="text" value="0936010095" name="phoneNumber">
-                    </div>
+    <div class="content-container">
+        <div class="profile-container">
+            <h1 class="header-title">THÔNG TIN CHI TIẾT</h1>
+            <div class="avatar-and-name">
+                <div class="a-edit">
+                    <span><i class="fas fa-camera"></i></span>
+                    <img src="/upload/avatar-default.jpg" alt="user-avatar">
                 </div>
 
-                <div class="right-side">
-                    <div class="info">
-                        <select name="district" id="district">
-                            <option value="blank" selected>Quận/Huyện</option>
-                            <option value="d1">Quận 1</option>
-                            <option value="d2">Quận 2</option>
-                            <option value="d4">Quận 4</option>
-                            <option value="d5">Quận 5</option>
-                            <option value="d6">Quận 6</option>
-                            <option value="d7">Quận 7</option>
-                            <option value="d8">Quận 8</option>
-                        </select>
-                    </div>
-                    <div class="info">
-                        <select name="town" id="town">
-                            <option value="blank" selected>Phường/Xã</option>
-                            <option value="t1">phường 1</option>
-                            <option value="t2">phường 2</option>
-                            <option value="t4">phường 4</option>
-                            <option value="t5">phường 5</option>
-                            <option value="t6">phường 6</option>
-                            <option value="t7">phường 7</option>
-                            <option value="t8">phường 8</option>
-                        </select>
-                    </div>
-                    <div class="info">
-                        <label for="house-number">Số nhà, đường, khu phố</label>
-                        <input class="house-number" type="text" value="36, đường Lý Thường Kiệt" name="houseNumber">
-                    </div>
-                    <div class="button-area">
-                        <button class="save-profile-btn" type="submit">Lưu thay đổi</button>
-                    </div>
+                <div>
+                    <h2>Nguyễn Thiên Bảo</h2>
+                    <h4>Người dùng</h4>
                 </div>
+            </div>
 
-            </form>
+            <div class="personal-info">
+
+                <form action="#" method="POST" class="edit-profile">
+                    <div class="left-side">
+                        {{!-- First Name --}}
+                        <div class="info">
+                            <label for="first-name">Tên</label>
+                            <input class="first-name" type="text" value="Bảo" name="firstName">
+                        </div>
+
+                        {{!-- Last Name --}}
+                        <div class="info">
+                            <label for="last-name">Họ và tên lót</label>
+                            <input class="last-name" type="text" value="Nguyễn Thiên" name="lastName">
+                        </div>
+
+                        {{!-- Sex --}}
+                        <div class="sex-info">
+                             <label>
+                                <input type="radio" name="radio" checked />
+                                <span>Nam</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" />
+                                <span>Nữ</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="radio" />
+                                <span>Khác</span>
+                            </label>
+                        </div>
+                        {{!-- Phone Number --}}
+                        <div class="info">
+                            <label for="phone-number">Số điện thoại</label>
+                            <input class="phone-number" type="text" value="0936010095" name="phoneNumber">
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <div class="info">
+                            <select name="district" id="district">
+                                <option value="blank" selected>Quận/Huyện</option>
+                                <option value="d1">Quận 1</option>
+                                <option value="d2">Quận 2</option>
+                                <option value="d4">Quận 4</option>
+                                <option value="d5">Quận 5</option>
+                                <option value="d6">Quận 6</option>
+                                <option value="d7">Quận 7</option>
+                                <option value="d8">Quận 8</option>
+                            </select>
+                        </div>
+                        <div class="info">
+                            <select name="town" id="town">
+                                <option value="blank" selected>Phường/Xã</option>
+                                <option value="t1">phường 1</option>
+                                <option value="t2">phường 2</option>
+                                <option value="t4">phường 4</option>
+                                <option value="t5">phường 5</option>
+                                <option value="t6">phường 6</option>
+                                <option value="t7">phường 7</option>
+                                <option value="t8">phường 8</option>
+                            </select>
+                        </div>
+                        <div class="info">
+                            <label for="house-number">Số nhà, đường, khu phố</label>
+                            <input class="house-number" type="text" value="36, đường Lý Thường Kiệt" name="houseNumber">
+                        </div>
+                        <div class="button-area">
+                            <button class="save-profile-btn" type="submit">Lưu thay đổi</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 </div>

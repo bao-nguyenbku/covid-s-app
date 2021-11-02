@@ -1,80 +1,62 @@
-<div class="sidebar">
-    <div class="logo-details">
-        <div class="logo_name">COVID-S</div>
-        <i class='bx bx-menu' id="btn"></i>
+<header class="header body-pd" id="header">
+    <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
     </div>
-    <ul class="nav-list">
-        {{!-- <li>
-            <i class='bx bx-search'></i>
-            <input type="text" placeholder="Search...">
-            <span class="tooltip">Search</span>
-        </li> --}}
-        <li>
-            <a href="/demo">
-                <i class='bx bx-grid-alt'></i>
-                <span class="links_name">Dashboard</span>
+
+    <div class="header__img">
+
+        <div class="btn-group">
+            <img src="/upload/avatar-default.jpg" alt="" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Menu item</a></li>
+                <li><a class="dropdown-item" href="#">Menu item</a></li>
+                <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="l-navbar show" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav__logo">
+                {{!-- <i class='bx bx-layer nav__logo-icon'></i> --}}
+                <span class="nav__logo-name">COVID-S</span>
             </a>
-            <span class="tooltip">Dashboard</span>
-        </li>
-        <li>
-            <a href="/profile">
-                <i class='bx bx-user'></i>
-                <span class="links_name">User</span>
-            </a>
-            <span class="tooltip">User</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-chat'></i>
-                <span class="links_name">Messages</span>
-            </a>
-            <span class="tooltip">Messages</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-pie-chart-alt-2'></i>
-                <span class="links_name">Analytics</span>
-            </a>
-            <span class="tooltip">Analytics</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-folder'></i>
-                <span class="links_name">File Manager</span>
-            </a>
-            <span class="tooltip">Files</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-cart-alt'></i>
-                <span class="links_name">Order</span>
-            </a>
-            <span class="tooltip">Order</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-heart'></i>
-                <span class="links_name">Saved</span>
-            </a>
-            <span class="tooltip">Saved</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Setting</span>
-            </a>
-            <span class="tooltip">Setting</span>
-        </li>
-        {{!-- <li class="profile">
-            <div class="profile-details">
-                <img src="profile.jpg" alt="profileImg">
-                <div class="name_job">
-                    <div class="name">Prem Shahi</div>
-                    <div class="job">Web designer</div>
-                </div>
+
+            <div class="nav__list">
+                <a href="/index" class="nav__link" data-tab="tab0">
+                    {{!-- <i class='bx bx-home nav__icon'></i> --}}
+                    <i class="material-icons nav__icon">home</i>
+                    <span class="nav__name">Trang chủ</span>
+                </a>
+
+                <a href="/support" class="nav__link" data-tab="tab1">
+                    <i class='material-icons nav__icon'>support</i>
+                    <span class="nav__name">Gửi yêu cầu tiếp tế</span>
+                </a>
+
+                <a href="/waiting" class="nav__link" data-tab="tab2">
+                    <i class='bx bxs-time-five nav__icon'></i>
+                    <span class="nav__name">Chờ tiếp nhận</span>
+                </a>
+
+                <a href="/" class="nav__link" data-tab="tab3">
+                    <i class='bx bxs-package nav__icon'></i>
+                    <span class="nav__name">Chờ giao hàng</span>
+                </a>
+
+                <a href="/doctor" class="nav__link" data-tab="tab4">
+                    <i class='material-icons nav__icon'>medication</i>
+                    <span class="nav__name">Bác sĩ tư vấn</span>
+                </a>
+
+                {{!-- <a href="#" class="nav__link" data-tab="tab5">
+                    <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
+                    <span class="nav__name">Analytics</span>
+                </a> --}}
             </div>
-            <i class='bx bx-log-out' id="log_out"></i>
-        </li> --}}
-    </ul>
+        </div>
+    </nav>
 </div>
-<script src="/js/script.js"></script>

@@ -5,7 +5,6 @@ router.get('/', (req, res, next) => {
     user = req.session.user;
     // res.json(user);
     if (user) {
-        console.log(user);
         res.render('index', { user });
         return;
     }

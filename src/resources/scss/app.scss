@@ -15,22 +15,14 @@ body {
   min-height: 100%;
 }
 
-.content-container {
-  width: 100%;
-  margin: 0;
-  margin-top: 60px;
-  padding-top: 20px;
-  padding-left: 100px;
-  padding-right: 100px;
-  p {
-    margin: 0;
-    padding: 0;
-    text-align: justify;
-  }
-}
+@import 'container';
 @import 'navbar';
 @import 'login';
 @import 'footer';
-@import 'banner';
-@import 'sidebar';
+// @import 'sidebar';
 @import 'profile';
+@import 'customer/support';
+@import 'customer/waiting';
+@import 'customer/doctor';
+@import 'admin/admin';
+@import 'new_sidebar';
