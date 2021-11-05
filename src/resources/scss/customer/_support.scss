@@ -43,16 +43,16 @@ input {
 }
 .title {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(
-      300deg,
-      rgba(3, 184, 226, 1) 0%,
-      rgba(33, 82, 255, 1) 100%
-    );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    300deg,
+    rgba(3, 184, 226, 1) 0%,
+    rgba(33, 82, 255, 1) 100%
+  );
   margin-top: 35px;
   margin-bottom: 30px;
 }
@@ -152,6 +152,7 @@ select {
     position: relative;
     display: flex;
     justify-content: flex-end;
+    margin-top: 20px;
     /***************************
     * ADD ROW BUTTON
     ***************************/
@@ -179,15 +180,15 @@ select {
       padding-top: 10px;
       padding-bottom: 10px;
       box-shadow: $back-red-shadow;
-      transition: transform 0.4s;
+      transition: transform 0.5s;
       &:hover {
         background: rgb(3, 184, 226);
         background: linear-gradient(
-        300deg,
-        rgb(226, 111, 3) 0%,
-        rgb(243, 24, 24) 100%
-      );
-        transform: scale(1.2);
+          300deg,
+          rgb(226, 111, 3) 0%,
+          rgb(243, 24, 24) 100%
+        );
+        transform: scale(1.1);
       }
     }
   }

@@ -2,7 +2,7 @@
 
 :root {
   --header-height: 3rem;
-  --nav-width: 68px;
+  --nav-width: 70px;
   --first-color: #4723d9;
   --first-color-light: #afa5d9;
   --white-color: #f7f6fb;
@@ -25,23 +25,58 @@
   padding-left: 70px;
   padding-right: 70px;
   transition: 0.5s;
-
-  &__toggle {
+  .header-logo {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      300deg,
+      rgba(3, 184, 226, 1) 0%,
+      rgba(33, 82, 255, 1) 100%
+    );
+    h2 {
+      font-weight: bold;
+    }
+  }
+  
+  .header__account-area {
+    display: flex;
+    .header__sign-in {
+      margin-left: auto;
+      margin-right: 0;
+      padding: 10px;
+      a {
+        position: relative;
+        width: 100%;
+        text-decoration: none;
+        color: $primary-blue;
+        text-align: center;
+      }
+      &:hover {
+        background: rgb(241, 241, 241);
+        border-radius: 10px;
+        padding: 10px;
+      }
+    }
+    .header__img {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto;
+      }
+    }
+  }
+  .header__toggle {
     color: $dark-blue;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  &__img {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin: auto;
-    }
-  }
+  
 }
 
 /*===== NAV =====*/
@@ -52,7 +87,7 @@
   width: var(--nav-width);
   height: 100vh;
   background: #fff;
-  padding: 1rem 0 0 0;
+  padding: 5px 0 0 0;
 
   transition: 0.5s;
   z-index: var(--z-fixed);
@@ -62,8 +97,14 @@
     }
   }
   .nav__logo {
-    .nav__logo-name {
+    &-name {
       display: none;
+    }
+    &-image {
+      display: block;
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
     }
   }
 }
@@ -85,7 +126,8 @@
   &__logo {
     margin-bottom: 2rem;
     text-decoration: none;
-
+    width: var(--nav-width);
+    padding: 0.5rem 0 0.5rem 12px;
     &-icon {
       font-size: 1.25rem;
       color: $dark-blue;
@@ -129,7 +171,11 @@
     }
   }
   .nav__logo {
-    .nav__logo-name {
+    &-name {
+      display: block;
+      height: 35px;
+    }
+    &-image {
       display: block;
     }
   }
@@ -149,7 +195,8 @@
     rgba(3, 184, 226, 1) 0%,
     rgba(33, 82, 255, 1) 100%
   );
-  .nav__icon, .nav__name {
+  .nav__icon,
+  .nav__name {
     color: white;
   }
   .nav__name {

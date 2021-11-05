@@ -87,6 +87,7 @@
   .dtr-name {
     text-align: start;
     margin: auto 0;
+    margin-left: 20px;
   }
   .dtr-detail-btn {
     background: $back-grey;
@@ -103,7 +104,7 @@
   margin: 10px;
 }
 .dtr-block {
-  box-shadow: 2px 2px 1px rgb(93, 93, 93);
+  box-shadow: $shadow;
   border: 0px;
   margin: 10px;
   border-radius: 10px;
@@ -135,7 +136,8 @@
     height: 25%;
     padding: 5px;
     p {
-        margin-left: 5px;
+        margin-left: 20px;
+        font-weight: 400;
     }
   }
 }

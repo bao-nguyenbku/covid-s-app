@@ -1,0 +1,177 @@
+@import url(variables);
+.card-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 5px;
+  padding-right: 40px;
+}
+.card {
+  position: relative;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 95%;
+  cursor: pointer;
+  transition: transform 0.4s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tag-teal {
+  &1 {
+    background-color: #47bcd4;
+  }
+  &2 {
+    background-color: #df9323;
+  }
+  &3 {
+    background-color: #05be05;
+  }
+  &4 {
+    background-color: #df232c;
+  }
+}
+.tag-purple {
+  background-color: #5e76bf;
+}
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+.user {
+  display: flex;
+}
+
+.user img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  margin: auto 0;
+}
+.user-info {
+  margin: auto 0;
+  margin-left: 10px;
+  h5 {
+    margin-bottom: 0;
+  }
+  small {
+    color: #545d7a;
+  }
+}
+
+.user-info-address {
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
+}
+/********************
+* CARD MODAL DESIGN
+*********************/
+#card-modal {
+  width: 80%;
+  height: 600px;
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  box-shadow: $shadow;
+  display: none;
+  border-radius: 10px;
+  .card-modal-close-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  .card-modal-header {
+    border-bottom: 1px solid rgb(207, 207, 207);
+    border-top: 1px solid rgb(207, 207, 207);
+    padding: 10px;
+  }
+  .card-modal-body {
+    position: relative;
+    height: 70%;
+    overflow-y: auto;
+    .card-modal-body-title {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .card-modal-body-content {
+      padding-left: 20px;
+      padding-right: 20px;
+      .card-item-container {
+        display: flex;
+        flex-direction: row;
+        background: $back-grey;
+        height: 50px;
+        border-radius: 10px;
+        margin: auto 0;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        h4 {
+          position: relative;
+          margin: auto 0;
+          margin-left: 10px;
+        }
+        button {
+          height: 40px;
+          i {
+            font-size: 18px;
+            position: relative;
+            margin-top: 5px;
+          }
+          &:last-child {
+            margin-right: 10px;
+          }
+        }
+      }
+      .item-completed {
+        background: rgb(59, 59, 59);
+        h4 {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.modal-active {
+  display: block;
+}

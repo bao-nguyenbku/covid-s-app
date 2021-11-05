@@ -15,6 +15,8 @@ toggle.addEventListener('click', () => {
 });
 $(document).ready(function () {
     const lastSidebar = localStorage.getItem('collapseSidebar');
+    // Should save status of current page when load to website
+    // TODO
     if (lastSidebar == 'none') {
         nav.classList.toggle('show');
         headerpd.classList.toggle('body-pd');
