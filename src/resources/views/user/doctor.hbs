@@ -6,18 +6,19 @@
             <div class="img-file-dtr">
                 <img src="upload/bacsi.png">
             </div>
-            <div>
-                <p>Tên bác sĩ: Nguyễn Thiên Bảo</p>
-                <p>Nơi công tác: Bệnh Viện đa khoa Thủ Đức</p>
-                <p>Chuyên khoa: Nội </p>
-                <p>Số điện thoại: 01293748237</p>
-                <p>Email: thienbaopro@gmail.com</p>
-                <p>Trình độ học vấn: Tốt nghiệp đại học y dược HCM</p>
+            <hr>
+            <div class="info-dtr">
+                <p>Tên bác sĩ: <strong>Nguyễn Thiên Bảo</strong></p>
+                <p>Nơi công tác: <strong>Bệnh Viện đa khoa Thủ Đức</strong></p>
+                <p>Chuyên khoa: <strong>Nội</strong></p>
+                <p>Số điện thoại: <strong>01293748237</strong></p>
+                <p>Email: <strong>thienbao@gmail.com</strong></p>
+                <p>Trình độ học vấn: <strong>Tốt nghiệp Đại học Y dược TP Hồ Chí Minh</strong></p>
                 <p>Mô tả: Bác sĩ bảo có hơn 15 năm kinh nghiệm khám chữa bệnh với hàng ngàn ca phẫu thuật thành công.
                     Ngoài ra, bác sĩ còn giành nhiều giải thưởng y học trong và ngoài nước.
                 </p>
             </div>
-            <button class='btn-out' onclick="outDetail()">Thoát</button>
+            <button class='btn btn-primary btn-out' onclick="outDetail()">Thoát</button>
         </div>
         <script>
             function dtrDetail() {
@@ -30,7 +31,7 @@
             }
         </script>
         {{!-- End of modal detail of doctor --}}
-        
+
         <div class="dtr-center dtr-color">
             <h1 class="cls">Bác sĩ tư vấn</h1>
         </div>
@@ -39,15 +40,14 @@
                 <input type="text">
                 <button><span class="fas fa-search"></span></button>
             </div>
-            <div class="dtr-dropdown">
-                <button class="btn-sort" onclick="">
-                    <span class="fas fa-caret-down"></span>
-                    <p>Sắp xếp theo</p>
-                </button>
-                <div class="index-drop-content">
-                    <a href="#">Tên</a>
-                    <a href="#">Chuyên Môn</a>
-                    <a href="#">Nơi công tác</a>
+            <div class="dtr-filter">
+                <div class="info">
+                    <select name="option">
+                        <option value="blank" selected>Sắp xếp theo</option>
+                        <option value="d1">Tên</option>
+                        <option value="d2">Nơi công tác</option>
+                        <option value="d4">Năm kinh nghiệm</option>
+                    </select>
                 </div>
             </div>
         </div>
