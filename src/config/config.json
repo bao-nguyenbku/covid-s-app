@@ -1,6 +1,6 @@
 {
     "host": "localhost",
-    "user": "baonguyen",
-    "password": "Thienbao4",
+    "user": "root",
+    "password": "",
     "database": "covid_support_app"
 }

@@ -10,5 +10,5 @@ router.get('/', (req, res, next) => {
 });
 
 // Post register data
-router.post('/',UserController.register);
+// router.post('/',UserController.register);
 module.exports = router;
