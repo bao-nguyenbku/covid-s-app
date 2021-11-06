@@ -137,6 +137,21 @@
   }
   .card-modal-header {
     border-bottom: 1px solid rgb(207, 207, 207);
+    .user {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .user-info {
+        justify-content: center;
+        align-items: center;
+      }
+      .user-info-address {
+        margin: 0;
+        margin-top: 30px;
+        text-align: center;
+      }
+    }
   }
   .card-modal-body {
     position: relative;
@@ -224,6 +239,9 @@
     grid-row-gap: 5px;
   }
   .card-modal {
-    width: 100%;
+    width: 98%;
+    left: 0;
+    right: 0;
+    height: max-content;
   }
 }

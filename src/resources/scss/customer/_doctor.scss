@@ -131,8 +131,6 @@
   box-shadow: $shadow;
   display: none;
   padding: 10px;
-  //   margin: 10px;
-  //   padding: 20px;
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -141,16 +139,20 @@
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+  height: max-content;
   z-index: 2;
   transition: 0.5s;
   .img-file-dtr {
     position: relative;
-    width: 80%;
+    width: 100%;
     object-fit: cover;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
       position: relative;
-      width: 100%;
+      width: 200px;
     }
   }
   .btn-out {
@@ -225,7 +227,7 @@
     }
   }
   .dtr-profile-modal {
-    width: 80%;
+    width: 90%;
     font-size: 13px;
     // .img-file-dtr {
     //   img {
