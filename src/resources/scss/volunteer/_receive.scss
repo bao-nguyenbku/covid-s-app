@@ -1,4 +1,4 @@
-@import url(variables);
+// @import url(variables);
 
 .receive-container {
   position: relative;
@@ -73,5 +73,20 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .receive-container {
+    .receive-tb-container {
+      width: 100%;
+      #receive-tb {
+        * {
+          font-size: 14px;
+        }
+        
+      }
+    }
+    
   }
 }

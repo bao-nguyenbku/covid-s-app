@@ -1,4 +1,4 @@
-@import url(variables);
+// @import url(variables);
 input {
   border-width: 1px;
   border-radius: 10px;
@@ -32,16 +32,16 @@ select {
     align-items: center;
     .input-and-btn {
       position: relative;
-      width: min-content;
+      width: 100%;
+      input {
+        width: 100%;
+      }
       .choose-address-btn {
         position: absolute;
         right: 0;
         margin-right: 5px;
         top: 5px;
         box-shadow: $back-blue-shadow;
-      }
-      #address {
-        width: 700px;
       }
     }
     .field-select {
@@ -152,6 +152,56 @@ select {
       .tb-2,
       .tb-3 {
         margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .content-container {
+    form {
+      width: 100%;
+    }
+    .delivery-address {
+      .input-and-btn {
+        position: relative;
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+    .button-submit-items {
+      width: 150px!important;
+    }
+  }
+  input {
+    min-width: 60px;
+    &::-webkit-input-placeholder, &::-moz-placeholder {
+      font-size: 12px;
+    }
+  }
+  #form-support {
+    .form-support-container {
+      margin-top: 4px;
+      margin-bottom: 4px;
+      /*********************
+      * REMOVE ROW BUTTON
+      **********************/
+      .remove-row-btn {
+        margin: auto 0;
+        font-size: 13px;
+        margin-left: 5px!important;
+        box-shadow: $back-red-shadow;
+      }
+      // .tb-1 {
+      //   width: 300px;
+      // }
+      // .tb-2 {
+      //   width: 150px;
+      // }
+      .tb-2, .tb-3 {
+        margin-left: 4px!important;
       }
     }
   }

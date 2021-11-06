@@ -1,9 +1,10 @@
-@import url(variables);
+// @import url(variables);
 .card-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  row-gap: 5px;
-  padding-right: 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  transition: 0.5s;
 }
 .card {
   position: relative;
@@ -31,6 +32,9 @@
   align-items: flex-start;
   padding: 20px;
   min-height: 250px;
+  h3 {
+    font-size: 21px;
+  }
 }
 
 .tag {
@@ -69,7 +73,7 @@
   margin: 0 0 40px;
 }
 .user {
-  display: flex;
+  display: block;
 }
 
 .user img {
@@ -80,8 +84,11 @@
   margin: auto 0;
 }
 .user-info {
-  margin: auto 0;
-  margin-left: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h5 {
     margin-bottom: 0;
   }
@@ -92,25 +99,32 @@
 
 .user-info-address {
   position: relative;
-  margin-left: auto;
-  margin-right: 0;
+  margin: 10px 0 0 auto;
 }
 /********************
 * CARD MODAL DESIGN
 *********************/
-#card-modal {
-  width: 80%;
-  height: 600px;
+.card-modal {
+  width: 400px;
+  height: max-content;
   position: absolute;
-  left: 70px;
-  right: 70px;
-  top: 20%;
+  left: auto;
+  right: 0;
+  top: 66px;
   margin-left: auto;
   margin-right: auto;
   background: #fff;
-  box-shadow: $shadow;
+  border-top: 1px solid rgb(192, 192, 192);
   display: none;
+  box-shadow: $shadow;
   border-radius: 10px;
+  padding: 5px;
+  transition: all 0.5s ease-in;
+  .btn-collapse {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: auto;
+  }
   .card-modal-close-btn {
     display: flex;
     flex-direction: row;
@@ -121,20 +135,17 @@
   }
   .card-modal-header {
     border-bottom: 1px solid rgb(207, 207, 207);
-    border-top: 1px solid rgb(207, 207, 207);
-    padding: 10px;
   }
   .card-modal-body {
     position: relative;
-    height: 70%;
+    height: max-content;
     overflow-y: auto;
     .card-modal-body-title {
       text-align: center;
       margin-top: 20px;
     }
     .card-modal-body-content {
-      padding-left: 20px;
-      padding-right: 20px;
+      height: max-content;
       .card-item-container {
         display: flex;
         flex-direction: row;
@@ -174,4 +185,43 @@
 }
 .modal-active {
   display: block;
+}
+/****************************************
+*  RESPONSIVE DESIGN
+*****************************************/
+@media screen and (max-width: 1267px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    .card {
+      * {
+        font-size: 16px;
+      }
+      .card-body {
+        h3 {
+          font-size: 19px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 744px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+}
+@media screen and (max-width: 489px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+  }
+  .card-modal {
+    width: 100%;
+  }
 }

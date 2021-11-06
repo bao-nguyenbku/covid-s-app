@@ -36,12 +36,16 @@
   width: 100%;
   box-shadow: $shadow;
   overflow-x: auto;
+  h4 {
+    text-align: center;
+  }
 }
 
 .order-table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 1300px;
+  width: 1000px;
+  margin: 0 auto;
   th {
     cursor: pointer;
   }

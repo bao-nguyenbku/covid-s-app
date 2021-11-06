@@ -4,25 +4,79 @@ const nav = document.getElementById('nav-bar');
 const container = document.getElementById('content-container');
 const headerpd = document.getElementById('header');
 toggle.addEventListener('click', () => {
+    if (window.matchMedia("(max-width: 1024px)").matches
+        && !window.matchMedia("(max-width: 744px)").matches) {
+        nav.classList.toggle('show');
+        headerpd.classList.toggle('body-pd');
+        
+    }
+    else if (window.matchMedia("(max-width: 744px)").matches) {
+        nav.classList.toggle('show');
+        nav.classList.add('show_744');
+        nav.classList.toggle('close_744');
+        headerpd.classList.toggle('body-pd_744');
+        headerpd.classList.toggle('body-pd');
+        
+        if (!container.classList.contains('content-active')) {
+            container.classList.add('content-active');
+        }
+    }
 
-    nav.classList.toggle('show');
-    headerpd.classList.toggle('body-pd');
-    // console.log(container);
-    container.classList.toggle('content-active');
-
+    // Normal width
+    else {
+        
+        nav.classList.toggle('show');
+        headerpd.classList.toggle('body-pd');
+        container.classList.toggle('content-active');
+    }
     var currSidebar = nav.classList.contains('show') ? 'show' : 'none';
     localStorage.setItem('collapseSidebar', currSidebar);
 });
-$(document).ready(function () {
-    const lastSidebar = localStorage.getItem('collapseSidebar');
-    // Should save status of current page when load to website
-    // TODO
-    if (lastSidebar == 'none') {
-        nav.classList.toggle('show');
-        headerpd.classList.toggle('body-pd');
-        // console.log(container);
-        container.classList.toggle('content-active');
+
+function responsive() {
+    const width = $(window).width();
+    const height = $(window).height();
+    /*****************************************************************
+     * When width of window less than 1024px, changg style of sidebar
+     *****************************************************************/
+    if (width >= 1024) {
+        nav.classList.add('show');
+        headerpd.classList.add('body-pd');
+        container.classList.remove('content-active');
     }
+    if (width < 1024) {
+        
+        nav.classList.remove('show');
+        headerpd.classList.remove('body-pd');
+        
+
+        if (!container.classList.contains('content-active')) {
+            container.classList.add('content-active');
+        }
+    }
+
+    if (width < 744) {
+        nav.classList.add('close_744');
+        if (nav.classList.contains('show')) {
+            nav.classList.remove('show');
+        }
+        headerpd.classList.add('body-pd_744');
+    }
+    else if (width >= 744) {
+        nav.classList.remove('close_744');
+        headerpd.classList.remove('body-pd_744');
+    }
+
+
+    currSidebar = nav.classList.contains('show') ? 'show' : 'none';
+    localStorage.setItem('collapseSidebar', currSidebar);
+}
+$(window).resize(function(){
+    responsive();
+});
+
+$(document).ready(function () {
+    responsive();
 });
 /**************************
 * GET SIDE-BAR LINK ACTIVE 
@@ -45,35 +99,4 @@ $(document).ready(function () {
     }
 })
 
-/*===== LINK ACTIVE  =====*/
-// $('.nav__list .nav__link').click(function(e) {
-//     e.preventDefault();
-//     console.log(this);
-
-//     const linkColor = document.querySelectorAll('.nav__link');
-//     linkColor.forEach(l => l.classList.remove('sidebar-link-active'));
-
-//     this.classList.add('sidebar-link-active');
-//     // localStorage.setItem('activeLink', 'Hello');
-// });
-    // const linkColor = document.querySelectorAll('.nav__link');
-    // function colorLink() {
-    //     if (linkColor) {
-    //         linkColor.forEach(l => l.classList.remove('sidebar-link-active'));
-    //         this.classList.add('sidebar-link-active');
-    //         localStorage.activeLink = "Hello";
-    //     }
-    // }
-    // linkColor.forEach(l => l.addEventListener('click', colorLink));
-
-
-
-// const linkColor = document.querySelectorAll('.nav__link');
-// function colorLink() {
-//     if (linkColor) {
-//         linkColor.forEach(l => l.classList.remove('sidebar-link-active'));
-//         this.classList.add('sidebar-link-active');
-//     }
-// }
-// linkColor.forEach(l => l.addEventListener('click', colorLink));
 

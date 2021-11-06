@@ -1,7 +1,3 @@
-.dtr-container {
-  display: block;
-}
-
 .dtr-center {
   text-align: center;
   margin: 10px;
@@ -28,32 +24,6 @@
   color: rgb(255, 255, 255);
   border: 0px;
 }
-.index-drop-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.dtr-dropdown {
-  position: relative;
-  display: inline-block;
-  border-radius: 10px;
-}
-.index-drop-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.index-drop-content a:hover {
-  background-color: rgb(220, 220, 220);
-}
-.dtr-dropdown:hover .index-drop-content {
-  display: block;
-}
 
 .dtr-salign {
   margin-right: 10px;
@@ -74,70 +44,78 @@
   border: 1px solid rgb(118, 118, 118);
 }
 .dtr_search {
-  height: 50px;
+  height: 40px;
   display: flex;
-  margin-right: 70px;
   justify-content: right;
-}
-.dtr-content1 {
-  border-bottom: 1px solid rgb(201, 201, 201);
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 2px;
-  .dtr-name {
-    text-align: start;
-    margin: auto 0;
-    margin-left: 20px;
+  margin-bottom: 20px;
+  .dtr-salign {
+    position: relative;
+    height: 100%;
+    input {
+      position: relative;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
   }
-  .dtr-detail-btn {
-    background: $back-grey;
-    margin: auto 0;
-    margin-left: auto;
+  
+  .dtr-filter {
+    select {
+      position: relative;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 
-.dtr-content2 {
-  display: flex;
-}
-.dtr-contain {
-  display: block;
-  margin: 10px;
-}
-.dtr-block {
-  box-shadow: $shadow;
-  border: 0px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: white;
-  padding: 5px;
-  display: inline-block;
-}
-.dtr-photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50px;
-  margin-top: 20px;
-}
-.block-con {
-  width: 20px;
-}
-.dtr-detail {
-  display: block;
-  font-size: 18px;
-  width: 67%;
-  padding-top: 10px;
-  padding-left: 10px;
-  span {
-    display: flex;
-    flex-direction: row;
+.dtr-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  width: 100%;
+
+  .dtr-block {
     position: relative;
     width: 100%;
-    height: 25%;
-    padding: 5px;
-    p {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    .dtr-block-title {
+      display: flex;
+      border-bottom: 1px solid rgb(189, 189, 189);
+
+      .dtr-name {
+        margin: auto 0;
+      }
+      button {
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+    .dtr-block-body {
+      display: flex;
+      margin-top: 10px;
+      .dtr-photo {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 1px dashed $primary-blue;
+        border-radius: 50%;
+      }
+      .dtr-detail {
+        display: block;
+        margin: auto 0;
         margin-left: 20px;
-        font-weight: 400;
+        span {
+          display: flex;
+          height: 25%;
+          p {
+            margin-left: 10px;
+          }
+        }
+      }
     }
   }
 }
@@ -146,8 +124,9 @@
   background-color: rgb(255, 255, 255);
   box-shadow: $shadow;
   display: none;
-//   margin: 10px;
-//   padding: 20px;
+  padding: 10px;
+  //   margin: 10px;
+  //   padding: 20px;
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -157,66 +136,94 @@
   margin-right: auto;
   width: 60%;
   z-index: 2;
-//   box-shadow: 3px 3px 3px;
-}
-.img-file-dtr {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  img {
-    width: 300px;
-    height: 300px;
+  transition: 0.5s;
+  .img-file-dtr {
+    position: relative;
+    width: 80%;
     object-fit: cover;
-    border-radius: 50%;
+    margin: 0 auto;
+    img {
+      position: relative;
+      width: 100%;
+    }
   }
-  
-}
-.info-dtr {
-  padding-left: 20px;
-  padding-right: 20px;
-  p {
-    color: $dark-blue;
-    font-size: 16px;
+  .btn-out {
+    float: right;
   }
-}
-.btn-out {
-  float: right;
-  margin: 20px;
+  //   box-shadow: 3px 3px 3px;
 }
 
-@media only screen and (min-width: 300px) {
-  .dtr-block {
-    width: 90%;
-  }
-  .btn-sort {
-    width: 130px;
-    height: 30px;
-  }
-  .btn-sort * {
-    margin: 0px;
-  }
-  .dtr-salign > input {
-    width: 100px;
-  }
-  .img-file-dtr > img {
-    height: 300px;
-    width: 300px;
+@media screen and (max-width: 937px) {
+  .dtr-container {
+    grid-template-columns: 1fr 1fr;
+    .dtr-block {
+      .dtr-block-title {
+        .dtr-name {
+          margin: auto 0;
+          font-size: 17px;
+        }
+        button {
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+      .dtr-block-body {
+        font-size: 15px;
+      }
+    }
   }
 }
-@media only screen and (min-width: 850px) {
-  .dtr-block {
-    width: 45%;
+@media screen and (max-width: 700px) {
+  .dtr-container {
+    grid-template-columns: 1fr;
+    .dtr-block {
+      .dtr-block-title {
+        .dtr-name {
+          margin: auto 0;
+          font-size: 17px;
+        }
+        button {
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+      .dtr-block-body {
+        font-size: 15px;
+        .dtr-photo {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
   }
-  .btn-sort * {
-    margin-right: 5px;
+  .dtr_search {
+    position: relative;
+    width: 100%;
+    .dtr-salign {
+      height: 30px;
+      input {
+        position: relative;
+        height: 100%;
+        width: 100px;
+      }
+    }
+    .dtr-filter {
+      height: 30px;
+      select {
+        position: relative;
+        height: 100%;
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
-  .btn-sort {
-    height: 30px;
-    width: 180px;
-  }
-  .dtr-salign > input {
-    width: 150px;
+  .dtr-profile-modal {
+    width: 80%;
+    font-size: 13px;
+    // .img-file-dtr {
+    //   img {
+    //   }
+    // }
   }
 }

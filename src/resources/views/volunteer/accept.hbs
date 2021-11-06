@@ -92,17 +92,13 @@
                 </div>
             </div>
         </div>
-        <div id="card-modal">
-            <div class="card-modal-close-btn">
-                <button class="btn btn-light btn-light-custom" onclick="closeModal()">X</button>
-            </div>
+        <div class="card-modal">
             <div class="card-modal-header">
                 <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                        alt="user" />
                     <div class="user-info">
+                        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
+                            alt="user" />
                         <h5>Thúy Ngân</h5>
-                        <small>2h ago</small>
                     </div>
                     <div class="user-info-address">
                         <h5>Mã đơn: #1234</h5>
@@ -175,7 +171,18 @@
                         </div>
                     </div>
                 </div>
+                <br><hr>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tổng tiền" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-danger" type="button" id="button-addon2">Hoàn thành</button>
+                </div>
+                <button type="button" class="btn btn-light btn-collapse" onclick="closeModal()">
+                    >>>
+                </button>
             </div>
+
+
         </div>
     </div>
 </div>
@@ -183,11 +190,19 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/new_sidebar.js"></script>
 <script>
+    const cardModal = document.querySelectorAll('.card-modal');
     function modalDetail(e) {
-        console.log('Hello from: ', e);
-        $('#card-modal').toggle('modal-active');
+        console.log(cardModal);
+        if (!cardModal[e - 1].classList.contains('modal-active')) {
+            cardModal[e - 1].classList.add('modal-active');
+        }
+        //if (!$('.card-modal').hasClass('modal-active')) {
+        //   $('.card-modal').addClass('modal-active');
+        //}
+
     }
     function closeModal() {
-        $('#card-modal').toggle('modal-active');
+        console.log('Close');
+        $('.card-modal').removeClass('modal-active');
     }
 </script>

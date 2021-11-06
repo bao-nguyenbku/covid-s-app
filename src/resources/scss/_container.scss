@@ -8,9 +8,17 @@
 .content-container {
   width: 100%;
   padding-left: 260px;
-  padding-right: 30px;
+  padding-right: 70px;
   transition: all 0.5s ease;
   &.content-active {
     padding-left: 80px;
+  }
+}
+@media screen and (max-width: 744px) {
+  .content-container {
+    padding-right: 20px;
+    &.content-active {
+      padding-left: 20px;
+    }
   }
 }
