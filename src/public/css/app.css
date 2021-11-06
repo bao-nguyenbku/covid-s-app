@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/*===== Colors =====*/
-/*===== z index =====*/
 * {
   margin: 0;
   padding: 0;
@@ -10,20 +8,26 @@
   font-family: 'Roboto', sans-serif; }
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  height: 100%; }
 
 body {
   background: #ebf0f5;
-  min-height: 100%; }
+  min-height: 100vh;
+  height: 100%; }
 
-.main-container {
-  display: flex;
-  margin-top: 60px;
-  height: 100%;
-  transition: all 0.5s ease; }
+#main-container {
+  position: relative;
+  min-height: 100%;
+  margin-bottom: calc(-1 * $footer-height); }
+
+#main {
+  overflow: hidden;
+  padding-bottom: 100px; }
 
 .content-container {
   width: 100%;
+  margin-top: 80px;
   padding-left: 260px;
   padding-right: 70px;
   transition: all 0.5s ease; }
@@ -157,15 +161,19 @@ body {
     text-decoration: none;
     color: #fff; }
 
+#site-footer {
+  position: relative;
+  height: 70px;
+  margin-top: calc(-1 * $footer-height);
+  clear: both; }
+
 .site-footer {
   background: #03b8e2;
   background: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
-  padding: 40px 20px 10px 80px;
+  padding: 10px 20px 10px 80px;
   font-size: 15px;
   line-height: 24px;
   color: #ffffff;
-  position: fixed;
-  bottom: 0;
   width: 100%; }
 
 .site-footer h6 {
@@ -175,29 +183,20 @@ body {
   margin-top: 5px;
   letter-spacing: 2px; }
 
-.footer-about-container,
 .footer-social-container {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .footer-about-container .text-justify,
   .footer-social-container .text-justify {
     text-align: justify; }
-  .footer-about-container .footer-copyright .copyright-text a,
   .footer-social-container .footer-copyright .copyright-text a {
     color: #fff;
     font-weight: bold; }
 
-.footer-about-container .about-us {
-  border-bottom: 1px solid #fff; }
-  .footer-about-container .about-us h6 {
-    font-weight: bold;
-    font-size: 30px; }
-
 .footer-social-container {
+  height: 100%;
   display: flex;
   flex-direction: row-reverse;
-  padding-top: 20px;
   padding-left: 50px;
   padding-right: 50px; }
   .footer-social-container .footer-social {
@@ -267,6 +266,78 @@ body {
     .footer-social-container .footer-copyright {
       margin: 0 auto;
       margin-top: 20px; } }
+
+.homepage {
+  margin-top: 60px; }
+
+.homepage-content {
+  background-image: url("/img/homepage_background_2.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-left: 50px; }
+
+.homepage-content-about-us-title {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 500;
+  color: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%); }
+
+#about-us {
+  font-size: 50px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%); }
+
+#about-us-content {
+  text-align: justify; }
+
+h1 {
+  padding-top: 10%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  font-size: 150px;
+  font-weight: 600; }
+
+#s {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  font-size: 20px;
+  font-weight: 500; }
+
+#slogan {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #fa8d5b 0%, #f34c22 100%);
+  padding-bottom: 50px;
+  font-size: 40px;
+  font-weight: 500; }
+
+.homepage-log-in {
+  padding-bottom: 100px; }
+
+.homepage-content-about-us {
+  display: flex;
+  position: relative;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 300px; }
+
+.homepage-content-img {
+  width: 40%;
+  height: 600px;
+  position: absolute;
+  right: 3%;
+  height: 500px;
+  background-image: url(/img/meeting_2.png);
+  border-radius: 5%;
+  margin-right: 0; }
 
 .profile-container {
   margin: auto 0;
@@ -677,9 +748,6 @@ select {
 .dtr-align {
   margin: 10px; }
 
-.dtr-color {
-  color: #37306c; }
-
 .btn-sort {
   background: white;
   border: 2px solid #002afa;
@@ -749,7 +817,11 @@ select {
       display: flex;
       border-bottom: 1px solid #bdbdbd; }
       .dtr-container .dtr-block .dtr-block-title .dtr-name {
-        margin: auto 0; }
+        margin: auto 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%); }
       .dtr-container .dtr-block .dtr-block-title button {
         margin-left: auto;
         margin-right: 0; }
@@ -1037,7 +1109,7 @@ select {
   margin: 0 0 40px; }
 
 .user {
-  display: block; }
+  display: flex; }
 
 .user img {
   border-radius: 50%;
@@ -1050,8 +1122,9 @@ select {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: auto 0; }
   .user-info h5 {
     margin-bottom: 0; }
   .user-info small {
@@ -1066,10 +1139,11 @@ select {
 *********************/
 .card-modal {
   width: 400px;
-  height: max-content;
+  height: 80%;
+  overflow-y: auto;
   position: absolute;
   left: auto;
-  right: 0;
+  right: 20px;
   top: 66px;
   margin-left: auto;
   margin-right: auto;

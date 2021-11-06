@@ -1,12 +1,19 @@
-.main-container {
-  display: flex;
-  margin-top: 60px;
-  height: 100%;
-  transition: all 0.5s ease;
+#main-container {
+  // display: flex;
+  // margin-top: 60px;
+  // padding-bottom: 30px;
+  position: relative;
+  min-height: 100%;
+  margin-bottom: calc(-1 * $footer-height);
+  // transition: all 0.5s ease;
 }
-
+#main {
+  overflow: hidden;
+  padding-bottom: 100px;
+}
 .content-container {
   width: 100%;
+  margin-top: 80px;
   padding-left: 260px;
   padding-right: 70px;
   transition: all 0.5s ease;

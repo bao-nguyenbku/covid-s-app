@@ -1,43 +1,42 @@
-<div class="main-container">
-    {{>sidebar}}
-    <div id="content-container" class="content-container">
-        <div class="title">YÊU CẦU TIẾP TẾ</div>
+{{>sidebar}}
+<div id="content-container" class="content-container">
+    <div class="title">YÊU CẦU TIẾP TẾ</div>
 
-        <form action="" method="post">
-            <div class="delivery-address">
-                {{!-- <label class="label-for-address" for="address">Địa chỉ nhận hàng</label> --}}
-                <div class="input-and-btn">
-                    <input type="text" name="address" id="address" placeholder="Địa chỉ nhận hàng">
-                    <button type="button" class="btn btn-primary choose-address-btn">Chọn địa chỉ</button>
-                </div>
-
-                {{!-- <select name="foodTypeSelect" class="field-select">
-                    <option value="Lương thực">Lương thực</option>
-                    <option value="Thuốc">Thuốc</option>
-                </select> --}}
-
+    <form action="" method="post">
+        <div class="delivery-address">
+            {{!-- <label class="label-for-address" for="address">Địa chỉ nhận hàng</label> --}}
+            <div class="input-and-btn">
+                <input type="text" name="address" id="address" placeholder="Địa chỉ nhận hàng">
+                <button type="button" class="btn btn-primary choose-address-btn">Chọn địa chỉ</button>
             </div>
 
-            <div class="box-IQN">
-                <div id="form-support">
-                    <div class="form-support-container">
-                        <input type="text" class="tb-1" name="itemName[]" placeholder="Tên sản phẩm">
+            {{!-- <select name="foodTypeSelect" class="field-select">
+                <option value="Lương thực">Lương thực</option>
+                <option value="Thuốc">Thuốc</option>
+            </select> --}}
 
-                        <input type="text" class="tb-2" name="quantity[]" placeholder="Số lượng">
+        </div>
 
-                        <input type="text" class="tb-3" name="note[]" placeholder="Ghi chú thêm">
-                        <button type="button" class="btn btn-danger remove-row-btn" onclick="removeRow(this)">Xóa</button>
-                    </div>
-                </div>
-                <div class="support-btn">
-                    <button type="button" class="btn btn-primary" id="add-input-btn">Thêm</button>
-                    <button type="submit" class="button-submit-items">Gửi yêu cầu</button>
+        <div class="box-IQN">
+            <div id="form-support">
+                <div class="form-support-container">
+                    <input type="text" class="tb-1" name="itemName[]" placeholder="Tên sản phẩm">
+
+                    <input type="text" class="tb-2" name="quantity[]" placeholder="Số lượng">
+
+                    <input type="text" class="tb-3" name="note[]" placeholder="Ghi chú thêm">
+                    <button type="button" class="btn btn-danger remove-row-btn" onclick="removeRow(this)">Xóa</button>
                 </div>
             </div>
-        </form>
+            <div class="support-btn">
+                <button type="button" class="btn btn-primary" id="add-input-btn">Thêm</button>
+                <button type="submit" class="button-submit-items">Gửi yêu cầu</button>
+            </div>
+        </div>
+    </form>
 
-    </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/new_sidebar.js"></script>

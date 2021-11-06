@@ -73,7 +73,7 @@
   margin: 0 0 40px;
 }
 .user {
-  display: block;
+  display: flex;
 }
 
 .user img {
@@ -87,8 +87,9 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: auto 0;
   h5 {
     margin-bottom: 0;
   }
@@ -106,10 +107,11 @@
 *********************/
 .card-modal {
   width: 400px;
-  height: max-content;
+  height: 80%; 
+  overflow-y: auto;
   position: absolute;
   left: auto;
-  right: 0;
+  right: 20px;
   top: 66px;
   margin-left: auto;
   margin-right: auto;
