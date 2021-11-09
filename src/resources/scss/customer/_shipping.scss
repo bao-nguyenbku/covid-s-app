@@ -1,0 +1,77 @@
+// @import url(variables);
+.shipping-title {
+  position: relative;
+  text-align: center;
+  color: $dark-blue;
+  font-size: 26px;
+  padding-top: 30px;
+}
+.shipping-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  box-shadow: 1px 1px 2px 2px #d3d3d3;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.shipping-list {
+  margin: 0 auto;
+  width: 1000px;
+  letter-spacing: 0.05em;
+  td {
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    border-top: #b0b0b5 solid 0.1px;
+    .button-detail {
+      background: $back-grey;
+      border-radius: 10px;
+      color: $dark-blue;
+      line-height: 1.7;
+      font-size: 18px;
+      width: 4em;
+      height: max-content;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border: none;
+      &:hover {
+        background-color: #b0b0b5;
+      }
+      &:active {
+        background-color: $primary-blue;
+      }
+    }
+  }
+  tr {
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background-color: white;
+    font-size: 20px;
+    color: black;
+    letter-spacing: 0.03em;
+    text-align: center;
+    line-height: 2;
+  }
+}
+
+.shipping-note {
+  color: #b0b0b5;
+  font-style: italic;
+  text-align: center;
+}
+@media screen and (max-width: 744px) {
+  .shipping-content {
+    width: 100%;
+    .shipping-list {
+      width: 500px;
+      * {
+        font-size: 14px;
+      }
+    }
+  }
+}

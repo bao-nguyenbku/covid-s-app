@@ -1,0 +1,267 @@
+// @import 'variables';
+
+:root {
+  --header-height: 3rem;
+  --nav-width: 70px;
+  --first-color: #4723d9;
+  --first-color-light: #afa5d9;
+  --white-color: #f7f6fb;
+
+  --z-fixed: 200;
+}
+
+/*===== HEADER =====*/
+.header {
+  width: 100%;
+  height: calc(var(--header-height) + 1rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  background-color: #fff;
+  z-index: var(--z-fixed);
+  padding-left: 70px;
+  padding-right: 70px;
+  transition: 0.5s;
+  .header-logo {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      300deg,
+      rgba(3, 184, 226, 1) 0%,
+      rgba(33, 82, 255, 1) 100%
+    );
+    position: absolute;
+    
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+      position: relative;
+      margin: 0 auto;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .header__account-area {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+    .header__sign-in {
+      margin-left: auto;
+      margin-right: 0;
+      padding: 10px;
+      a {
+        position: relative;
+        width: 100%;
+        text-decoration: none;
+        color: $primary-blue;
+        text-align: center;
+      }
+      &:hover {
+        background: rgb(241, 241, 241);
+        border-radius: 10px;
+      }
+      &:active {
+        background: rgb(241, 241, 241);
+        border-radius: 10px;
+      }
+    }
+    .header__img {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto;
+      }
+    }
+  }
+  .header__toggle {
+    color: $dark-blue;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 200;
+  }
+}
+
+/*===== NAV =====*/
+.l-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background: #fff;
+  padding: 5px 0 0 0;
+
+  transition: 0.5s;
+  z-index: var(--z-fixed);
+  .nav__list {
+    .nav__name {
+      display: none;
+    }
+  }
+  .nav__logo {
+    &-name {
+      display: none;
+    }
+    &-image {
+      display: block;
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+    }
+  }
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: var(--z-fixed);
+  &__logo,
+  &__link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0.5rem 0 0.5rem 1.2rem;
+  }
+  &__logo {
+    margin-bottom: 2rem;
+    text-decoration: none;
+    width: var(--nav-width);
+    padding: 0.5rem 0 0.5rem 12px;
+    &-icon {
+      font-size: 1.25rem;
+      color: $dark-blue;
+    }
+    &-name {
+      color: $dark-blue;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $dark-blue;
+    padding: 0;
+    padding-left: 13px;
+    margin-bottom: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.3s;
+    text-decoration: none;
+    height: 50px;
+    border-radius: 10px;
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+
+  &__icon {
+    font-size: 30px;
+    left: 0;
+    right: 0;
+  }
+}
+
+/*Show navbar movil*/
+.show {
+  width: calc(var(--nav-width) + 162px);
+  .nav__list {
+    .nav__name {
+      display: block;
+    }
+  }
+  .nav__logo {
+    &-name {
+      display: block;
+      height: 35px;
+    }
+    &-image {
+      display: block;
+    }
+  }
+}
+.show_744 {
+  margin-left: 0;
+}
+.close_744 {
+  margin-left: -80px;
+}
+/*Add padding body movil*/
+.body-pd {
+  padding-left: calc(var(--nav-width) + 188px);
+  padding-right: 20px;
+}
+.body-pd_744 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*Active links*/
+.sidebar-link-active {
+  // background: $back-grey;
+  background: rgb(3, 184, 226);
+  background: linear-gradient(
+    300deg,
+    rgba(3, 184, 226, 1) 0%,
+    rgba(33, 82, 255, 1) 100%
+  );
+  .nav__icon,
+  .nav__name {
+    color: white;
+  }
+  .nav__name {
+    font-weight: bold;
+  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 0;
+  //   width: 3px;
+  //   height: 50px;
+  //   background: rgb(3, 184, 226);
+  //   background: linear-gradient(
+  //     300deg,
+  //     rgba(3, 184, 226, 1) 0%,
+  //     rgba(33, 82, 255, 1) 100%
+  //   );
+  // }
+}
+
+/*******************************
+* RESPONSIVE DESIGN
+*******************************/
+@media screen and (max-width: 1024px) {
+  .nav__icon {
+    font-size: 25px;
+    margin-left: 5px;
+  }
+}
+@media screen and (max-width: 744px) {
+  .header-logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header-logo {
+    display: none;
+  }
+  .header__account-area {
+    .header__sign-in {
+      font-size: 14px;
+    }
+  }
+}

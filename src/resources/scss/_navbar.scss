@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import 'variables';
 nav {
@@ -150,3 +151,245 @@ nav label.cancel {
     left: 0;
   }
 }
+=======
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+// @import 'variables';
+// #nav-sidebar {
+//   display: flex;
+// }
+// #navbar {
+//   width: 100%;
+//   height: 60px;
+//   padding: 0;
+//   background: $back-grey;
+//   position: fixed;
+//   top: 0;
+//   left: 250px;
+//   z-index: 2;
+//   transition: all 0.5s ease-in-out;
+// }
+// .nav-scrolled {
+//   background: #fff;
+//   box-shadow: $shadow;
+// }
+// #navbar .menu {
+//   max-width: 100%;
+//   height: 60px;
+//   margin: auto;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding-left: 100px;
+//   padding-right: 100px;
+//   color: $dark-blue;
+// }
+// //-------------------
+// // Acount Area      |
+// //-------------------
+// .account-container {
+//   position: relative;
+//   display: block;
+//   width: fit-content;
+//   float: right;
+//   .avatar {
+//     width: 50px;
+//     height: 50px;
+//     margin: auto 5px;
+//   }
+//   // Name of user
+//   span {
+//     margin: auto 5px;
+//     color: $dark-blue;
+//     font-size: 20px;
+//   }
+//   .account-btn {
+//     cursor: pointer;
+//     display: flex;
+//     border: none;
+//     outline: none;
+//     background: none;
+//     margin: 3px;
+//     padding: 3px;
+//     img {
+//       border-radius: 50%;
+//     }
+//   }
+//   .account-btn:hover {
+//     background: #ecf0f3;
+//     border-radius: 8px;
+//   }
+// }
+// .dropdown-menu {
+//   display: none;
+//   position: absolute;
+//   background: #fff;
+//   width: max-content;
+//   padding: 8px;
+//   height: max-content;
+//   list-style: none;
+//   font-size: 18px;
+//   border-radius: 8px;
+//   box-shadow: $shadow;
+//   li {
+//     float: none;
+//     display: block;
+//   }
+//   a {
+//     text-decoration: none;
+//   }
+//   .loggout a {
+//     color: red;
+//   }
+//   .my-account {
+//     a {
+//       color: $dark-blue;
+//     }
+//   }
+//   .loggout,
+//   .my-account {
+//     padding: 10px;
+//   }
+//   .loggout:hover,
+//   .my-account:hover {
+//     background: $back-grey;
+//     border-radius: 8px;
+//   }
+// }
+// .show {
+//   display: block;
+// }
+// //-----------------------
+// // Sign in, Sign up Area|
+// // ----------------------
+// .sign-in-container {
+//   .sign-button {
+//     list-style: none;
+//     a {
+//       color: #000;
+//     }
+//     a:hover {
+//       color: $orange;
+//     }
+//   }
+// }
+// .menu .logo a {
+//   font-size: 28px;
+//   font-weight: 600;
+//   text-decoration: none;
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   background-image: linear-gradient(
+//     78deg,
+//     rgba(244, 127, 65, 1) 0%,
+//     rgba(241, 85, 106, 1) 100%
+//   );
+// }
+// .menu .text-bar {
+//   list-style: none;
+//   display: flex;
+//   margin: auto;
+//   .sign-up {
+//     background: rgb(244, 127, 65);
+//     background: linear-gradient(
+//       78deg,
+//       rgba(244, 127, 65, 1) 0%,
+//       rgba(241, 85, 106, 1) 100%
+//     );
+//     border-radius: 10px;
+//   }
+//   .sign-up a {
+//     color: #ffffff;
+//   }
+// }
+// .menu .text-bar a {
+//   margin: 0 8px;
+//   text-decoration: none;
+//   font-size: 18px;
+//   color: $dark-blue;
+//   font-weight: 400;
+//   display: inline-flex;
+//   padding: 10px 12px;
+//   position: relative;
+//   transition: all 0.3s ease;
+// }
+
+// .center {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   width: 100%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+// }
+// .upper {
+//   font-size: 40px;
+//   font-weight: 600;
+//   color: #31344b;
+// }
+// .lower {
+//   font-size: 40px;
+//   font-weight: 600;
+//   color: #31344b;
+// }
+// .menu .text-bar a:hover {
+//   color: $orange;
+// }
+// .menu .text-bar .sign-up a:hover {
+//   color: #fff;
+//   font-weight: bold;
+// }
+// nav label.btn {
+//   color: #31344b;
+//   font-size: 18px;
+//   cursor: pointer;
+//   display: none;
+// }
+// nav label.cancel {
+//   position: absolute;
+//   top: 25px;
+//   right: 30px;
+// }
+// #check {
+//   display: none;
+// }
+// @media (max-width: 940px) {
+//   .menu ul {
+//     display: block;
+//     position: fixed;
+//     top: 0;
+//     left: -100%;
+//     width: 100%;
+//     max-width: 400px;
+//     padding-top: 45px;
+//     height: 100%;
+//     background: #ecf0f3;
+//     box-shadow: 0 5px 10px #b0b0b5;
+//     z-index: 12;
+//     transition: all 0.3s ease;
+//   }
+//   .menu .text-bar a {
+//     display: block;
+//     font-size: 23px;
+//     width: 100%;
+//     margin-top: 30px;
+//     box-shadow: none;
+//     text-align: center;
+//   }
+//   .menu ul a:hover:before {
+//     box-shadow: none;
+//   }
+//   nav label.bars {
+//     display: block;
+//   }
+//   #check:checked ~ label.bars {
+//     display: none;
+//   }
+//   #check:checked ~ ul label.cancel {
+//     display: block;
+//   }
+//   #check:checked ~ ul {
+//     left: 0;
+//   }
+// }
+>>>>>>> nam/BaoNguyen

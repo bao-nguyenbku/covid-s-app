@@ -1,0 +1,132 @@
+{{>sidebar}}
+<div id="content-container" class="content-container">
+    {{!-- Modal detail of doctor --}}
+    <div class="dtr-profile-modal" id="dtr-detail-profile">
+        <div class="img-file-dtr">
+            <img src="upload/bacsi.png">
+        </div>
+        <hr>
+        <div class="info-dtr">
+            <p>Tên bác sĩ: <strong>Nguyễn Thiên Bảo</strong></p>
+            <p>Nơi công tác: <strong>Bệnh Viện đa khoa Thủ Đức</strong></p>
+            <p>Chuyên khoa: <strong>Nội</strong></p>
+            <p>Số điện thoại: <strong>01293748237</strong></p>
+            <p>Email: <strong>thienbao@gmail.com</strong></p>
+            <p>Trình độ học vấn: <strong>Tốt nghiệp Đại học Y dược TP Hồ Chí Minh</strong></p>
+            <p>Mô tả: Bác sĩ bảo có hơn 15 năm kinh nghiệm khám chữa bệnh với hàng ngàn ca phẫu thuật thành công.
+                Ngoài ra, bác sĩ còn giành nhiều giải thưởng y học trong và ngoài nước.
+            </p>
+        </div>
+        <button class='btn btn-primary btn-out' onclick="outDetail()">Thoát</button>
+    </div>
+    <script>
+        function dtrDetail() {
+            var dtr = document.getElementById('dtr-detail-profile');
+            dtr.setAttribute('style', 'display: block;');
+        }
+        function outDetail() {
+            var dtr = document.getElementById('dtr-detail-profile');
+            dtr.setAttribute('style', 'display: none;');
+        }
+    </script>
+    {{!-- End of modal detail of doctor --}}
+
+    <div class="title">BÁC SĨ TƯ VẤN</div>
+    <div class="dtr_search">
+        <div class="dtr-salign">
+            <input type="text" placeholder="Tìm kiếm...">
+            {{!-- <button><span class="fas fa-search"></span></button> --}}
+        </div>
+        <div class="dtr-filter">
+            <select name="option">
+                <option value="blank" selected>Sắp xếp theo</option>
+                <option value="d1">Tên</option>
+                <option value="d2">Nơi công tác</option>
+                <option value="d4">Năm kinh nghiệm</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="dtr-container">
+        <div class="dtr-block">
+            <div class="dtr-block-title">
+                <h4 class="dtr-name">Bác sĩ <strong>Nguyễn Thiên Bảo</strong></h4>
+                <button class="dtr-detail-btn btn btn-light" onclick="dtrDetail()">Chi tiết</button>
+            </div>
+            <div class="dtr-block-body">
+
+                <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
+
+                <div class="dtr-detail">
+                    <span class="far fa-id-card">
+                        <p>Chuyên khoa nội</p>
+                    </span>
+                    <span class="far fa-id-badge">
+                        <p>Trưởng khoa nội bệnh viện đa khoa Thủ Đức</p>
+                    </span>
+                    <span class="fas fa-phone-alt">
+                        <p>08921763736</p>
+                    </span>
+                    <span class="fas fa-award">
+                        <p>5+ năm kinh nghiệm</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="dtr-block">
+            <div class="dtr-block-title">
+                <h4 class="dtr-name">Bác sĩ <strong>Nguyễn Thiên Bảo</strong></h4>
+                <button class="dtr-detail-btn btn btn-light" onclick="dtrDetail()">Chi tiết</button>
+            </div>
+            <div class="dtr-block-body">
+
+                <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
+
+                <div class="dtr-detail">
+                    <span class="far fa-id-card">
+                        <p>Chuyên khoa nội</p>
+                    </span>
+                    <span class="far fa-id-badge">
+                        <p>Trưởng khoa nội bệnh viện đa khoa Thủ Đức</p>
+                    </span>
+                    <span class="fas fa-phone-alt">
+                        <p>08921763736</p>
+                    </span>
+                    <span class="fas fa-award">
+                        <p>5+ năm kinh nghiệm</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="dtr-block">
+            <div class="dtr-block-title">
+                <h4 class="dtr-name">Bác sĩ <strong>Nguyễn Thiên Bảo</strong></h4>
+                <button class="dtr-detail-btn btn btn-light" onclick="dtrDetail()">Chi tiết</button>
+            </div>
+            <div class="dtr-block-body">
+
+                <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
+
+                <div class="dtr-detail">
+                    <span class="far fa-id-card">
+                        <p>Chuyên khoa nội</p>
+                    </span>
+                    <span class="far fa-id-badge">
+                        <p>Trưởng khoa nội bệnh viện đa khoa Thủ Đức</p>
+                    </span>
+                    <span class="fas fa-phone-alt">
+                        <p>08921763736</p>
+                    </span>
+                    <span class="fas fa-award">
+                        <p>5+ năm kinh nghiệm</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/new_sidebar.js"></script>
