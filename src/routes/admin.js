@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-router.get('/', (req, res, next) => {
-    res.render('admin/dashboard');
-});
+const AdminController = require('../controllers/AdminController');
+router.get('/', AdminController.dashboard);
 
 
 

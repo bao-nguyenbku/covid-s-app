@@ -2,5 +2,5 @@
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "covid_support_app"
+    "database": "covid_support"
 }

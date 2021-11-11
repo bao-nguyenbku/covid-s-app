@@ -6,13 +6,15 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "stop": "taskkill -f -im node.exe",
-    "scss": "node-sass --watch src/resources/scss/ -o src/public/css/",
+    "scss": "sass src/resources/scss/app.scss:src/public/css/app.css src/resources/scss/admin/app.scss:src/public/css/admin/app.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "bcrypt": "^5.0.1",
+    "boxicons": "^2.0.9",
+    "chart.js": "^3.6.0",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -21,10 +23,12 @@
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
+    "material-icons": "^1.10.2",
     "method-override": "^3.0.0",
     "mysql": "^2.18.1",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12",
-    "password-hash": "^1.2.2"
+    "password-hash": "^1.2.2",
+    "sass": "^1.43.4"
   }
 }

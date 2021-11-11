@@ -1,0 +1,81 @@
+<header class="header body-pd" id="header">
+    {{!-- TOGGLE SIDEBAR BUTTON --}}
+    <div class="header__toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+    {{!-- LOGO TEXT --}}
+    <div class="header-logo">
+        <h2>COVID-S</h2>
+    </div>
+    <div class="header__account-area">
+        {{!-- <div class="header__sign-in">
+            <a href="/login">Đăng nhập</a>
+        </div> --}}
+        <div class="header__img">
+            <div class="btn-group">
+                <img src="/upload/avatar.jpg" alt="" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="/profile">Tài khoản của tôi</a></li>
+                    <li><a class="dropdown-item" href="#" style="color: red;">Đăng xuất</a></li>
+                    <li><a class="dropdown-item" href="#">Menu item</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav__logo">
+                {{!-- <i class='bx bx-layer nav__logo-icon'></i> --}}
+                <img class="nav__logo-image" src="/img/logo01.png" alt="">
+                <img class="nav__logo-name" src="/img/logo02.png" alt="">
+            </a>
+
+            <div class="nav__list">
+                <a href="/" class="nav__link" data-tab="tab0">
+                    {{!-- <i class='bx bx-home nav__icon'></i> --}}
+                    <i class="material-icons nav__icon">home</i>
+                    <span class="nav__name">Trang chủ</span>
+                </a>
+
+                <a href="/support" class="nav__link" data-tab="tab1">
+                    <i class='material-icons nav__icon'>support</i>
+                    <span class="nav__name">Gửi yêu cầu tiếp tế</span>
+                </a>
+
+                <a href="/waiting" class="nav__link" data-tab="tab2">
+                    <i class='bx bxs-time-five nav__icon'></i>
+                    <span class="nav__name">Chờ tiếp nhận</span>
+                </a>
+
+                <a href="/shipping" class="nav__link" data-tab="tab3">
+                    <i class='bx bxs-package nav__icon'></i>
+                    <span class="nav__name">Chờ giao hàng</span>
+                </a>
+
+                <a href="/doctor" class="nav__link" data-tab="tab4">
+                    <i class='material-icons nav__icon'>medication</i>
+                    <span class="nav__name">Bác sĩ tư vấn</span>
+                </a>
+                <hr>
+                <a href="/receive" class="nav__link" data-tab="tab5">
+                    <i class='material-icons nav__icon'>local_mall</i>
+                    <span class="nav__name">Nhận yêu cầu</span>
+                </a>
+                <a href="/receive/accept" class="nav__link" data-tab="tab6">
+                    <i class='material-icons nav__icon'>receipt_long</i>
+                    <span class="nav__name">Yêu cầu đã nhận</span>
+                </a>
+                {{!-- <a href="#" class="nav__link" data-tab="tab5">
+                    <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
+                    <span class="nav__name">Analytics</span>
+                </a> --}}
+            </div>
+        </div>
+    </nav>
+</div>
