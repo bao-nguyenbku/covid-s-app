@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-
-router.get('/', (req, res, next) => {
-    res.render('user/doctor');
-});
+const doctorcontroller = require('../controllers/DoctorController');
 
 
+router.use('/', doctorcontroller.index);
+// router.get('/', (req, res, next) => {
+//     res.render('user/doctor');
+// });
 
-module.exports = router;
+module.exports = router; 

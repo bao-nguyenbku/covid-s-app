@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const expresshbs = require('express-handlebars');
-// const db = require('./config/db/DBconnection');
+const db = require('./config/db/DBconnection');
 const route = require('./routes');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
@@ -23,6 +23,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+
 
 app.use((req, res, next) => {
     res.locals.session = req.session;
