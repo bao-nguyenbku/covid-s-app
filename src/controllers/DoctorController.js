@@ -1,14 +1,17 @@
-const mysql = require('mysql');
-const db = require('../config/db/DBconnection');
-const Doctor = require('../models/Doctor');
-// const Helper = require('./Helper');
 
+const Doctor = require('../models/DoctorModel');
+// const Helper = require('./Helper');
 class DoctorController{
-    index(req, res){
-        res.render('user/doctor');
+    index = (req, res)=>{
+        Doctor.getAll((err, data) => {
+            if (err)
+              res.status(500).send({
+                message:
+                  err.message
+              });
+            else res.render('user/doctor',{data});
+        });
     }
 }
 
 module.exports = new DoctorController;
-
-
