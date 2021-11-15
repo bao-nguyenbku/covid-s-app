@@ -1,0 +1,53 @@
+<div id="content-container" class="content-container">
+    <div class="title">Đơn số {{data/idOrder}} vào lúc {{data/createAt}}<br>
+        Địa chỉ: {{data/address}}
+    </div>
+    <div class="header-title">{{#if data/gotTime}} Đã nhận bởi TNV: {{data/nameVol}}<br>
+            vào lúc {{data/gotTime}}. STD: {{data/phoneNumVol}}
+        {{else}} Đã gửi
+            <a href="/waiting/edit/{{data/idOrder}}">
+                <button type="button" class="button-edit">Sửa</button>
+            </a>
+        {{/if}}
+    </div>
+    <div class="waiting-content">
+        <table class="list">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Ghi chú</th>
+            </tr>
+            <tbody>
+                {{#if data/gotTime}}
+                {{#each items}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.note}} {{data/gotTime}}</td>
+                </tr>
+                {{/each}}
+                {{else}}
+                {{#each items}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.note}} {{data/gotTime}}</td>
+                </tr>
+                {{/each}}
+                {{/if}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div><br>
+    <p class="note">*Đội tình nguyễn đã nhận yêu cầu của bạn, chúng tôi sẽ sớm liên lạc với bạn.</p>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
