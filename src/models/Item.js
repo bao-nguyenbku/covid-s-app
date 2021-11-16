@@ -20,7 +20,7 @@ Tutorial.create = (newTutorial, result) => {
 };
 
 Tutorial.findById = (id, result) => {
-    db.query("SELECT * FROM `order` WHERE idOrder = ?", id, (err, res) => {
+    db.query("SELECT * FROM item WHERE idOrder = ?", id, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -28,8 +28,8 @@ Tutorial.findById = (id, result) => {
         }
 
         if (res.length) {
-            console.log("found tutorial: ", res[0]);
-            result(null, res[0]);
+            console.log("found item id: ", res);
+            result(null, res);
             return;
         }
 

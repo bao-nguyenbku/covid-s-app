@@ -73,7 +73,7 @@ class WaitingController {
     };
 
     detail(req, res, next) {
-        const title = req.query.title;
+        //const title = req.query.title;
         Order.findById(req.params.id, (err, data) => {
             if (err) {
                 if (err.kind === "not_found") {
@@ -88,12 +88,18 @@ class WaitingController {
             } 
             else /* res.send(data); */
             {
-                Item.getAll(title, (err, items) => {
-                    if (err)
-                        res.status(500).send({
-                            message:
-                                err.message || "Some error occurred while retrieving tutorials."
-                        });
+                Item.findById(req.params.id, (err, items) => {
+                    if (err) {
+                        if (err.kind === "not_found") {
+                            res.render('order/detail', {
+                                data,items
+                            });
+                        } else {
+                            res.status(500).send({
+                                message: "Error retrieving Tutorial with id " + req.params.id
+                            });
+                        }
+                    } 
                     /* else res.send(items); */
                     else {
                         res.render('order/detail', {
@@ -102,9 +108,6 @@ class WaitingController {
                         
                     }
                 });
-                /* res.render('order/detail', {
-                    data
-                }); */
             }
         });
         
@@ -113,7 +116,6 @@ class WaitingController {
     edit(req, res, next) {
         res.send("EDIT DETAIL")
     }
-
 }
 
 module.exports = new WaitingController;
