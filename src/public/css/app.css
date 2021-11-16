@@ -820,6 +820,7 @@ select {
   text-align: center;
   color: #0e2b6c;
   font-size: 26px;
+  margin-bottom: 20px;
 }
 
 .waiting-content {
