@@ -6,12 +6,12 @@ const headerpd = document.getElementById('header');
 toggle.addEventListener('click', () => {
     if (window.matchMedia("(max-width: 1024px)").matches
         && !window.matchMedia("(max-width: 744px)").matches) {
-        nav.classList.toggle('show');
+        nav.classList.toggle('sidebar-show');
         headerpd.classList.toggle('body-pd');
         
     }
     else if (window.matchMedia("(max-width: 744px)").matches) {
-        nav.classList.toggle('show');
+        nav.classList.toggle('sidebar-show');
         nav.classList.add('show_744');
         nav.classList.toggle('close_744');
         headerpd.classList.toggle('body-pd_744');
@@ -25,11 +25,11 @@ toggle.addEventListener('click', () => {
     // Normal width
     else {
         
-        nav.classList.toggle('show');
+        nav.classList.toggle('sidebar-show');
         headerpd.classList.toggle('body-pd');
         container.classList.toggle('content-active');
     }
-    var currSidebar = nav.classList.contains('show') ? 'show' : 'none';
+    var currSidebar = nav.classList.contains('sidebar-show') ? 'sidebar-show' : 'none';
     localStorage.setItem('collapseSidebar', currSidebar);
 });
 
@@ -38,22 +38,22 @@ function responsive() {
     const height = $(window).height();
     const lastSidebar = localStorage.getItem('collapseSidebar');
     /*****************************************************************
-     * When width of window less than 1024px, changg style of sidebar
+     * When width of window less than 1024px, change style of sidebar
      *****************************************************************/
     if (width >= 1024) {
-        if (lastSidebar == 'show') {
-            nav.classList.add('show');
+        if (lastSidebar == 'sidebar-show') {
+            nav.classList.add('sidebar-show');
             headerpd.classList.add('body-pd');
             container.classList.remove('content-active');
         }
         else if (lastSidebar == 'none') {
-            nav.classList.remove('show');
+            nav.classList.remove('sidebar-show');
             headerpd.classList.remove('body-pd');
             container.classList.add('content-active');
         }
     }
     if (width < 1024) {
-        nav.classList.remove('show');
+        nav.classList.remove('sidebar-show');
         headerpd.classList.remove('body-pd');
 
         if (!container.classList.contains('content-active')) {
@@ -63,8 +63,8 @@ function responsive() {
 
     if (width < 744) {
         nav.classList.add('close_744');
-        if (nav.classList.contains('show')) {
-            nav.classList.remove('show');
+        if (nav.classList.contains('sidebar-show')) {
+            nav.classList.remove('sidebar-show');
         }
         headerpd.classList.add('body-pd_744');
     }
@@ -74,18 +74,19 @@ function responsive() {
     }
 
 
-    currSidebar = nav.classList.contains('show') ? 'show' : 'none';
+    currSidebar = nav.classList.contains('sidebar-show') ? 'sidebar-show' : 'none';
     localStorage.setItem('collapseSidebar', currSidebar);
 }
 $(window).resize(function(){
     responsive();
 });
-
+$(document).ready(function() {
+    responsive();
+})
 /**************************
 * GET SIDE-BAR LINK ACTIVE 
 ****************************/
 $(document).ready(function () {
-    responsive();
     $("#nav-bar .nav .nav__list .nav__link").on("click", function (e) {
         e.preventDefault();
         var currTab = $(this).data("tab");

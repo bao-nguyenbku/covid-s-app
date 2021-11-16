@@ -27,6 +27,7 @@ body {
   background: #ebf0f5;
   min-height: 100vh;
   height: 100%;
+  color: #0e2b6c;
 }
 
 #main-container {
@@ -330,9 +331,10 @@ body {
     margin-top: 20px;
   }
 }
-.homepage {
-  margin-top: 60px;
+.homepage-container {
+  margin-top: 40px;
   animation: transitionIn 1s;
+  padding-left: 70px;
 }
 
 .homepage-content {
@@ -341,6 +343,93 @@ body {
   background-attachment: fixed;
   background-size: cover;
   padding-left: 50px;
+}
+.homepage-content .homepage-title h1 {
+  padding-top: 10%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  font-size: 150px;
+  font-weight: 600;
+}
+
+.achievement-container {
+  background: #fff;
+  padding-top: 30px;
+  background-image: url("/img/Reminders.png");
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position-x: right;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.achievement-container h1 {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  font-size: 40px;
+  text-align: center;
+}
+.achievement-container .achievement-content {
+  width: 58%;
+  height: 100%;
+}
+.achievement-container .achievement-content h1 {
+  padding-left: 30px;
+}
+.achievement-container .achievement-content .content-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  width: 100%;
+  padding-left: 30px;
+  margin-top: 60px;
+}
+.achievement-container .achievement-content .content-block .ach-1, .achievement-container .achievement-content .content-block .ach-2, .achievement-container .achievement-content .content-block .ach-3, .achievement-container .achievement-content .content-block .ach-4 {
+  text-align: center;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.achievement-container .achievement-content .content-block .ach-1 h4, .achievement-container .achievement-content .content-block .ach-2 h4, .achievement-container .achievement-content .content-block .ach-3 h4, .achievement-container .achievement-content .content-block .ach-4 h4 {
+  font-size: 70px;
+  margin: 0;
+  margin-bottom: 6px;
+}
+.achievement-container .achievement-content .content-block .ach-1 p, .achievement-container .achievement-content .content-block .ach-2 p, .achievement-container .achievement-content .content-block .ach-3 p, .achievement-container .achievement-content .content-block .ach-4 p {
+  font-size: 26px;
+  margin: 0;
+}
+.achievement-container .achievement-content .content-block .ach-1 {
+  background: #f8e5c1;
+}
+.achievement-container .achievement-content .content-block .ach-1 h4 {
+  color: #f08000;
+}
+.achievement-container .achievement-content .content-block .ach-2 {
+  background: #dcf8c1;
+}
+.achievement-container .achievement-content .content-block .ach-2 h4 {
+  color: #0ccf26;
+}
+.achievement-container .achievement-content .content-block .ach-3 {
+  background: #c1f2f8;
+}
+.achievement-container .achievement-content .content-block .ach-3 h4 {
+  color: #0ca8cf;
+}
+.achievement-container .achievement-content .content-block .ach-4 {
+  background: #c1d7f8;
+}
+.achievement-container .achievement-content .content-block .ach-4 h4 {
+  color: #0f0ccf;
 }
 
 .homepage-content-about-us-title {
@@ -360,16 +449,6 @@ body {
 
 #about-us-content {
   text-align: justify;
-}
-
-h1 {
-  padding-top: 10%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
-  font-size: 150px;
-  font-weight: 600;
 }
 
 #s {
@@ -393,6 +472,18 @@ h1 {
 
 .homepage-log-in {
   padding-bottom: 100px;
+  position: relative;
+}
+.homepage-log-in .btn-custom {
+  width: 300px;
+  border-radius: 30px;
+  font-size: 25px;
+  height: 62px;
+  text-align: center;
+  border: none;
+  background: #03b8e2;
+  background: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  box-shadow: #3081d8 0px 5px 30px -10px;
 }
 
 .homepage-content-about-us {
@@ -482,14 +573,14 @@ h1 {
 .personal-info {
   margin: 0 auto;
   padding-top: 50px;
-  width: max-content;
+  width: 600px;
 }
 
 .edit-profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
 }
 .edit-profile .info {
@@ -517,7 +608,7 @@ h1 {
 }
 .edit-profile .left-side {
   display: block;
-  width: min-content;
+  width: 100%;
 }
 .edit-profile .left-side .info {
   width: 100%;
@@ -574,8 +665,7 @@ h1 {
 }
 .edit-profile .right-side {
   display: block;
-  width: 60%;
-  margin-left: 40px;
+  width: 100%;
 }
 .edit-profile .right-side .button-area {
   width: min-content;
@@ -635,6 +725,11 @@ h1 {
   padding-left: 5px;
 }
 
+@media screen and (max-width: 744px) {
+  .personal-info {
+    width: 98%;
+  }
+}
 input {
   border-width: 1px;
   border-radius: 10px;
@@ -657,7 +752,7 @@ select {
   border-color: #2727c0;
 }
 
-.content-container form {
+.content-container .support-form {
   width: 80%;
   margin: 0 auto;
 }
@@ -678,8 +773,9 @@ select {
 .content-container .delivery-address .input-and-btn .choose-address-btn {
   position: absolute;
   right: 0;
-  margin-right: 5px;
-  top: 5px;
+  margin: 0;
+  margin-top: 7px;
+  margin-right: 7px;
   box-shadow: #3081d8 0px 5px 30px -10px;
 }
 .content-container .delivery-address .field-select {
@@ -1032,7 +1128,7 @@ select {
   position: absolute;
   left: 0;
   right: 0;
-  top: 20%;
+  top: 100px;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
@@ -1055,6 +1151,7 @@ select {
 }
 .dtr-profile-modal .btn-out {
   float: right;
+  margin: 0;
 }
 
 @media screen and (max-width: 937px) {
@@ -1687,17 +1784,17 @@ select {
 }
 
 /*Show navbar movil*/
-.show {
+.sidebar-show {
   width: calc(var(--nav-width) + 162px);
 }
-.show .nav__list .nav__name {
+.sidebar-show .nav__list .nav__name {
   display: block;
 }
-.show .nav__logo-name {
+.sidebar-show .nav__logo-name {
   display: block;
   height: 35px;
 }
-.show .nav__logo-image {
+.sidebar-show .nav__logo-image {
   display: block;
 }
 

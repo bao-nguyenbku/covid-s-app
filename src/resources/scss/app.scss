@@ -16,7 +16,8 @@ html {
 body {
   background: $back-grey;
   min-height: 100vh;
-  height: 100%
+  height: 100%;
+  color: $dark-blue;
 }
 
 @import 'container';

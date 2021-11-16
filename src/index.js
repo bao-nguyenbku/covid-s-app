@@ -36,7 +36,8 @@ app.engine('hbs', expresshbs({
     extname: '.hbs',
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/resources/views/layouts/',
-    partialsDir: __dirname + '/resources/views/partials/',
+    partialsDir: [__dirname + '/resources/views/partials/',
+                  __dirname + '/resources/views/admin/' ],
     helpers: {
         mul: function (qty, price) { return price * qty; },
         sum: function (qty, num) { return qty + num; },

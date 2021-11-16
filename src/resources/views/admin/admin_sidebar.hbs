@@ -18,7 +18,6 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" href="/profile">Tài khoản của tôi</a></li>
                     <li><a class="dropdown-item" href="#" style="color: red;">Đăng xuất</a></li>
-                    <li><a class="dropdown-item" href="#">Menu item</a></li>
                 </ul>
             </div>
         </div>
@@ -37,18 +36,17 @@
             </a>
 
             <div class="nav__list">
-                <a href="/" class="nav__link" data-tab="tab0">
-                    {{!-- <i class='bx bx-home nav__icon'></i> --}}
+                <a href="/admin" class="nav__link" data-tab="tab0">
                     <i class="material-icons nav__icon">home</i>
-                    <span class="nav__name">Trang chủ</span>
+                    <span class="nav__name">Dashboard</span>
                 </a>
 
-                <a href="/support" class="nav__link" data-tab="tab1">
+                <a href="/admin/member" class="nav__link" data-tab="tab1">
                     <i class='material-icons nav__icon'>support</i>
-                    <span class="nav__name">Gửi yêu cầu tiếp tế</span>
+                    <span class="nav__name">Thành viên</span>
                 </a>
 
-                <a href="/waiting" class="nav__link" data-tab="tab2">
+                {{!-- <a href="/waiting" class="nav__link" data-tab="tab2">
                     <i class='bx bxs-time-five nav__icon'></i>
                     <span class="nav__name">Chờ tiếp nhận</span>
                 </a>
@@ -70,7 +68,7 @@
                 <a href="/receive/accept" class="nav__link" data-tab="tab6">
                     <i class='material-icons nav__icon'>receipt_long</i>
                     <span class="nav__name">Yêu cầu đã nhận</span>
-                </a>
+                </a> --}}
                 {{!-- <a href="#" class="nav__link" data-tab="tab5">
                     <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
                     <span class="nav__name">Analytics</span>
