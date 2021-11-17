@@ -2,12 +2,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const expresshbs = require('express-handlebars');
-const db = require('./config/db/DBconnection');
+// const db = require('./config/db/DBconnection');
 const route = require('./routes');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
 const port = 3060;
 // Body-parser
 app.use(
@@ -37,7 +36,8 @@ app.engine('hbs', expresshbs({
     extname: '.hbs',
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/resources/views/layouts/',
-    partialsDir: __dirname + '/resources/views/partials/',
+    partialsDir: [__dirname + '/resources/views/partials/',
+                  __dirname + '/resources/views/admin/' ],
     helpers: {
         mul: function (qty, price) { return price * qty; },
         sum: function (qty, num) { return qty + num; },

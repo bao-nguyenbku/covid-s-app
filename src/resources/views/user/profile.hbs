@@ -1,6 +1,5 @@
 <div class="content-container" id="content-container">
     <div class="profile-container">
-        <h1 class="header-title">THÔNG TIN CHI TIẾT</h1>
         <div class="avatar-and-name">
             <form class="a-edit" action="" method="post" id="edit-profile-1">
                 <img src="/upload/avatar.jpg" id="photo">
@@ -9,27 +8,32 @@
                 <script src="/js/upload.js"></script>
             </form>
 
-
             <div class="profile-name">
                 <h2>Nguyễn Thiên Bảo</h2>
                 <h4>Người dùng</h4>
             </div>
         </div>
 
+        {{!-- Begin infomation container --}}
         <div class="personal-info">
-
             <form action="#" method="POST" class="edit-profile" id="edit-profile-2">
                 <div class="left-side">
-                    {{!-- First Name --}}
-                    <div class="info">
-                        <label for="first-name">Tên</label>
-                        <input class="first-name" type="text" value="Bảo" name="firstName">
+                    {{!-- Last Name --}}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Họ và tên lót</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
                     </div>
 
-                    {{!-- Last Name --}}
-                    <div class="info">
-                        <label for="last-name">Họ và tên lót</label>
-                        <input class="last-name" type="text" value="Nguyễn Thiên" name="lastName">
+                    {{!-- First Name --}}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Tên</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
                     </div>
 
                     {{!-- Sex --}}
@@ -48,14 +52,51 @@
                         </label>
                     </div>
                     {{!-- Phone Number --}}
-                    <div class="info">
-                        <label for="phone-number">Số điện thoại</label>
-                        <input class="phone-number" type="text" value="0936010095" name="phoneNumber">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Số điện thoại</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Ngày sinh</span>
+                            <input class="form-control" type="date" value="2018-11-23" id="example-date-input">
+                        </div>
                     </div>
                 </div>
 
                 <div class="right-side">
-                    <div class="info">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn bg-gradient-info" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Thêm địa chỉ
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn bg-gradient-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn bg-gradient-danger">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- <div class="info">
                         <select name="district" id="district">
                             <option value="blank" selected>Quận/Huyện</option>
                             <option value="d1">Quận 1</option>
@@ -82,15 +123,13 @@
                     <div class="info">
                         <label for="house-number">Số nhà, đường, khu phố</label>
                         <input class="house-number" type="text" value="36, đường Lý Thường Kiệt" name="houseNumber">
-                    </div>
+                    </div> --}}
                     <div class="button-area">
                         <button class="save-profile-btn" type="submit">Lưu thay đổi</button>
                     </div>
                 </div>
             </form>
         </div>
+        {{!-- End infomation container --}}
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
