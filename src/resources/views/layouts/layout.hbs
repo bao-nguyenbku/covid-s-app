@@ -8,28 +8,27 @@
     {{!-- Reset CSS --}}
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="icon" type="image/png" href="/img/logo01.png" />
-    {{!-- Google icon --}}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {{!-- MATERIAL ICONS FONT --}}
+    <link rel="stylesheet" href="/material-icons/iconfont/material-icons.css">
 
     {{!-- BOXICONS --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/boxicons/css/boxicons.min.css">
+    {
 
-    {{!-- Fontawesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{!-- FONTAWESOME --}}
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
 
-    {{!-- Bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {{!-- SOFT UI CSS --}}
+    <link rel="stylesheet" href="/css/soft-ui-dashboard.min.css">
 
-    {{!-- Custom CSS --}}
+    {{!-- BOOTSTRAP --}}
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/vendor/animate/animate.css">
+    {{!-- CUSTOM CSS --}}
     <link rel="stylesheet" href="/css/app.css">
-
+    <script src="/js/plugins/countUp.js" type="module"></script>
     <title>COVID-S</title>
 </head>
 
@@ -37,20 +36,24 @@
 
     <div id="main-container">
         <div id="main">
+            {{>sidebar}}
             {{{body}}}
         </div>
     </div>
     {{>footer}}
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
-
+    <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+    {{!-- BOOTSTRAP JS --}}
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/soft-ui-dashboard.min.js"></script>
+    {{!-- IONICONS --}}
+    {{!-- <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script> --}}
+    
+    <script src="/vendor/wow/wow.min.js"></script>
     <!--=============== MAIN JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="/js/sidebar.js"></script>
 </body>
 
 </html>
