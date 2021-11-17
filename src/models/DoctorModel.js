@@ -20,7 +20,7 @@ const Doctor = function(doctor) {
 
 
 Doctor.getAll = (result) => {
-    let query = "SELECT * FROM doctor;";
+    let query = "SELECT id,Doctorname,major,phone_number,experience,job_title FROM doctor;";
 
     db.query(query, (err, res) => {
         if (err) {
