@@ -31,9 +31,6 @@ class DoctorController{
       } 
     });
   }
-  addDoctor = (req, res) =>{
-    
-  }
 }
 
 module.exports = new DoctorController;

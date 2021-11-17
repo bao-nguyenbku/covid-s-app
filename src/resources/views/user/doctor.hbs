@@ -3,11 +3,11 @@
         <div class="title">BÁC SĨ TƯ VẤN</div>
         <div class="dtr_search">
             <div class="dtr-salign">
-                <input id="search-button" style="padding: 3px;" type="search" placeholder="Tìm kiếm...">
+                <input id="search-button" style="padding: 3px;" type="search" placeholder="Tìm kiếm..." onchange="search(this.value)">
                 {{!-- <button><span class="fas fa-search"></span></button> --}}
             </div>
             <div class="dtr-filter">
-                <select id="dtr-sort-list" name="option">
+                <select id="dtr-sort-list" name="option" onchange="sortDT(this.value)">
                     <option value="blank" >Sắp xếp theo</option>
                     <optgroup label="Tên">
                         <option value="nameSort" >A - Z</option>
@@ -22,7 +22,7 @@
                         <option value="experienceSort" >Giảm dần</option>
                     </optgroup>
                 </select>
-                <select id="dtr-filter-list-re">
+                <select id="dtr-filter-list-re" onchange="filterDT(this.value)">
                     <option value="region">Khu vực</option>
                     <option value="Quận 1">Quận 1</option>
                     <option value="Quận 2">Quận 2</option>
@@ -59,7 +59,7 @@
         <div name="{{support_zone}}" class="dtr-block">
             <div id='{{Doctorname}}' name="doctorname" class="dtr-block-title">
                 <h4 class="dtr-name">Bác sĩ <strong>{{Doctorname}}</strong></h4>
-                <button id={{id}} class="dtr-detail-btn btn btn-light" name="detail-button">Chi tiết</button>
+                <button class="dtr-detail-btn btn btn-light" name="{{id}}" onclick="ondetail(this.name)">Chi tiết</button>
             </div>
             <div class="dtr-block-body">
                 <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
@@ -113,4 +113,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/doctorjs.js"></script>    
-<script src="/js/new_sidebar.js"></script>
+{{!-- <script src="/js/new_sidebar.js"></script> --}}
