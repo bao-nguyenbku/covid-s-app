@@ -44,7 +44,15 @@ app.engine('hbs', expresshbs({
         isEmpty: function (item) { return item == null; },
         isAdmin: function (User) {
             return User == 'admin';
+        },
+        formatDate: function (date) {
+            let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+            return date.toLocaleDateString("vi-VN", option);
+        },
+        equal: function(a, b) {
+            return a == b;
         }
+
     }
 }));
 app.set('view engine', 'hbs');
