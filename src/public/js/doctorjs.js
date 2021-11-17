@@ -105,12 +105,19 @@ function desc_sort3(a, b){
 }
 
 //
-
-function search(value){
+$("#search-button").change(function(){
     var sear =$("#doctor-list").children().length, x;
     $("#doctor-list").children().css('display','none');
     for(var i = 0;i< sear; i++){
         x = $("#doctor-list").children().eq(i);
-        if(x.text().toLowerCase().search(value.toLowerCase()) != -1) x.css('display','block');
+        if(x.text().toLowerCase().search(this.value.toLowerCase()) != -1) x.css('display','block');
     }
-}
+});
+// function search(value){
+//     var sear =$("#doctor-list").children().length, x;
+//     $("#doctor-list").children().css('display','none');
+//     for(var i = 0;i< sear; i++){
+//         x = $("#doctor-list").children().eq(i);
+//         if(x.text().toLowerCase().search(value.toLowerCase()) != -1) x.css('display','block');
+//     }
+// }
