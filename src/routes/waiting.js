@@ -1,16 +1,3 @@
-/* const express = require('express');
-const router = express.Router();
-
-
-router.get('/', (req, res, next) => {
-    res.render('user/waiting');
-});
-
-
-
-module.exports = router;
-
- */
 const express = require('express');
 const router = express.Router();
 const waitingController = require('../controllers/WaitingController');

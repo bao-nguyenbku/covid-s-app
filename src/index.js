@@ -2,11 +2,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const expresshbs = require('express-handlebars');
-// const db = require('./config/db/DBconnection');
+const db = require('./config/db/DBconnection');
 const route = require('./routes');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+
 const port = 3060;
 // Body-parser
 app.use(
