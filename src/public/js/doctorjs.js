@@ -43,12 +43,20 @@ function dtrSort(func){
             $("#doctor-list > div").sort(desc_sort1).appendTo('#doctor-list');
         }
     }
-    else{
+    else if(func == "specialSort"){
         if($('#dtr-sort-list :selected').text() == 'A - Z'){
             $("#doctor-list > div").sort(asc_sort2).appendTo('#doctor-list');
         }
         else{
             $("#doctor-list > div").sort(desc_sort2).appendTo('#doctor-list');
+        }
+    }
+    else{
+        if($('#dtr-sort-list :selected').text() == 'Tăng dần'){
+            $("#doctor-list > div").sort(asc_sort3).appendTo('#doctor-list');
+        }
+        else{
+            $("#doctor-list > div").sort(desc_sort3).appendTo('#doctor-list');
         }
     }
 }
@@ -83,3 +91,27 @@ function desc_sort2(a, b){
     return (a > b) ? -1 : 1;    
 }
 
+// Sắp xếp kinh nghiệm theo thứ tự tăng dần
+function asc_sort3(a, b){
+    a = $(a).children('.dtr-block-body').children('.dtr-detail').children('span:last-child').attr('name');
+    b = $(b).children('.dtr-block-body').children('.dtr-detail').children('span:last-child').attr('name');
+    return (parseInt(a) > parseInt(b)) ? 1 : -1;    
+}
+// Sắp xếp kinh nghiệm theo thứ tự z - a
+function desc_sort3(a, b){
+    a = $(a).children('.dtr-block-body').children('.dtr-detail').children('span:last-child').attr('name');
+    b = $(b).children('.dtr-block-body').children('.dtr-detail').children('span:last-child').attr('name');
+    return (parseInt(a) > parseInt(b)) ? -1 : 1;    
+}
+
+//
+
+function search(value){
+    var sear =$("#doctor-list").children().length, x,y;
+    $("#doctor-list").children().css('display','none');
+    for(var i = 0;i< sear; i++){
+        x = $("#doctor-list").children().eq(i);
+        y= $("#doctor-list").children().eq(i).text();
+        if(x.text().toLowerCase().search(value.toLowerCase()) != -1) x.css('display','block');
+    }
+}

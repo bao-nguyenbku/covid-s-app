@@ -4,7 +4,7 @@
         <div class="title">BÁC SĨ TƯ VẤN</div>
         <div class="dtr_search">
             <div class="dtr-salign">
-                <input type="text" placeholder="Tìm kiếm...">
+                <input id="search-button" type="search" placeholder="Tìm kiếm..." onchange="search(this.value)">
                 {{!-- <button><span class="fas fa-search"></span></button> --}}
             </div>
             <div class="dtr-filter">
@@ -17,6 +17,10 @@
                     <optgroup label="Chuyên Môn">
                         <option value="specialSort" >A - Z</option>
                         <option value="specialSort" >Z - A</option>
+                    </optgroup>
+                    <optgroup label="Kinh nghiệm">
+                        <option value="experienceSort" >Tăng dần</option>
+                        <option value="experienceSort" >Giảm dần</option>
                     </optgroup>
                 </select>
                 <select id="dtr-filter-list" onchange="RegionChanged(this.value)">
@@ -49,10 +53,6 @@
             </div>
         </div>        
     </div>
-
-    <style>
-        
-    </style>
 
     <div id="doctor-list" class="dtr-container overflow-auto">
     {{#each data}} 
@@ -110,7 +110,8 @@
     {{!-- End of modal detail of doctor --}}
 </div>
 
-<script src="/js/doctorjs.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/doctorjs.js"></script>    
 <script src="/js/new_sidebar.js"></script>
