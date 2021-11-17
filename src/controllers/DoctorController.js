@@ -31,21 +31,6 @@ class DoctorController{
       } 
     });
   }
-  filter = (req, res) => {
-    var region = req.query.Type;
-    Doctor.getFilter(region, (err, data) => {
-      if (err)
-        res.status(500).send({
-          message:
-            err.message
-        });
-      else{
-        var string = JSON.stringify(data);
-        data =  JSON.parse(string);
-        res.render('user/doctor',{data});
-      } 
-    });
-  }
 }
 
 module.exports = new DoctorController;

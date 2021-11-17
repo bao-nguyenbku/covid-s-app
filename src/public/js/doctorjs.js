@@ -107,11 +107,10 @@ function desc_sort3(a, b){
 //
 
 function search(value){
-    var sear =$("#doctor-list").children().length, x,y;
+    var sear =$("#doctor-list").children().length, x;
     $("#doctor-list").children().css('display','none');
     for(var i = 0;i< sear; i++){
         x = $("#doctor-list").children().eq(i);
-        y= $("#doctor-list").children().eq(i).text();
         if(x.text().toLowerCase().search(value.toLowerCase()) != -1) x.css('display','block');
     }
 }
