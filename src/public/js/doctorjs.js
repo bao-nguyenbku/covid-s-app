@@ -1,9 +1,11 @@
-function dtrDetail(id) {
+$("button[name='detail-button']").click(
+    function() {
+        var x = this.id;
     $.ajax({
         url:"/doctor/detail",
         method: "GET",
         data:{
-            ID: id
+            ID: x
         },
         success:function(data){
             //$('#totalprice').text(data);
@@ -21,6 +23,8 @@ function dtrDetail(id) {
         }
     });
 }
+);
+
 function outDetail() {
     var dtr = document.getElementById('dtr-detail-profile');
     dtr.setAttribute('style', 'display: none;');

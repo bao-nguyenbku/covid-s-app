@@ -2,7 +2,6 @@
 <div id="content-container" class="content-container">
     <div>
         <div class="title">BÁC SĨ TƯ VẤN</div>
-        <button type="button" class="btn btn-primary choose-address-btn" style="margin: 10px;">Thêm Bác sĩ</button><br>
         <div class="dtr_search">
             <div class="dtr-salign">
                 <input id="search-button" style="padding: 3px;" type="search" placeholder="Tìm kiếm...">
@@ -61,7 +60,7 @@
         <div name="{{support_zone}}" class="dtr-block">
             <div id='{{Doctorname}}' name="doctorname" class="dtr-block-title">
                 <h4 class="dtr-name">Bác sĩ <strong>{{Doctorname}}</strong></h4>
-                <button class="dtr-detail-btn btn btn-light" onclick="dtrDetail({{id}})">Chi tiết</button>
+                <button id={{id}} class="dtr-detail-btn btn btn-light" name="detail-button">Chi tiết</button>
             </div>
             <div class="dtr-block-body">
                 <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
