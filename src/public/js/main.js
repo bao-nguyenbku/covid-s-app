@@ -11,7 +11,9 @@
 // }
 // window.addEventListener('scroll', scrollHeader);
 //------------------------------------------------------------
-
+$(document).ready(function() {
+  new WOW().init();
+});
 /*=========== DROPDOWN MENU WHEN CLICK ON ACCOUNT AREA ===========*/
 function dropDownMenu() {
   document.getElementById('toggle-dropdown').classList.toggle('show');

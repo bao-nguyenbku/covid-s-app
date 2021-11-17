@@ -1,133 +1,198 @@
-<div class="main-container">
-    {{>sidebar}}
-    <div class="content-container" id="content-container">
-        {{!-- <div class="row">
-            <div class="col-4 chart">
-                <canvas id="myChart"></canvas>
-            </div>
-            <div class="col-4 chart">
-                <canvas id="myChart-2"></canvas>
-            </div>
-        </div> --}}
-        <div class="overview">
-            <div class="admin-summary admin-summary-1">
-                <h5>Đã tiếp nhận</h5>
-                <h2>156</h2>
-                <h5>yêu cầu</h5>
-            </div>
-            <div class="admin-summary admin-summary-2">
-                <h5>Hỗ trợ cho</h5>
-                <h2>240</h2>
-                <h5>bệnh nhân</h5>
-            </div>
-            <div class="admin-summary admin-summary-3">
-                <h5>Số tình nguyện viên</h5>
-                <h2>120</h2>
-            </div>
+<div class="content-container" id="content-container">
+    <div class="overview">
+        <div class="admin-summary admin-summary-1">
+            <h5>Đã tiếp nhận</h5>
+            <h2>156</h2>
+            <h5>yêu cầu</h5>
         </div>
-        <div class="order-status">
-            <h4>Danh sách yêu cầu</h4>
-            <table class="order-table">
-                <thead>
-                    <tr>
-                        <th>Mã đơn</th>
-                        <th>Họ và tên</th>
-                        <th>Địa chỉ</th>
-                        <th>Thời điểm yêu cầu</th>
-                        <th>Thời điểm tiếp nhận</th>
-                        <th>Loại</th>
-                        <th>Trạng thái</th>
-                        <th>Tổng giá trị</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#4572</td>
-                        <td>Nguyễn Thị A</td>
-                        <td>234, đường số 3, quận 5</td>
-                        <td>10:34 21-10-2021</td>
-                        <td>15:12 21-10-2021</td>
-                        <td>Thuốc</td>
-                        <td class="done">Hoàn thành</td>
-                        <td>550.000đ</td>
-                    </tr>
-                    <tr>
-                        <td>#1234</td>
-                        <td>Trần Thị Bé</td>
-                        <td>123, tổ 9, khu phố 7</td>
-                        <td>20:10 20-09-2021</td>
-                        <td>14:34 23-10-2021</td>
-                        <td>Lương thực</td>
-                        <td class="sent">Đã gửi</td>
-                        <td>400.000đ</td>
-                    </tr>
-                    <tr>
-                        <td>#1234</td>
-                        <td>Nguyễn Thiên Ân</td>
-                        <td>277, ấp Tân Tịch, Tịnh Thới</td>
-                        <td>11:30 20-10-2021</td>
-                        <td>14:12 21-10-2021</td>
-                        <td>Lương thực</td>
-                        <td class="received">Đã nhận</td>
-                        <td>550.000đ</td>
-                    </tr>
-                </tbody>
-            </table>
-            <script src="/js/tableSort.js"></script>
+        <div class="admin-summary admin-summary-2">
+            <h5>Hỗ trợ cho</h5>
+            <h2>240</h2>
+            <h5>bệnh nhân</h5>
         </div>
-        <div class="order-status">
-            <h4>Danh sách tình nguyện viên</h4>
-            <table class="order-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Họ và tên</th>
-                        <th>Địa chỉ</th>
-                        <th>Yêu cầu thực hiện</th>
-                        <th>Giờ hoạt động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#TNV1</td>
-                        <td>Nguyễn Thị A</td>
-                        <td>234, đường số 3, quận 5</td>
-                        <td>234</td>
-                        <td>124.6</td>
-                    </tr>
-                    <tr>
-                        <td>#TNV1</td>
-                        <td>Nguyễn Thị A</td>
-                        <td>234, đường số 3, quận 5</td>
-                        <td>234</td>
-                        <td>124.6</td>
-                    </tr>
-                    <tr>
-                        <td>#TNV1</td>
-                        <td>Nguyễn Thị A</td>
-                        <td>234, đường số 3, quận 5</td>
-                        <td>234</td>
-                        <td>124.6</td>
-                    </tr>
-                    <tr>
-                        <td>#TNV1</td>
-                        <td>Nguyễn Thị A</td>
-                        <td>234, đường số 3, quận 5</td>
-                        <td>234</td>
-                        <td>124.6</td>
-                    </tr>
-                </tbody>
-            </table>
-            <script src="/js/tableSort.js"></script>
+        <div class="admin-summary admin-summary-3">
+            <h5>Số tình nguyện viên</h5>
+            <h2>120</h2>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <div class="chart-container support-chart">
+        <h2>Tình trạng đơn yêu cầu</h2>
+        <canvas id="support-chart" width="100%" height="100%"></canvas>
+    </div>
+    <div class="order-status">
+        <h4>Danh sách yêu cầu</h4>
+        <table class="order-table" id="support-table">
+            <thead>
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Họ và tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Thời điểm yêu cầu</th>
+                    <th>Thời điểm tiếp nhận</th>
+                    <th>Loại</th>
+                    <th>Trạng thái</th>
+                    <th>Tổng giá trị</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#4572</td>
+                    <td>Nguyễn Thị A</td>
+                    <td>234, đường số 3, quận 5</td>
+                    <td>10:34 21-10-2021</td>
+                    <td>15:12 21-10-2021</td>
+                    <td>Thuốc</td>
+                    {{!-- <td class="done">Hoàn thành</td> --}}
+                    <td><span class="badge bg-gradient-success">Hoàn thành</span></td>
+                    <td>550.000đ</td>
+                </tr>
+                <tr>
+                    <td>#1234</td>
+                    <td>Trần Thị Bé</td>
+                    <td>123, tổ 9, khu phố 7</td>
+                    <td>20:10 20-09-2021</td>
+                    <td>14:34 23-10-2021</td>
+                    <td>Lương thực</td>
+                    <td><span class="badge bg-gradient-primary">Đã gửi</span></td>
+                    <td>400.000đ</td>
+                </tr>
+                <tr>
+                    <td>#1234</td>
+                    <td>Nguyễn Thiên Ân</td>
+                    <td>277, ấp Tân Tịch, Tịnh Thới</td>
+                    <td>11:30 20-10-2021</td>
+                    <td>14:12 21-10-2021</td>
+                    <td>Lương thực</td>
+                    <td><span class="badge bg-gradient-warning">Đã nhận</span></td>
+                    <td>550.000đ</td>
+                </tr>
+            </tbody>
+        </table>
 
-<script src="/js/new_sidebar.js"></script>
+    </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
     integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="/js/chart.js"></script>
+<script>
+    const ctx1 = document.getElementById('support-chart').getContext('2d');
+    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+    var gradientStroke2 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+    new Chart(ctx1, {
+        type: "bar",
+        data: {
+            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Đã gửi",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "#DA007A",
+                borderWidth: 0,
+                backgroundColor: "#DA007A",
+                fill: true,
+                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                maxBarThickness: 20
+
+            },
+            {
+                label: "Chờ giao hàng",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "none",
+                borderWidth: 0,
+                backgroundColor: "#DAA500",
+                fill: true,
+                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                maxBarThickness: 20
+            },
+            {
+                label: "Hoàn thành",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "#39DA00",
+                borderWidth: 0,
+                backgroundColor: '#39DA00',
+                fill: true,
+                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                maxBarThickness: 20
+            },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            scales: {
+                y: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        padding: 10,
+                        color: '#b2b9bf',
+                        font: {
+                            size: 16,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+                x: {
+                    grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#b2b9bf',
+                        padding: 20,
+                        font: {
+                            size: 16,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+            },
+        },
+    });
+</script>
+
+
+{{!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+    integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></> --}}

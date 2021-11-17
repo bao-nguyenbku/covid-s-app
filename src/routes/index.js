@@ -16,7 +16,7 @@ function route(app) {
     app.use('/support', supportRouter);
     app.use('/shipping', shippingRouter);
     app.use('/waiting', waitingRouter);
-    app.use('/admin/dashboard', adminRouter);
+    app.use('/admin', adminRouter);
     app.use('/login', loginRouter);
     app.use('/loggout', loggoutRouter);
     app.use('/register', registerRouter);
