@@ -31,6 +31,33 @@ Doctor.getAll = (result) => {
         result(null, res);
     });
 };
+
+Doctor.getElement = (id, result)=>{
+    let query = "SELECT * FROM doctor WHERE id=" + id + ";";
+
+    db.query(query, (err, res) => {
+        if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+        }
+        result(null, res);
+    });
+}
+
+Doctor.getFilter = (region, result) => {
+    let query = "SELECT * FROM doctor WHERE support_zone = "+ region +";";
+
+    db.query(query, (err, res) => {
+        if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+        }
+        result(null, res);
+    });
+};
+
 module.exports = Doctor;
   
 // Tutorial.findById = (id, result) => {

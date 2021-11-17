@@ -27,7 +27,8 @@ body {
 #main-container {
   position: relative;
   min-height: 100%;
-  margin-bottom: calc(-1 * $footer-height); }
+  margin-bottom: calc(-1 * footer-height); 
+}
 
 #main {
   overflow: hidden;
@@ -172,7 +173,7 @@ body {
 #site-footer {
   position: relative;
   height: 70px;
-  margin-top: calc(-1 * $footer-height);
+  margin-top: calc(-1 * footer-height);
   clear: both; }
 
 .site-footer {
