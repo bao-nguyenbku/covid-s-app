@@ -8,7 +8,7 @@
                 {{!-- <button><span class="fas fa-search"></span></button> --}}
             </div>
             <div class="dtr-filter">
-                <select id="dtr-sort-list" name="option" onchange="dtrSort(this.value)">
+                <select id="dtr-sort-list" name="option">
                     <option value="blank" >Sắp xếp theo</option>
                     <optgroup label="Tên">
                         <option value="nameSort" >A - Z</option>
@@ -23,7 +23,7 @@
                         <option value="experienceSort" >Giảm dần</option>
                     </optgroup>
                 </select>
-                <select id="dtr-filter-list" onchange="RegionChanged(this.value)">
+                <select id="dtr-filter-list-re">
                     <option value="region">Khu vực</option>
                     <option value="Quận 1">Quận 1</option>
                     <option value="Quận 2">Quận 2</option>

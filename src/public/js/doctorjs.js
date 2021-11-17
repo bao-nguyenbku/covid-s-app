@@ -31,15 +31,16 @@ function outDetail() {
     $("#content-container").attr('style', 'display: block;');
 }
 
-function RegionChanged(type) {
-    if(type == "region"){ $("#doctor-list").children().css('display','block'); return;}   
-    $("#doctor-list").children("div[name!='"+ type + "']").css('display','none');
-    $("#doctor-list").children("div[name='"+ type + "']").css('display','block');
-}
+$("#dtr-filter-list-re").change(function() {
+    if(this.value == "region"){ $("#doctor-list").children().css('display','block'); return;}   
+    $("#doctor-list").children("div[name!='"+ this.value + "']").css('display','none');
+    $("#doctor-list").children("div[name='"+ this.value + "']").css('display','block');
+});
 
-function dtrSort(func){
-    if(func == 'blank') return;
-    else if(func == "nameSort") {
+
+$("#dtr-sort-list").change(function(){
+    if(this.value == 'blank') return;
+    else if(this.value == "nameSort") {
         if($('#dtr-sort-list :selected').text() == 'A - Z'){
             $("#doctor-list > div").sort(asc_sort1).appendTo('#doctor-list');
         }
@@ -47,7 +48,7 @@ function dtrSort(func){
             $("#doctor-list > div").sort(desc_sort1).appendTo('#doctor-list');
         }
     }
-    else if(func == "specialSort"){
+    else if(this.value == "specialSort"){
         if($('#dtr-sort-list :selected').text() == 'A - Z'){
             $("#doctor-list > div").sort(asc_sort2).appendTo('#doctor-list');
         }
@@ -63,7 +64,8 @@ function dtrSort(func){
             $("#doctor-list > div").sort(desc_sort3).appendTo('#doctor-list');
         }
     }
-}
+});
+
 
 // Sắp xếp tên theo thứ tự a - z
 function asc_sort1(a, b){
