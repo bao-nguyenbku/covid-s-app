@@ -9,6 +9,9 @@ router.get('/', (req, res, next) => {
     res.render('register');
 });
 
+router.get('/volunteer', (req, res, next) => {
+    res.render('volunteer/register');
+});
 // Post register data
 router.post('/',UserController.register);
 module.exports = router;

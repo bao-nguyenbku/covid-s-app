@@ -45,7 +45,6 @@
       font-weight: bold;
       text-align: center;
     }
-
   }
 
   .header__account-area {
@@ -71,6 +70,14 @@
       &:active {
         background: rgb(241, 241, 241);
         border-radius: 10px;
+      }
+      &.volunteer {
+        background: rgba(33, 82, 255, 0.2);
+        border-radius: 10px;
+        margin-left: 5px;
+        &:hover {
+          background: rgba(33, 82, 255, 0.5);
+        }
       }
     }
     .header__img {

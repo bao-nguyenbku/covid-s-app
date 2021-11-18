@@ -127,6 +127,14 @@ body {
   background: #f1f1f1;
   border-radius: 10px;
 }
+.header .header__account-area .header__sign-in.volunteer {
+  background: rgba(33, 82, 255, 0.2);
+  border-radius: 10px;
+  margin-left: 5px;
+}
+.header .header__account-area .header__sign-in.volunteer:hover {
+  background: rgba(33, 82, 255, 0.5);
+}
 .header .header__account-area .header__img {
   display: flex;
   width: 44px;
@@ -707,7 +715,7 @@ body {
   position: relative;
 }
 .homepage-log-in .btn-custom {
-  width: 300px;
+  width: max-content;
   border-radius: 30px;
   font-size: 25px;
   height: 62px;
