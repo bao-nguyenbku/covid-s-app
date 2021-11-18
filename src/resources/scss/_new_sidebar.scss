@@ -26,26 +26,26 @@
   padding-right: 70px;
   transition: 0.5s;
   .header-logo {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(
-      300deg,
-      rgba(3, 184, 226, 1) 0%,
-      rgba(33, 82, 255, 1) 100%
-    );
     position: absolute;
-    
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     h2 {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        300deg,
+        rgba(3, 184, 226, 1) 0%,
+        rgba(33, 82, 255, 1) 100%
+      );
       position: relative;
       margin: 0 auto;
       font-weight: bold;
       text-align: center;
     }
+
   }
 
   .header__account-area {

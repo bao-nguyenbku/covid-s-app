@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const AdminController = require('../controllers/AdminController');
-router.get('/', AdminController.dashboard);
+const auth = require('../controllers/AuthenticateUser');
+router.get('/', /*auth('A'),*/ AdminController.dashboard);
 
-router.get('/member', AdminController.member);
+router.get('/member', /*auth('A'),*/ AdminController.member);
 
 
 module.exports = router;

@@ -23,12 +23,12 @@
                         {{/each}}
                     </td>
                     <td>
-                        {{#if (equal this.order_status "Đã gửi")}}
-                        <span class="badge bg-gradient-danger">{{this.order_status}}</span>
+                        {{#if (equal this.order_status "Chờ tiếp nhận")}}
+                        <span class="badge bg-gradient-warning">{{this.order_status}}</span>
                         {{/if}}
                     </td>
                     <td>
-                        <button type="button" class="btn bg-gradient-light button-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{this.id}}">Chi tiết</button>
+                        <button type="button" class="btn bg-gradient-default button-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{this.id}}">Chi tiết</button>
                     </td>
                 </tr>
                 {{/each}}
@@ -59,14 +59,32 @@
                 {{!-- Body of modal --}}
 
                 <div class="modal-body" id="order-detail">
-                    
+                    <div class="order-detail-title">
+                        <p>Mã đơn: <strong>1</strong></p>
+                        <p>Đã gửi lúc: <strong>07:45 12/12/2021</strong></p>
+                        <p>Tình trạng: <span class="badge bg-gradient-warning">Chờ tiếp nhận</span></p>
+                    </div>
+                    <hr>
+                    <div class="order-detail-receive">
+                        <h5>Tình nguyện viên nhận</h5>
+                        <p>Chưa có</p>
+                    </div>
+                    <hr>
+                    <div class="order-detail-body">
+                        <h4>Sản phẩm bạn đã gửi</h4>
+                        <ul>
+                            <li>Bột giặt:     2 bịt</li>
+                            <li>Bột ngọt:     2kg</li>
+                            <li>Cafe Trung Nguyên: 3 bịt</li>
+                        </ul>
+                    </div>
                 </div>
 
                 {{!-- End body of modal --}}
 
                 <div class="modal-footer">
-                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn bg-gradient-danger">Save changes</button>
+                    <button type="button" class="btn bg-gradient-secondary">Chỉnh sửa</button>
+                    <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

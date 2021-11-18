@@ -7,6 +7,6 @@ router.get('/', (req, res, next) => {
 });
 
 // Post login data
-// router.post('/', UserController.login);
+router.post('/', UserController.login);
 
 module.exports = router;

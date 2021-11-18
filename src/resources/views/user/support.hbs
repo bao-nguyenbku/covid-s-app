@@ -6,7 +6,8 @@
             {{!-- <label class="label-for-address" for="address">Địa chỉ nhận hàng</label> --}}
             <div class="input-and-btn">
                 <input type="text" name="address" id="address" placeholder="Địa chỉ nhận hàng">
-                <button type="button" class="btn bg-gradient-info choose-address-btn">Chọn địa chỉ</button>
+                <button type="button" class="btn bg-gradient-info choose-address-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Chọn địa chỉ</button>
+                
             </div>
 
             {{!-- <select name="foodTypeSelect" class="field-select">
@@ -16,6 +17,31 @@
 
         </div>
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chọn địa chỉ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    {{!-- Body of modal --}}
+
+                    <div class="modal-body" id="address-select">
+                        
+                    </div>
+
+                    {{!-- End body of modal --}}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="box-IQN">
             <div id="form-support">
                 <div class="form-support-container">

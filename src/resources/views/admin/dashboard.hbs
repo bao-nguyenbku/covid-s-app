@@ -29,24 +29,31 @@
                     <th>Địa chỉ</th>
                     <th>Thời điểm yêu cầu</th>
                     <th>Thời điểm tiếp nhận</th>
-                    <th>Loại</th>
                     <th>Trạng thái</th>
                     <th>Tổng giá trị</th>
                 </tr>
             </thead>
             <tbody>
+                {{#each orders}}
                 <tr>
-                    <td>#4572</td>
-                    <td>Nguyễn Thị A</td>
-                    <td>234, đường số 3, quận 5</td>
-                    <td>10:34 21-10-2021</td>
-                    <td>15:12 21-10-2021</td>
-                    <td>Thuốc</td>
-                    {{!-- <td class="done">Hoàn thành</td> --}}
-                    <td><span class="badge bg-gradient-success">Hoàn thành</span></td>
-                    <td>550.000đ</td>
+                    <td>{{this.order_id}}</td>
+                    <td>{{this.last_name}} {{this.first_name}}</td>
+                    <td>{{this.address}}</td>
+                    <td>{{formatDate this.order_create}}</td>
+                    <td>{{this.receive_time}}</td>
+                    {{#if (equal this.order_status "Chờ tiếp nhận")}}
+                    <td><span class="badge bg-gradient-warning">{{this.order_status}}</span></td>
+                    {{/if}}
+                    <td>
+                        {{#if this.cost}}
+                        {{formatCurrency this.cost}}
+                        {{else}}
+                        Chưa có
+                        {{/if}}
+                    </td>
                 </tr>
-                <tr>
+                {{/each}}
+                {{!-- <tr>
                     <td>#1234</td>
                     <td>Trần Thị Bé</td>
                     <td>123, tổ 9, khu phố 7</td>
@@ -65,7 +72,7 @@
                     <td>Lương thực</td>
                     <td><span class="badge bg-gradient-warning">Đã nhận</span></td>
                     <td>550.000đ</td>
-                </tr>
+                </tr> --}}
             </tbody>
         </table>
 
