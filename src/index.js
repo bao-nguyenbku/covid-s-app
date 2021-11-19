@@ -46,8 +46,10 @@ app.engine('hbs', expresshbs({
             return User == 'admin';
         },
         formatDate: function (date) {
-            let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
-            return date.toLocaleDateString("vi-VN", option);
+            if (date) {
+                let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+                return date.toLocaleDateString("vi-VN", option);
+            }
         },
         formatCurrency: function (num) {
             //======================================

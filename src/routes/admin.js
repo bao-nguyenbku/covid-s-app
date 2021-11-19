@@ -6,5 +6,6 @@ router.get('/', /*auth('A'),*/ AdminController.dashboard);
 
 router.get('/member', /*auth('A'),*/ AdminController.member);
 
+router.get('/member/api/support-done-chart', AdminController.getSupportData);
 
 module.exports = router;

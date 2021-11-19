@@ -52,16 +52,16 @@
     {{!-- <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script> --}}
     <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-     <script src="/js/soft-ui-dashboard.min.js"></script>
+    {{!-- <script src="/js/soft-ui-dashboard.min.js"></script> --}}
     <script src="/vendor/wow/wow.min.js"></script>
     <!--=============== MAIN JS ===============-->
     <script src="/js/main.js"></script>
     <script src="/js/sidebar.js"></script>
     <script>
         $(document).ready(function () {
-            $('#support-table').DataTable();
-            $('#volunteer-list').DataTable();
-            $('#volunteer-request').DataTable();
+            $('#support-table').DataTable({ response: true });
+            $('#volunteer-list').DataTable({ response: true });
+            $('#volunteer-request').DataTable({ response: true });
         });
     </script>
 </body>

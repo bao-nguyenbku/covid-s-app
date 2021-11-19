@@ -14,3 +14,13 @@ exports.dashboard = (req, res, next) => {
 exports.member = (req, res, next) => {
     res.render('admin/member', { layout: 'admin' });
 }
+exports.getSupportData = (req, res, next) => {
+    let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        if (result) {
+            res.json({data: result, code: 200});
+        }
+        // console.log(result);
+    });
+}
