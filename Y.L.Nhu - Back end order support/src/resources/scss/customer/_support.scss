@@ -1,0 +1,209 @@
+// @import url(variables);
+input {
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: rgb(39, 39, 192);
+  height: 50px;
+  min-width: 100px;
+  padding-left: 10px;
+  &::-webkit-input-placeholder {
+    text-indent: 10px;
+  }
+}
+select {
+  box-sizing: border-box;
+  padding: 13px;
+  margin: 0px;
+  outline: none;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: rgb(39, 39, 192);
+}
+.content-container {
+  .support-form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .delivery-address {
+    position: relative;
+    display: flex;
+    min-width: 80%;
+    justify-content: center;
+    align-items: center;
+    .input-and-btn {
+      position: relative;
+      width: 100%;
+      input {
+        width: 100%;
+      }
+      .choose-address-btn {
+        position: absolute;
+        right: 0;
+        margin: 0;
+        margin-top: 7px;
+        margin-right: 7px;
+        box-shadow: $back-blue-shadow;
+      }
+    }
+    .field-select {
+      margin-left: 10px;
+    }
+  }
+}
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    300deg,
+    rgba(3, 184, 226, 1) 0%,
+    rgba(33, 82, 255, 1) 100%
+  );
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+
+
+// .box-address .foods {
+//   margin-left: 100px;
+//   position: relative;
+// }
+/*********************************
+ * SUPPORT REQUEST DESIGN AREA
+*********************************/
+.box-IQN {
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .support-btn {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    /***************************
+    * ADD ROW BUTTON
+    ***************************/
+    #add-input-btn {
+      margin-right: auto;
+      margin-left: 0;
+      box-shadow: $shadow;
+    }
+    .button-submit-items {
+      width: 250px;
+      background: rgb(3, 184, 226);
+      background: linear-gradient(
+        300deg,
+        rgb(226, 111, 3) 0%,
+        rgb(243, 24, 24) 100%
+      );
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #e9f4fb;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      height: max-content;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      box-shadow: $back-red-shadow;
+      transition: transform 0.5s;
+      &:hover {
+        background: rgb(3, 184, 226);
+        background: linear-gradient(
+          300deg,
+          rgb(226, 111, 3) 0%,
+          rgb(243, 24, 24) 100%
+        );
+        transform: scale(1.1);
+      }
+    }
+  }
+  #form-support {
+    display: block;
+    position: relative;
+    .form-support-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      /*********************
+      * REMOVE ROW BUTTON
+      **********************/
+      .remove-row-btn {
+        margin: auto 0;
+        margin-left: 20px;
+        box-shadow: $back-red-shadow;
+      }
+      .tb-1 {
+        width: 300px;
+      }
+      .tb-2 {
+        width: 150px;
+      }
+      .tb-2,
+      .tb-3 {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .content-container {
+    form {
+      width: 100%;
+    }
+    .delivery-address {
+      .input-and-btn {
+        position: relative;
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+    .button-submit-items {
+      width: 150px!important;
+    }
+  }
+  input {
+    min-width: 60px;
+    &::-webkit-input-placeholder, &::-moz-placeholder {
+      font-size: 12px;
+    }
+  }
+  #form-support {
+    .form-support-container {
+      margin-top: 4px;
+      margin-bottom: 4px;
+      /*********************
+      * REMOVE ROW BUTTON
+      **********************/
+      .remove-row-btn {
+        margin: auto 0;
+        font-size: 13px;
+        margin-left: 5px!important;
+        box-shadow: $back-red-shadow;
+      }
+      // .tb-1 {
+      //   width: 300px;
+      // }
+      // .tb-2 {
+      //   width: 150px;
+      // }
+      .tb-2, .tb-3 {
+        margin-left: 4px!important;
+      }
+    }
+  }
+}
