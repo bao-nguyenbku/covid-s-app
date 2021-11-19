@@ -15,6 +15,7 @@ class AcceptController{
         } 
       });
     }
+    
     /*
     get_list = (req,res)=>{
       Accept.get_list(function(data){
