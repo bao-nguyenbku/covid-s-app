@@ -52,6 +52,11 @@ body {
   padding-left: 80px;
 }
 
+.content-container-no-log-in {
+  width: 100%;
+  top: 0;
+}
+
 @media screen and (max-width: 744px) {
   .content-container {
     padding-right: 20px;
@@ -572,9 +577,7 @@ body {
   }
 }
 .homepage-container {
-  margin-top: 40px;
   animation: transitionIn 1s;
-  padding-left: 70px;
 }
 
 .homepage-content {
@@ -590,7 +593,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
-  font-size: 150px;
+  font-size: 100px;
   font-weight: 600;
 }
 
@@ -716,14 +719,17 @@ body {
 }
 .homepage-log-in .btn-custom {
   width: max-content;
-  border-radius: 30px;
-  font-size: 25px;
-  height: 62px;
+  border-radius: 20px;
+  height: 60px;
   text-align: center;
   border: none;
   background: #03b8e2;
   background: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
   box-shadow: #3081d8 0px 5px 30px -10px;
+}
+.homepage-log-in .btn-custom a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .homepage-content-about-us {
@@ -1352,8 +1358,6 @@ select {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border: 1px dashed #2152ff;
-  border-radius: 50%;
 }
 .dtr-container .dtr-block .dtr-block-body .dtr-detail {
   display: block;
@@ -1369,13 +1373,13 @@ select {
 }
 
 .modal-dialog {
-  max-width: max-content;
+  max-width: 1000px;
 }
 
 #dtr-detail-profile {
   display: flex;
   flex-direction: row;
-  width: max-content;
+  max-width: 1000px;
 }
 #dtr-detail-profile .img-file-dtr img {
   width: 200px;
@@ -1383,6 +1387,8 @@ select {
 }
 #dtr-detail-profile .info-dtr {
   padding-left: 20px;
+  position: relative;
+  width: 100%;
 }
 #dtr-detail-profile .info-dtr p {
   font-size: 20px;
@@ -1422,6 +1428,7 @@ select {
   .dtr-container .dtr-block .dtr-block-body .dtr-photo {
     width: 100px;
     height: 100px;
+    object-fit: cover;
   }
 
   .dtr_search {
@@ -1677,6 +1684,7 @@ select {
   justify-content: flex-start;
   align-items: flex-start;
   margin: auto 0;
+  margin-left: 10px;
 }
 .user-info h5 {
   margin-bottom: 0;

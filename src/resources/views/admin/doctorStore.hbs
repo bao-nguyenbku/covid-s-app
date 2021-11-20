@@ -1,0 +1,29 @@
+<div class="content-container" id="content-container">
+  <div class="order-status">
+    <h4>Danh sách bác sĩ tư vấn</h4>
+    <table class="order-table" id="volunteer-list">
+      <thead>
+        <tr>
+          <th>Tên</th>
+          <th>Chuyên môn</th>
+          <th>Kinh nghiệm</th>
+          <th>Nơi làm việc</th>
+          <th>Khu vực hỗ trợ</th>
+          <th>Số điện thoại</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.major}}</td>
+          <td>{{this.experience}}</td>
+          <td>{{this.work_hospital}}</td>
+          <td>{{this.support_zone}}</td>
+          <td>{{this.phone_number}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

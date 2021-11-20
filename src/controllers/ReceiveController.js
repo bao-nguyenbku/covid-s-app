@@ -38,6 +38,3 @@ exports.confirm = (req, res, next) => {
    
 
 }
-exports.getSupportData = (req, res, next) => {
-
-}
