@@ -1,25 +1,27 @@
 const mysql = require('mysql');
 const config = require('../config.json');
-// const util = require('util');
 
 /**
  * Create database connection infomation
  */
-const db = mysql.createPool({
+var db = mysql.createConnection({
     host: config.host,
     user: config.user,
     password: config.password,
-    database: config.database
+    database: config.database,
+    port: config.port,
+    multipleStatements: true
 });
 /**
  * Get connecting from created connection above (db)
  */
-db.getConnection((err) => {
+db.connect((err) => {
     if (err) throw err;
-    else console.log('Database is connected');
+    else {
+        console.log("Database is connected");
+    }
 });
 
-// db.query = util.promisify(db.query);
 
 /**
  * Export this as module for others file

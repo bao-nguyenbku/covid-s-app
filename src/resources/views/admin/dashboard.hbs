@@ -15,10 +15,38 @@
             <h2>120</h2>
         </div>
     </div>
-    <div class="chart-container support-chart">
-        <h2>Tình trạng đơn yêu cầu</h2>
-        <canvas id="support-chart" width="100%" height="100%"></canvas>
+    <div class="chart-container">
+        <div class="single-chart">
+            <form action="" class="chart-filter">
+                <select class="form-select" aria-label="Default select example" name="filter-chart"
+                    onchange="this.form.submit()">
+                    <option value="" disabled="disabled" selected>Thống kê theo</option>
+                    <option value="today">Hôm nay</option>
+                    <option value="week">Tuần này</option>
+                    <option value="month">Tháng này</option>
+                </select>
+            </form>
+            <div class="chart-1">
+                <canvas id="support-chart" width="100%" height="100%"></canvas>
+            </div>
+        </div>
+
+        <div class="single-chart">
+            <form action="" class="chart-filter">
+                <select class="form-select" aria-label="Default select example" name="filter-chart"
+                    onchange="this.form.submit()">
+                    <option value="" disabled="disabled" selected>Thống kê theo</option>
+                    <option value="today">Hôm nay</option>
+                    <option value="week">Tuần này</option>
+                    <option value="month">Tháng này</option>
+                </select>
+            </form>
+            <div class="chart-2">
+                <canvas id="support-done-chart" width="100%" height="100%"></canvas>
+            </div>
+        </div>
     </div>
+
     <div class="order-status">
         <h4>Danh sách yêu cầu</h4>
         <table class="order-table" id="support-table">
@@ -29,24 +57,49 @@
                     <th>Địa chỉ</th>
                     <th>Thời điểm yêu cầu</th>
                     <th>Thời điểm tiếp nhận</th>
-                    <th>Loại</th>
                     <th>Trạng thái</th>
                     <th>Tổng giá trị</th>
                 </tr>
             </thead>
             <tbody>
+                {{#each orders}}
                 <tr>
-                    <td>#4572</td>
-                    <td>Nguyễn Thị A</td>
-                    <td>234, đường số 3, quận 5</td>
-                    <td>10:34 21-10-2021</td>
-                    <td>15:12 21-10-2021</td>
-                    <td>Thuốc</td>
-                    {{!-- <td class="done">Hoàn thành</td> --}}
-                    <td><span class="badge bg-gradient-success">Hoàn thành</span></td>
-                    <td>550.000đ</td>
+                    <td>{{this.order_id}}</td>
+
+                    <td>{{this.last_name}} {{this.first_name}}</td>
+
+                    <td>{{this.address}}</td>
+
+                    <td>{{formatDate this.order_create}}</td>
+
+                    {{#if (equal this.receive_time null)}}
+                    <td>Chưa có</td>
+                    {{else}}
+                    <td>{{formatDate this.receive_time}}</td>
+                    {{/if}}
+
+                    {{#if (equal this.order_status "Chờ tiếp nhận")}}
+                    <td><span class="badge bg-gradient-warning">{{this.order_status}}</span></td>
+                    {{/if}}
+
+                    {{#if (equal this.order_status "Chờ giao hàng")}}
+                    <td><span class="badge bg-gradient-info">{{this.order_status}}</span></td>
+                    {{/if}}
+
+                    {{#if (equal this.order_status "Đã hoàn thành")}}
+                    <td><span class="badge bg-gradient-success">{{this.order_status}}</span></td>
+                    {{/if}}
+
+                    <td>
+                        {{#if this.cost}}
+                        {{formatCurrency this.cost}}
+                        {{else}}
+                        Chưa có
+                        {{/if}}
+                    </td>
                 </tr>
-                <tr>
+                {{/each}}
+                {{!-- <tr>
                     <td>#1234</td>
                     <td>Trần Thị Bé</td>
                     <td>123, tổ 9, khu phố 7</td>
@@ -65,7 +118,7 @@
                     <td>Lương thực</td>
                     <td><span class="badge bg-gradient-warning">Đã nhận</span></td>
                     <td>550.000đ</td>
-                </tr>
+                </tr> --}}
             </tbody>
         </table>
 
@@ -75,124 +128,204 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
     integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
 <script>
-    const ctx1 = document.getElementById('support-chart').getContext('2d');
-    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+    $(document).ready(function () {
+        $.ajax({
+            type: "get",
+            url: "/admin/member/api/support-done-chart",
+            dataType: "json",
+            success: function (res) {
+                if (res.code == 200) {
+                    const total = res.data[0][0]["count(id)"];
 
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-    var gradientStroke2 = ctx1.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-    new Chart(ctx1, {
-        type: "bar",
-        data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                label: "Đã gửi",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#DA007A",
-                borderWidth: 0,
-                backgroundColor: "#DA007A",
-                fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                maxBarThickness: 20
-
-            },
-            {
-                label: "Chờ giao hàng",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "none",
-                borderWidth: 0,
-                backgroundColor: "#DAA500",
-                fill: true,
-                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                maxBarThickness: 20
-            },
-            {
-                label: "Hoàn thành",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#39DA00",
-                borderWidth: 0,
-                backgroundColor: '#39DA00',
-                fill: true,
-                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                maxBarThickness: 20
-            },
-            ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
+                    for (let i = 0; i < res.data[1].length; i++) {
+                        if (res.data[1][i].order_status == "Chờ giao hàng") {
+                            var shipping = res.data[1][i]["count(order_status)"] * 100 / total;
+                            console.log(shipping);
+                        }
+                        if (res.data[1][i].order_status == "Chờ tiếp nhận") {
+                            var waiting = res.data[1][i]["count(order_status)"] * 100 / total;
+                            console.log(waiting);
+                        }
+                        if (res.data[1][i].order_status == "Đã hoàn thành") {
+                            var done = res.data[1][i]["count(order_status)"] * 100 / total;
+                            console.log(done);
+                        }
+                    }
+                    const ctx2 = document.getElementById('support-done-chart').getContext('2d');
+                    new Chart(ctx2, {
+                        type: "pie",
+                        data: {
+                            labels: ["Đã hoàn thành", "Chờ tiếp nhận", "Chờ giao hàng"],
+                            datasets: [{
+                                // tension: 0.4,
+                                // borderWidth: 0,
+                                // pointRadius: 0,
+                                // borderColor: "#DA007A",
+                                // borderWidth: 0,
+                                backgroundColor: ["#cb0c9f", "#17c1e8", "#f53939"],
+                                fill: true,
+                                data: [done, waiting, shipping]
+                            },
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    position: 'top',
+                                    text: 'Phần trăm thực hiện yêu cầu tiếp tế',
+                                    font: {
+                                        size: 20
+                                    }
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        font: {
+                                            size: 16
+                                        }
+                                    }
+                                }
+                            },
+                            /*interaction: {
+                              intersect: false,
+                              mode: 'index',
+                            }*/
+                        },
+                    });
                 }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index',
-            },
-            scales: {
-                y: {
-                    grid: {
-                        drawBorder: false,
-                        display: true,
-                        drawOnChartArea: true,
-                        drawTicks: false,
-                        borderDash: [5, 5]
-                    },
-                    ticks: {
-                        display: true,
-                        padding: 10,
-                        color: '#b2b9bf',
-                        font: {
-                            size: 16,
-                            family: "Roboto",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                    }
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false,
-                        borderDash: [5, 5]
-                    },
-                    ticks: {
-                        display: true,
-                        color: '#b2b9bf',
-                        padding: 20,
-                        font: {
-                            size: 16,
-                            family: "Roboto",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                    }
-                },
-            },
-        },
+
+                console.log(res.data);
+            }
+        });
     });
 </script>
+<script>
+    $(document).ready(function () {
+        const ctx1 = document.getElementById('support-chart').getContext('2d');
+        var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
 
+        gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
 
-{{!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
-    integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></> --}}
+        var gradientStroke2 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+        new Chart(ctx1, {
+            type: "bar",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Chờ tiếp nhận",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#DA007A",
+                    borderWidth: 0,
+                    backgroundColor: "#DA007A",
+                    fill: true,
+                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                    maxBarThickness: 20
+
+                },
+                {
+                    label: "Chờ giao hàng",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "none",
+                    borderWidth: 0,
+                    backgroundColor: "#DAA500",
+                    fill: true,
+                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                    maxBarThickness: 20
+                },
+                {
+                    label: "Đã hoàn thành",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#39DA00",
+                    borderWidth: 0,
+                    backgroundColor: '#39DA00',
+                    fill: true,
+                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                    maxBarThickness: 20
+                },
+                ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: true,
+                        position: 'top',
+                        text: 'Biểu đồ tiếp tế',
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 16,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 16,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    });
+
+</script>

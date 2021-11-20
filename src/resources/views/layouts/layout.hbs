@@ -14,21 +14,25 @@
 
     {{!-- BOXICONS --}}
     <link rel="stylesheet" href="/boxicons/css/boxicons.min.css">
-    {
 
     {{!-- FONTAWESOME --}}
     <link rel="stylesheet" href="/fontawesome/css/all.css">
 
+    <link rel="stylesheet" href="/vendor/animate/animate.css">
+
+    {{!-- DATA TABLE --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    
     {{!-- SOFT UI CSS --}}
     <link rel="stylesheet" href="/css/soft-ui-dashboard.min.css">
 
     {{!-- BOOTSTRAP --}}
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/vendor/animate/animate.css">
+
     {{!-- CUSTOM CSS --}}
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/plugins/countUp.js" type="module"></script>
+
     <title>COVID-S</title>
 </head>
 
@@ -36,24 +40,37 @@
 
     <div id="main-container">
         <div id="main">
+            {{#if session.user}}
+            {{>header}}
             {{>sidebar}}
+            <div class="content-container" id="content-container">
             {{{body}}}
+            </div>
+            {{else}}
+            <div class="content-container-no-log-in">
+                {{{body}}}
+            </div>
+            {{/if}}
+            
         </div>
     </div>
     {{>footer}}
 
 
-    <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
     {{!-- BOOTSTRAP JS --}}
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/soft-ui-dashboard.min.js"></script>
-    {{!-- IONICONS --}}
-    {{!-- <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script> --}}
-    
+    <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/js/plugins/countfect.min.js" type="module"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="/vendor/wow/wow.min.js"></script>
     <!--=============== MAIN JS ===============-->
     <script src="/js/main.js"></script>
     <script src="/js/sidebar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#receive-tb').DataTable({ responsive: true });
+        });
+    </script>
 </body>
 
 </html>

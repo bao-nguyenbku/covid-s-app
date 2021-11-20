@@ -1,7 +1,8 @@
 .order-table {
+  position: relative;
   border-collapse: collapse;
   border-spacing: 0;
-  width: 1400px;
+  width: 1200px !important;
   margin: 0 auto;
   th {
     cursor: pointer;
@@ -20,7 +21,7 @@
     tr {
       th {
         border-bottom: 2px solid #000;
-        padding: 10px 0 10px 0;
+        padding: 10px;
         &:nth-child(1) {
           padding-left: 10px;
         }
@@ -41,20 +42,6 @@
         &:last-child {
           padding-right: 10px;
         }
-      }
-      .done,
-      .sent,
-      .received {
-        text-align: start;
-      }
-      .done {
-        color: rgb(16, 194, 25);
-      }
-      .sent {
-        color: rgb(223, 0, 0);
-      }
-      .received {
-        color: rgb(226, 173, 0);
       }
       &:last-child {
         border-bottom: none;

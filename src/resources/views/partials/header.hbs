@@ -1,0 +1,32 @@
+<header class="header body-pd" id="header">
+  {{!-- TOGGLE SIDEBAR BUTTON --}}
+  <div class="header__toggle">
+    <i class='bx bx-menu' id="header-toggle"></i>
+  </div>
+  {{!-- LOGO TEXT --}}
+  <div class="header-logo">
+    <h2>COVID-S</h2>
+  </div>
+  <div class="header__account-area">
+    {{#if session.user}}
+    <div class="header__img">
+      <div class="btn-group">
+        <img src="/upload/{{session.user.avatar}}" alt="" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          aria-expanded="false">
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="/profile">Tài khoản của tôi</a></li>
+          <li><a class="dropdown-item" href="/loggout" style="color: red;">Đăng xuất</a></li>
+        </ul>
+      </div>
+    </div>
+    {{else}}
+    <div class="header__sign-in">
+      <a href="/login">Đăng nhập</a>
+    </div>
+    <div class="header__sign-in volunteer">
+      <a href="/register/volunteer">Đăng ký tình nguyên viên</a>
+    </div>
+    {{/if}}
+
+  </div>
+</header>
