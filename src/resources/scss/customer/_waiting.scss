@@ -78,9 +78,13 @@
   .order-detail-receive {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     font-size: 20px;
+    h5 {
+      width: 100%;
+      text-align: center;
+    }
   }
   .order-detail-body {
     h4 {

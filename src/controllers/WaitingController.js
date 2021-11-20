@@ -17,7 +17,18 @@ exports.showDetail = (req, res, next) => {
     db.query(sql, [req.body.id, req.body.id], (err, result) => {
         if (err) throw err;
         if (result.length > 0) {
-            res.json(result);
+            
+            if (result[0][0].volunteer_id) {
+                sql = "select * from `account` where id = ?";
+                db.query(sql, [result[0][0].volunteer_id], (err, re) => {
+                    if (err) throw err;
+                    res.json({ orders: result[0], order_items: result[1], volunteer: re});
+                });
+            }
+            else {
+                res.json({ orders: result[0], order_items: result[1] });
+            }
+
         }
     });
 }

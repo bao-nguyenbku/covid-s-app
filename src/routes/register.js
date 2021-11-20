@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 router.get('/volunteer', (req, res, next) => {
     res.render('volunteer/register');
 });
+router.post('/volunteer', UserController.volunteerRegistier);
 // Post register data
 router.post('/',UserController.register);
 module.exports = router;

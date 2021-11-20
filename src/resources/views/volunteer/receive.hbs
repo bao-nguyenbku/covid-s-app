@@ -12,7 +12,7 @@
             </select>
         </div>
         <div class="receive-tb-container">
-            <table id="receive-tb">
+            <table id="receive-tb" class="order-table">
                 <thead>
                     <tr>
                         <th>Mã đơn</th>
@@ -23,35 +23,44 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each result}}
+                    {{#if (equal this.volunteer_id null)}}
                     <tr>
-                        <td>#1234</td>
-                        <td>Thúy Ngân</td>
-                        <td>Số 12B, đường Võ Văn Ngân</td>
-                        <td>12:00AM 12/11/2021</td>
+                        <td>{{this.order_id}}</td>
+                        <td>{{this.last_name}} {{this.first_name}}</td>
+                        <td>{{this.address}}</td>
+                        <td>{{formatDate this.create_time}}</td>
                         <td>
                             <div class="receive-btn-area">
-                                {{!-- <button type="button" class="btn btn-light">Chi tiết</button> --}}
-                                <button type="button" class="btn btn-success">Nhận</button>
+                                <button type="button" data-id="{{this.order_id}}" class="btn btn-success receive-btn">Nhận</button>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>#4567</td>
-                        <td>Hoài Nam</td>
-                        <td>123, đường số 4, quận 5, TP Hồ Chí Minh</td>
-                        <td>12:00AM 12/11/2021</td>
-                        <td>
-                            <div class="receive-btn-area">
-                                {{!-- <button type="button" class="btn btn-light">Chi tiết</button> --}}
-                                <button type="button" class="btn btn-success">Nhận</button>
-                            </div>
-                        </td>
-                    </tr>
+                    {{/if}}
+                    {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.receive-btn').click(function() {
+        const orderId = $(this).data('id');
+        {{!-- console.log(orderId); --}}
+        $.ajax({
+            type: "post",
+            url: "/receive/confirm",
+            data: { id: orderId },
+            dataType: "json",
+            success: function(res) {
+                if (res == 200) {
+                    window.location.reload();
+                }
+            }
+        });
+    });
+});
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</script>

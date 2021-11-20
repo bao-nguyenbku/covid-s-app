@@ -77,20 +77,6 @@
 .order-table tbody tr td:last-child {
   padding-right: 10px;
 }
-.order-table tbody tr .done,
-.order-table tbody tr .sent,
-.order-table tbody tr .received {
-  text-align: start;
-}
-.order-table tbody tr .done {
-  color: #10c219;
-}
-.order-table tbody tr .sent {
-  color: #df0000;
-}
-.order-table tbody tr .received {
-  color: #e2ad00;
-}
 .order-table tbody tr:last-child {
   border-bottom: none;
 }

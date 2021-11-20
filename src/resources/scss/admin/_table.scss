@@ -43,20 +43,6 @@
           padding-right: 10px;
         }
       }
-      .done,
-      .sent,
-      .received {
-        text-align: start;
-      }
-      .done {
-        color: rgb(16, 194, 25);
-      }
-      .sent {
-        color: rgb(223, 0, 0);
-      }
-      .received {
-        color: rgb(226, 173, 0);
-      }
       &:last-child {
         border-bottom: none;
       }
