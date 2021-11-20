@@ -1,7 +1,5 @@
 .homepage-container {
-  margin-top: 40px;
   animation: transitionIn 1s;
-  padding-left: 70px;
 }
 .homepage-content {
   background-image: url('/img/homepage_background_2.jpeg');
@@ -20,7 +18,7 @@
       -webkit-text-fill-color: transparent;
       background-image: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
 
-      font-size: 150px;
+      font-size: 100px;
       font-weight: 600;
     }
   }
@@ -158,9 +156,8 @@
   position: relative;
   .btn-custom {
     width: max-content;
-    border-radius: 30px;
-    font-size: 25px;
-    height: 62px;
+    border-radius: 20px;
+    height: 60px;
     text-align: center;
     border: none;
     background: rgb(3, 184, 226);
@@ -170,7 +167,10 @@
       rgba(33, 82, 255, 1) 100%
     );
     box-shadow: $back-blue-shadow;
-    
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 }
 .homepage-content-about-us {

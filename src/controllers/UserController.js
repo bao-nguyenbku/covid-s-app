@@ -144,6 +144,7 @@ exports.loggout = (req, res, next) => {
     // res.json("Loggout");
     if (req.session.user) {
         req.session.destroy(() => {
+            req.session = null;
             res.redirect('/');
         });
     }

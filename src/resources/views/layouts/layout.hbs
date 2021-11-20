@@ -33,7 +33,6 @@
     {{!-- CUSTOM CSS --}}
     <link rel="stylesheet" href="/css/app.css">
 
-    {{!-- <script src="/js/plugins/countUp.js" type="module"></script> --}}
     <title>COVID-S</title>
 </head>
 
@@ -41,8 +40,18 @@
 
     <div id="main-container">
         <div id="main">
+            {{#if session.user}}
+            {{>header}}
             {{>sidebar}}
+            <div class="content-container" id="content-container">
             {{{body}}}
+            </div>
+            {{else}}
+            <div class="content-container-no-log-in">
+                {{{body}}}
+            </div>
+            {{/if}}
+            
         </div>
     </div>
     {{>footer}}
@@ -51,6 +60,7 @@
     {{!-- BOOTSTRAP JS --}}
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/js/plugins/countfect.min.js" type="module"></script>
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="/vendor/wow/wow.min.js"></script>
     <!--=============== MAIN JS ===============-->
