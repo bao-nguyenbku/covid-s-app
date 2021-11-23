@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const UserController = require('../controllers/UserController');
+router.get('/', UserController.showProfile);
 
-router.get('/', (req, res, next) => {
-    res.render('user/profile');
-});
+router.post('/', UserController.updateProfile);
+router.post('/update-avatar', UserController.updateAvatar);
 
 module.exports = router;

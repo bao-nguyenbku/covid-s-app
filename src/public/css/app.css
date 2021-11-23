@@ -766,6 +766,17 @@ body {
   width: max-content;
   margin: 0 auto;
 }
+.profile-container .avatar-and-name div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .avatar-and-name div #send-avatar {
+  border: none;
+  background: none;
+  text-decoration: underline;
+}
 .profile-container .avatar-and-name .a-edit {
   height: 150px;
   width: 150px;
@@ -789,6 +800,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  margin: 0;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
@@ -860,6 +872,9 @@ body {
 .edit-profile .left-side .info:nth-child(2), .edit-profile .left-side .info:nth-child(4) {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.edit-profile .left-side .custom-input {
+  padding-left: 10px;
 }
 .edit-profile .left-side .sex-info {
   display: flex;
