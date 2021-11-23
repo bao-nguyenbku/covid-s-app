@@ -4,7 +4,7 @@ const app = express();
 const expresshbs = require('express-handlebars');
 // const db = require('./config/db/DBconnection');
 const route = require('./routes');
-const fileUpload = require('express-fileupload');
+const upload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const port = 3060;
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
     next();
 });
   // For upload file to db
-app.use(fileUpload());
+app.use(upload());
 
 //--- Template engine ----------
 app.engine('hbs', expresshbs({

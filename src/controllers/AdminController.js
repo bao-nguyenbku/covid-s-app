@@ -21,6 +21,8 @@ exports.showDoctor = (req, res, next) => {
         res.render('admin/doctorStore', { layout: 'admin', result });
     });
 }
+
+
 // API
 exports.getSupportData = (req, res, next) => {
     let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
