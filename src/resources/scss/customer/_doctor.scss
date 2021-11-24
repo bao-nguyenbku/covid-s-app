@@ -58,11 +58,10 @@
   }
 
   .dtr-filter {
-    select {
-      position: relative;
-      height: 100%;
-      padding: 0;
-      margin: 0;
+    display: flex;
+    flex-direction: row;
+    #dtr-filter-list-re {
+      margin-left: 10px;
     }
   }
 }
@@ -239,13 +238,6 @@
     }
     .dtr-filter {
       height: 30px;
-      select {
-        position: relative;
-        height: 100%;
-        font-size: 13px;
-        padding: 0;
-        margin: 0;
-      }
     }
   }
   .dtr-profile-modal {

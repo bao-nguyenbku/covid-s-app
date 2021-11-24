@@ -8,6 +8,9 @@ router.get('/', /*auth('A'),*/ AdminController.dashboard);
 router.get('/member', /*auth('A'),*/ AdminController.member);
 router.get('/doctor', /*auth('A'),*/ AdminController.showDoctor);
 router.post('/doctor/add', /*auth('A'),*/ DoctorController.add);
+router.get('/doctor/:id', /*auth('A'),*/ DoctorController.getDoctor);
+router.post('/doctor/:id/edit', /*auth('A'),*/ DoctorController.update);
+router.get('/doctor/:id/delete', /*auth('A'),*/ DoctorController.delete);
 router.get('/member/api/support-done-chart', AdminController.getSupportData);
 
 module.exports = router;

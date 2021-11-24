@@ -233,6 +233,7 @@ body {
   font-size: 30px;
   left: 0;
   right: 0;
+  margin-left: 3px;
 }
 
 /*Show navbar movil*/
@@ -1327,11 +1328,12 @@ select {
   padding: 0;
   margin: 0;
 }
-.dtr_search .dtr-filter select {
-  position: relative;
-  height: 100%;
-  padding: 0;
-  margin: 0;
+.dtr_search .dtr-filter {
+  display: flex;
+  flex-direction: row;
+}
+.dtr_search .dtr-filter #dtr-filter-list-re {
+  margin-left: 10px;
 }
 
 .dtr-container {
@@ -1458,13 +1460,6 @@ select {
   }
   .dtr_search .dtr-filter {
     height: 30px;
-  }
-  .dtr_search .dtr-filter select {
-    position: relative;
-    height: 100%;
-    font-size: 13px;
-    padding: 0;
-    margin: 0;
   }
 
   .dtr-profile-modal {
@@ -1598,6 +1593,13 @@ select {
 }
 .order-table tbody tr:last-child {
   border-bottom: none;
+}
+
+.receive-filter {
+  width: 200px;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .card-container {
