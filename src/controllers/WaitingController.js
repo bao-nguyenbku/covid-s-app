@@ -1,15 +1,32 @@
-const mysql = require('mysql');
+// const mysql = require('mysql');
 const db = require('../config/db/DBconnection');
-const Order = require('../models/Order');
-const Item = require('../models/Item');
+// const Order = require('../models/Order');
+// const Item = require('../models/Item');
 
 
 exports.show = (req, res, next) => {
-    let sql = "SELECT * FROM `order`; SELECT * FROM order_item;";
-    db.query(sql, (err, result) => {
-        if (err) throw err;
-        res.render('user/waiting', { orders: result[0], items: result[1] });
-    });
+    if (req.session.user) {
+        let sql = "select id from account where phone_number = ?";
+        db.query(sql, [req.session.user.phone_number], (err, re) => {
+            if (err) throw err;
+            const id = re[0].id;
+            let sql2 = "SELECT * FROM `order` where customer_id = ?;";
+            db.query(sql2, [id], (err, orders) => {
+                if (err) throw err;
+                if (orders.length > 0) {
+                    let sql3 = "select * from order_item;";
+                    db.query(sql3, (err, result) => {
+                        // res.json(result);
+                        if (err) throw err;
+                        res.render('user/waiting', { orders: orders, items: result });
+                    });
+                }
+                else {
+                    res.render('user/waiting', { orders:  null, items: null});
+                }
+            });
+        });
+    }
 }
 exports.showDetail = (req, res, next) => {
     // let sql = "SELECT * FROM `order`, order_item WHERE `order`.id = ? AND `order`.id = order_item.order_id;";

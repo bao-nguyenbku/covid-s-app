@@ -6,7 +6,6 @@ $(document).ready(function () {
             url: '/admin/doctor/' + id,
             dataType: 'json',
             success: function (res) {
-                console.log(res);
                 $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor').attr('action', `/admin/doctor/${res.data.id}/edit`);
 
                 $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor .row .col-md-6:first-child .form-group input').val(`${res.data.name}`);
@@ -19,7 +18,7 @@ $(document).ready(function () {
 
                 $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor .row .col-md-6:nth-child(5) .form-group input').val(`${res.data.experience}`);
 
-                $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor .row .col-md-6:nth-child(6) .form-group input').val(`${res.data.support_zone}`);
+                $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor .row .col-md-6:nth-child(6) .form-group select').val(`${res.data.support_zone}`);
 
                 $('#exampleModal-2 .modal-dialog .modal-body #edit-doctor .row .col-md-6:nth-child(7) .form-group textarea').val(`${res.data.descriptions}`);
 
@@ -28,11 +27,19 @@ $(document).ready(function () {
         });
     });
 });
-function imagePreview(event) {
+function imagePreview(event, num) {
     if (event.target.files.length > 0) {
         var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("image-preview") || document.getElementById("image-preview-2");
-        preview.src = src;
-        preview.style.display = "block";
+        if (num == 1) {
+            var preview = document.getElementById("image-preview-1");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+        if (num == 2) {
+            var preview = document.getElementById("image-preview-2");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+        
     }
 }
