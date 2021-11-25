@@ -3,5 +3,5 @@
     "user": "root",
     "password": "",
     "port": 3306,
-    "database": "covid"
+    "database": "covid_support"
 }
