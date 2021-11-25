@@ -1250,6 +1250,75 @@ select {
   text-align: center;
 }
 
+.title-time {
+  text-align: center;
+  padding-left: auto;
+  padding-right: auto;
+  color: #0e2b6c;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.order-table1 {
+  position: relative;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 1200px !important;
+  margin: 0 auto;
+}
+.order-table1 th {
+  cursor: pointer;
+}
+.order-table1 thead tr th {
+  border-bottom: 2px solid #000;
+  padding: 10px;
+}
+.order-table1 thead tr th:nth-child(1) {
+  padding-left: 10px;
+}
+.order-table1 thead tr th:last-child {
+  padding-right: 10px;
+}
+.order-table1 tbody tr td {
+  padding: 15px;
+}
+.order-table1 tbody tr td:first-child {
+  padding-left: 10px;
+}
+.order-table1 tbody tr td:last-child {
+  padding-right: 10px;
+}
+.order-table1 tbody tr td input {
+  width: 90%;
+}
+.order-table1 tbody tr:last-child {
+  border-bottom: none;
+}
+
+.save-order-btn {
+  float: right;
+  width: max-content;
+  height: max-content;
+  padding: 5px 10px;
+  font-size: 18px;
+  margin-left: auto;
+  margin-top: 20px;
+  border: none;
+  background: #03b8e2;
+  background: linear-gradient(300deg, #e26f03 0%, #f35618 100%);
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  box-shadow: #e42626 0px 5px 30px -10px;
+  transition: transform 0.5s;
+}
+
+.save-order-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
 @media screen and (max-width: 744px) {
   .waiting-content {
     width: 100%;
