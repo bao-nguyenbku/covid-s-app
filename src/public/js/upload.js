@@ -1,5 +1,4 @@
 //declearing html elements
-
 const imgDiv = document.querySelector('.a-edit');
 const img = document.querySelector('#photo');
 const file = document.querySelector('#file');

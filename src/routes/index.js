@@ -8,6 +8,7 @@ const waitingRouter = require('./waiting');
 const doctorRouter = require('./doctor');
 const adminRouter = require('./admin');
 const receiveRouter = require('./receive');
+//const orderRouter = require('./order');
 
 function route(app) {
     app.use('/doctor', doctorRouter);
@@ -19,6 +20,7 @@ function route(app) {
     app.use('/loggout', loggoutRouter);
     app.use('/register', registerRouter);
     app.use('/profile', profileRouter);
+    //app.use('/order', orderRouter);
     app.use('/', homeRouter);
 }
 

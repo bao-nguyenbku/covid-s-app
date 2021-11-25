@@ -1,6 +1,7 @@
 {
     "host": "localhost",
     "user": "root",
-    "password": "phamvannhan",
-    "database": "covid_support"
+    "password": "",
+    "port": 3306,
+    "database": "covid"
 }

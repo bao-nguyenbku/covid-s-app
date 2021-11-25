@@ -1,0 +1,52 @@
+{{#each orders}}
+<div class="receive-container">
+    <div class="receive-tb-container">
+        <form action="/waiting/update-order" method="POST" id="edit-order">
+            <div class="title" style="margin: 0px;">Mã đơn: {{this.id}}
+                <input type="text" style="color: black; display:none;" value="{{this.id}}" name="idOrder">
+            </div>
+            <div class="title-time" style="margin-bottom: 20px;"> Đã gửi lúc: {{formatDate this.create_time}}</div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Địa chỉ</span>
+                    <input type="text" class="form-control custom-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" value="{{this.address}}" name="address">
+                </div>
+            </div>
+            {{/each}}
+            <table class="order-table1">
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each order_items}}
+                    <tr>
+                        <td><input type="text" value="{{this.item_name}}" name="nameItems[]"></td>
+                        <td><input type="text" value="{{this.quantity}}" name="quantity[]"></td>
+                        <td><input type="text" value="{{this.note}}" name="note[]"></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="button-area">
+                <button class="save-order-btn" id="save-order-btn" type="submit">Lưu thay đổi</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    function formatDate(date) {
+        if (date) {
+            let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+            return new Date(date).toLocaleDateString("vi-VN", option);
+        }
+    }
+
+</script>
+{{!-- <script src="/js/updateOrder.js"></script> --}}

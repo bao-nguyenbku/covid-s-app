@@ -1,33 +1,32 @@
-<nav id="navbar">
-  <div class="menu">
-    <input type="checkbox" id="check">
-    <div class="logo"><a href="#">COVID-S</a></div>
-    <ul class="text-bar">
-      <label class="btn cancel" for="check"><i class="fas fa-times"></i></label>
-      <li><a href="/">Trang chủ</a></li>
-      <li><a href="/#about">Về chúng tôi</a></li>
-      <li><a href="#">Liên hệ</a></li>
-    </ul>
+<header class="header body-pd" id="header">
+  {{!-- TOGGLE SIDEBAR BUTTON --}}
+  <div class="header__toggle">
+    <i class='bx bx-menu' id="header-toggle"></i>
+  </div>
+  {{!-- LOGO TEXT --}}
+  <div class="header-logo">
+    <h2>COVID-S</h2>
+  </div>
+  <div class="header__account-area">
     {{#if session.user}}
-    <div class="account-container">
-      <button class="account-btn" type="button" onclick="dropDownMenu()">
-        <img src="/upload/{{session.user.image}}" alt="avatar" class="avatar">
-        <span>{{session.user.firstName}}</span>
-      </button>
-      <div id="toggle-dropdown" class="dropdown-menu">
-        <li class="my-account"><a href="/profile">Tài khoản của tôi</a></li>
-        <li class="loggout"><a href="/loggout">Đăng xuất</a></li>
+    <div class="header__img">
+      <div class="btn-group">
+        <img src="/upload/avatar_user/{{session.user.avatar}}" alt="" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          aria-expanded="false">
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="/profile">Tài khoản của tôi</a></li>
+          <li><a class="dropdown-item" href="/loggout" style="color: red;">Đăng xuất</a></li>
+        </ul>
       </div>
     </div>
-    
-    
-    
     {{else}}
-      <div class="sign-in-container">
-        <li class="sign-button"><a href="/login">Đăng nhập</a> / <a href="/register">Đăng ký</a></li>
-      </div>
+    <div class="header__sign-in">
+      <a href="/login">Đăng nhập</a>
+    </div>
+    <div class="header__sign-in volunteer">
+      <a href="/register/volunteer">Đăng ký tình nguyên viên</a>
+    </div>
     {{/if}}
-    <label for="check" class="btn bars"><i class="fas fa-bars"></i></label>
+
   </div>
-  </div>
-</nav>
+</header>

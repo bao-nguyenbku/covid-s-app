@@ -21,7 +21,7 @@ body {
 }
 
 @import 'container';
-@import 'navbar';
+@import 'new_sidebar';
 @import 'login';
 @import 'footer';
 @import 'homepage';
@@ -29,6 +29,6 @@ body {
 @import 'customer/support';
 @import 'customer/waiting';
 @import 'customer/doctor';
+@import 'customer/shipping';
 @import 'volunteer/receive';
 @import 'volunteer/accept';
-@import 'new_sidebar';
