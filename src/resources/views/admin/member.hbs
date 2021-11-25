@@ -14,51 +14,19 @@
         </tr>
       </thead>
       <tbody>
+        {{#each data}}  
+        {{#if (equal this.accept "T")}}  
         <tr>
-          <td>#12</td>
-          <td>21-10-2021 15:30</td>
-          <td>Nguyễn Thị</td>
-          <td>An</td>
-          <td>0912456789</td>
-          <td>145</td>
-          <td>144</td>
+          <td>{{this.id}}</td>
+          <td>{{this.create_time}}</td>
+          <td>{{this.last_name}}</td>
+          <td>{{this.first_name}}</td>
+          <td>{{this.phone_number}}</td>
+          <td>1</td>
+          <td>1</td>
         </tr>
-        <tr>
-          <td>#16</td>
-          <td>12-10-2021 15:30</td>
-          <td>Nguyễn Thiên</td>
-          <td>Công</td>
-          <td>0913542167</td>
-          <td>167</td>
-          <td>160</td>
-        </tr>
-        <tr>
-          <td>#25</td>
-          <td>19-10-2021 15:30</td>
-          <td>Nguyễn Trần Phước</td>
-          <td>Tài</td>
-          <td>0894256624</td>
-          <td>180</td>
-          <td>180</td>
-        </tr>
-        <tr>
-          <td>#25</td>
-          <td>19-10-2021 15:30</td>
-          <td>Nguyễn Trần Phước</td>
-          <td>Tài</td>
-          <td>0894256624</td>
-          <td>89</td>
-          <td>89</td>
-        </tr>
-        <tr>
-          <td>#25</td>
-          <td>19-10-2021 15:30</td>
-          <td>Nguyễn Trần Phước</td>
-          <td>Tài</td>
-          <td>0894256624</td>
-          <td>45</td>
-          <td>45</td>
-        </tr>
+        {{/if}}
+        {{/each}}
       </tbody>
     </table>
   </div>
@@ -76,16 +44,21 @@
         </tr>
       </thead>
       <tbody>
+        {{#each data}}
+        {{#if (equal this.accept "F")}}
         <tr>
-          <td>15:30:03, 12/12/2021</td>
-          <td>Nguyễn Thị</td>
-          <td>An</td>
-          <td>0912456789</td>
-          <td>annguyen@gmail.com</td>
+          <td>{{formatDate this.create_time}}</td>
+          <td>{{this.last_name}}</td>
+          <td>{{this.first_name}}</td>
+          <td>{{this.phone_number}}</td>
+          <td>{{this.email}}</td>
           <td><button class="btn bg-gradient-success">Chấp nhận yêu cầu</button></td>
         </tr>
+        {{/if}}
+        {{/each}}
+
       </tbody>
     </table>
   </div>
-  
+
 </div>

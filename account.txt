@@ -9,3 +9,6 @@ pass: 123
 id: 012345678
 pass: ngan
 -------------------------------
+Lê Minh Chuẩn: TNV
+id: 1234567890
+pass: lechuan

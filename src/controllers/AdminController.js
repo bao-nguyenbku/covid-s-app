@@ -18,7 +18,12 @@ exports.dashboard = (req, res, next) => {
 }
 
 exports.member = (req, res, next) => {
-    res.render('admin/member', { layout: 'admin' });
+    let sql = "select * from volunteer, `account` where account_id = id";
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        // res.json(result);
+        res.render('admin/member', { layout: 'admin', data: result });
+    });
 }
 exports.showDoctor = (req, res, next) => {
     let sql = "select * from doctor;";
