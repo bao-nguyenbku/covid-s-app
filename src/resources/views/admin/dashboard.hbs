@@ -2,17 +2,17 @@
     <div class="overview">
         <div class="admin-summary admin-summary-1">
             <h5>Đã tiếp nhận</h5>
-            <h2>156</h2>
+            <h2>{{summary1.numOrders}}</h2>
             <h5>yêu cầu</h5>
         </div>
         <div class="admin-summary admin-summary-2">
             <h5>Hỗ trợ cho</h5>
-            <h2>240</h2>
+            <h2>{{summary2.numCus}}</h2>
             <h5>bệnh nhân</h5>
         </div>
         <div class="admin-summary admin-summary-3">
             <h5>Số tình nguyện viên</h5>
-            <h2>120</h2>
+            <h2>{{summary3.numVol}}</h2>
         </div>
     </div>
     <div class="chart-container">
@@ -20,7 +20,7 @@
             <form action="" class="chart-filter">
                 <select class="form-select" aria-label="Default select example" name="filter-chart"
                     onchange="this.form.submit()">
-                    <option value="" disabled="disabled" selected>Thống kê theo</option>
+                    <option disabled="disabled" selected>Thống kê theo</option>
                     <option value="today">Hôm nay</option>
                     <option value="week">Tuần này</option>
                     <option value="month">Tháng này</option>
@@ -35,7 +35,7 @@
             <form action="" class="chart-filter">
                 <select class="form-select" aria-label="Default select example" name="filter-chart"
                     onchange="this.form.submit()">
-                    <option value="" disabled="disabled" selected>Thống kê theo</option>
+                    <option disabled="disabled" selected>Thống kê theo</option>
                     <option value="today">Hôm nay</option>
                     <option value="week">Tuần này</option>
                     <option value="month">Tháng này</option>

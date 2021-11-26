@@ -7,32 +7,28 @@
             </a>
             <div class="nav__list">
                 <a href="/" class="nav__link" data-tab="tab0">
-
                     <i class="material-icons nav__icon" data-bs-toggle="tooltip" data-bs-placement="right"
                         title="Trang chủ">home</i>
                     <span class="nav__name">Trang chủ</span>
                 </a>
 
+                {{#if (equal session.user.role 'C')}}    
                 <a href="/support" class="nav__link" data-tab="tab1">
                     <i class='material-icons nav__icon'>support</i>
                     <span class="nav__name">Gửi yêu cầu tiếp tế</span>
                 </a>
-
                 <a href="/waiting" class="nav__link" data-tab="tab2">
                     <i class='bx bxs-time-five nav__icon'></i>
                     <span class="nav__name">Đơn đã gửi</span>
                 </a>
-
-                {{!-- <a href="/shipping" class="nav__link" data-tab="tab3">
-                    <i class='bx bxs-package nav__icon'></i>
-                    <span class="nav__name">Chờ giao hàng</span>
-                </a> --}}
+                {{/if}}
 
                 <a href="/doctor" class="nav__link" data-tab="tab3">
                     <i class='material-icons nav__icon'>medication</i>
                     <span class="nav__name">Bác sĩ tư vấn</span>
                 </a>
                 <hr>
+                {{#if (equal session.user.role 'V')}}
                 <a href="/receive" class="nav__link" data-tab="tab4">
                     <i class='material-icons nav__icon'>local_mall</i>
                     <span class="nav__name">Nhận yêu cầu</span>
@@ -41,10 +37,11 @@
                     <i class='material-icons nav__icon'>receipt_long</i>
                     <span class="nav__name">Yêu cầu đã nhận</span>
                 </a>
-                <a href="#" class="nav__link" data-tab="tab6">
+                {{/if}}
+                {{!-- <a href="#" class="nav__link" data-tab="tab6">
                     <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
                     <span class="nav__name">Analytics</span>
-                </a>
+                </a> --}}
             </div>
         </div>
     </nav>

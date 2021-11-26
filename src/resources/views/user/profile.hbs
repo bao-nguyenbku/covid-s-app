@@ -11,8 +11,10 @@
       {{!-- <button type="button" id="send-avatar">Lưu ảnh</button> --}}
     </div>
     <div class="profile-name">
-      <h2>Nguyễn Thiên Bảo</h2>
-      <h4>Người dùng</h4>
+      <h2>{{account.last_name}} {{account.first_name}}</h2>
+      {{#if (equal account.role 'V')}}  
+      <h4>Tình nguyện viên</h4>
+      {{/if}}
     </div>
   </div>
 
@@ -48,7 +50,7 @@
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-text" id="inputGroup-sizing-default">Ngày sinh</span>
-            <input class="form-control custom-input" type="date" value="{{account.date_of_birth}}"
+            <input class="form-control custom-input" type="date" value="{{formatDateUS account.date_of_birth}}"
               id="example-date-input" name="birthDay">
           </div>
         </div>

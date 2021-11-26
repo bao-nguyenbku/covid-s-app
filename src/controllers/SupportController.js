@@ -13,7 +13,7 @@ exports.create = (req, res, next) => {
         if (err) throw err;
         if (customer_id) {
             const cusId = customer_id[0]["id"];
-            let sql_order = 'INSERT INTO `order` (create_time, address, customer_id)  VALUES (?, ?, ?)';
+            let sql_order = "INSERT INTO `order` (create_time, address, order_status, customer_id)  VALUES (?, ?,'Chờ tiếp nhận', ?)";
             db.query(sql_order, [createTime, req.body.address, cusId], (err, result) => {
                 if (err) throw err;
                 if (result) {
