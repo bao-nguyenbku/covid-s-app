@@ -280,8 +280,21 @@
   .header-logo {
     display: none;
   }
+  .header {
+    .header__account-area {
+      .header__sign-in {
+        a {
+          font-size: 17px;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 744px) {
+  .header-no-log-in {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .header-logo {
     display: none;
   }
@@ -293,6 +306,18 @@
   .header__account-area {
     .header__sign-in {
       font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    .header__account-area {
+      .header__sign-in {
+        a {
+          font-size: 13px;
+        }
+      }
     }
   }
 }

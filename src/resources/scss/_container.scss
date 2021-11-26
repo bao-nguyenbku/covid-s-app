@@ -25,12 +25,21 @@
 .content-container-no-log-in {
   width: 100%;
   top: 0;
+  margin-top: 64px;
 }
 @media screen and (max-width: 744px) {
   .content-container {
     padding-right: 20px;
     &.content-active {
       padding-left: 20px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .content-container {
+    padding-right: 5px;
+    &.content-active {
+      padding-left: 5px;
     }
   }
 }

@@ -55,6 +55,7 @@ body {
 .content-container-no-log-in {
   width: 100%;
   top: 0;
+  margin-top: 64px;
 }
 
 @media screen and (max-width: 744px) {
@@ -63,6 +64,14 @@ body {
   }
   .content-container.content-active {
     padding-left: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .content-container {
+    padding-right: 5px;
+  }
+  .content-container.content-active {
+    padding-left: 5px;
   }
 }
 :root {
@@ -314,8 +323,17 @@ body {
   .header-logo {
     display: none;
   }
+
+  .header .header__account-area .header__sign-in a {
+    font-size: 17px;
+  }
 }
 @media screen and (max-width: 744px) {
+  .header-no-log-in {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .header-logo {
     display: none;
   }
@@ -327,6 +345,11 @@ body {
 
   .header__account-area .header__sign-in {
     font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .header .header__account-area .header__sign-in a {
+    font-size: 13px;
   }
 }
 .login-center {
@@ -469,6 +492,11 @@ body {
   color: #fff;
 }
 
+@media (max-width: 430px) {
+  .login-center {
+    width: 100%;
+  }
+}
 #site-footer {
   position: relative;
   height: 70px;
@@ -586,10 +614,13 @@ body {
   }
 }
 @media screen and (max-width: 400px) {
+  #site-footer {
+    height: 90px;
+  }
+
   .footer-social-container {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
   }
   .footer-social-container .footer-social {
     margin-left: auto;
@@ -597,7 +628,7 @@ body {
   }
   .footer-social-container .footer-copyright {
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 6px;
   }
 }
 .homepage-container {
@@ -605,10 +636,11 @@ body {
 }
 
 .homepage-content {
-  background-image: url("/img/homepage_background_2.jpeg");
+  background-image: url("/img/homepage_background_2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: 0 -150px;
   padding-left: 50px;
 }
 .homepage-content .homepage-title h1 {
@@ -754,8 +786,7 @@ body {
   display: flex;
   position: relative;
   margin-top: 50px;
-  padding-left: 50px;
-  padding-bottom: 300px;
+  padding: 0 20px 300px 20px;
 }
 
 .homepage-content-img {
@@ -769,6 +800,74 @@ body {
   margin-right: 0;
 }
 
+@media (max-width: 744px) {
+  .homepage-content-about-us {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homepage-content {
+    padding: 0;
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .homepage-content-img {
+    width: 100%;
+    position: relative;
+    height: 500px;
+    background-image: url(/img/meeting_2.png);
+    border-radius: 5%;
+    margin-right: 0;
+    right: 0;
+  }
+
+  .homepage-content-about-us-title {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    color: linear-gradient(300deg, #03b8e2 0%, #2152ff 100%);
+  }
+
+  .homepage-content .homepage-title h1 {
+    font-size: 60px;
+  }
+  .homepage-content .homepage-title #slogan {
+    font-size: 30px;
+  }
+
+  .achievement-content h1 {
+    font-size: 30px;
+  }
+  .achievement-content .content-block div p {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 400px) {
+  #slogan {
+    font-size: 21px !important;
+  }
+
+  .achievement-content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .achievement-content h1 {
+    font-size: 30px;
+  }
+  .achievement-content .content-block {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-column-gap: 5px !important;
+    grid-row-gap: 5px !important;
+  }
+  .achievement-content .content-block div p {
+    font-size: 15px !important;
+  }
+  .achievement-content .content-block div h4 {
+    font-size: 60px !important;
+  }
+}
 .profile-container {
   margin: auto 0;
   padding: 0;

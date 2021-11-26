@@ -136,7 +136,7 @@
 
                         $('#order-detail .order-detail-title p:nth-child(2)').html(`Đã gửi lúc: <strong>${formatDate(res.orders[0].create_time)}</strong>`);
 
-                        $('#order-detail .order-detail-title p:nth-child(3)').html(`Địa chỉ nhận: <span class="badge bg-gradient-dark">${res.orders[0].address}</span>`);
+                        $('#order-detail .order-detail-title p:nth-child(3)').html(`Địa chỉ nhận: <p><strong>${res.orders[0].address}</strong></p>`);
 
                         if (res.orders[0].order_status == "Chờ tiếp nhận") {
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-warning">${res.orders[0].order_status}</span>`);
