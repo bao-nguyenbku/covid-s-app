@@ -1,95 +1,32 @@
-<div class="content-container" id="content-container">
-    <div class="title">YÊU CẦU BẠN ĐÃ NHẬN</div>
-    <div class="card-container">
-        <div class="card" onclick="modalDetail(1)">
-            {{!-- <div class="card-header">
-                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-            </div> --}}
-            <div class="card-body">
-                <span class="tag tag-teal1">Quận Bình Tân</span>
-                <h3>
-                    Thịt bò, dưa leo, cà chua, bột ngọt,...
-                </h3>
-                <p>
-                    12, đường 3D, phường An Lạc, Bình Tân
-                </p>
-                <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                        alt="user" />
-                    <div class="user-info">
-                        <h5>Thúy Ngân</h5>
-                        <small>2h ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="modalDetail(2)">
-            {{!-- <div class="card-header">
-                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-            </div> --}}
-            <div class="card-body">
-                <span class="tag tag-teal2">Quận 2</span>
-                <h3>
-                    Thịt bò, dưa leo, cà chua, bột ngọt,...
-                </h3>
-                <p>
-                    12, đường 3D, phường An Lạc, Bình Tân
-                </p>
-                <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                        alt="user" />
-                    <div class="user-info">
-                        <h5>Hoài Nam</h5>
-                        <small>3h ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="modalDetail(3)">
-            {{!-- <div class="card-header">
-                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-            </div> --}}
-            <div class="card-body">
-                <span class="tag tag-teal3">Quận 6</span>
-                <h3>
-                    Thịt bò, dưa leo, cà chua, bột ngọt,...
-                </h3>
-                <p>
-                    12, đường 3D, phường An Hòa, Quận 6
-                </p>
-                <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                        alt="user" />
-                    <div class="user-info">
-                        <h5>Như Ý</h5>
-                        <small>12mins ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="modalDetail(4)">
-            {{!-- <div class="card-header">
-                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-            </div> --}}
-            <div class="card-body">
-                <span class="tag tag-teal4">Huyện Nhà Bè</span>
-                <h3>
-                    Thịt bò, dưa leo, cà chua, bột ngọt,...
-                </h3>
-                <p>
-                    12, đường 3D, phường An Lạc, huyện Nhà Bè
-                </p>
-                <div class="user">
-                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                        alt="user" />
-                    <div class="user-info">
-                        <h5>Thúy Ngân</h5>
-                        <small>4h ago</small>
-                    </div>
+<div class="title">YÊU CẦU BẠN ĐÃ NHẬN</div>
+<div class="card-container">
+    {{#each data}}
+    <div class="card" onclick="modalDetail(1)">
+        {{!-- <div class="card-header">
+            <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+        </div> --}}
+        <div class="card-body">
+            <span class="tag tag-teal1">Quận Bình Tân</span>
+            <h3>
+                Thịt bò, dưa leo, cà chua, bột ngọt (chưa hoàn thành)
+            </h3>
+            <p>
+                {{address}}
+            </p>
+            <div class="user">
+                <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
+                    alt="user" />
+                <div class="user-info">
+                    <h5> {{name}} </h5>
+                    <small>{{formatDate time}}</small>
                 </div>
             </div>
         </div>
     </div>
+    {{/each}}
+</div>
+
+<!--
     <div class="card-modal">
         <div class="card-modal-header">
             <div class="user">
@@ -184,10 +121,6 @@
 
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
 <script>
     const cardModal = document.querySelectorAll('.card-modal');
     function modalDetail(e) {
@@ -204,4 +137,8 @@
         console.log('Close');
         $('.card-modal').removeClass('modal-active');
     }
-</script>
+    -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{{!--
+<script src="/js/new_sidebar.js"></script> --}}

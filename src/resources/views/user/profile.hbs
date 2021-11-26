@@ -1,135 +1,145 @@
-<div class="content-container" id="content-container">
-    <div class="profile-container">
-        <div class="avatar-and-name">
-            <form class="a-edit" action="" method="post" id="edit-profile-1">
-                <img src="/upload/avatar.jpg" id="photo">
-                <input type="file" id="file">
-                <label for="file" id="uploadBtn">Choose Photo</label>
-                <script src="/js/upload.js"></script>
-            </form>
-
-            <div class="profile-name">
-                <h2>Nguyễn Thiên Bảo</h2>
-                <h4>Người dùng</h4>
-            </div>
-        </div>
-
-        {{!-- Begin infomation container --}}
-        <div class="personal-info">
-            <form action="#" method="POST" class="edit-profile" id="edit-profile-2">
-                <div class="left-side">
-                    {{!-- Last Name --}}
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Họ và tên lót</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
-                    </div>
-
-                    {{!-- First Name --}}
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Tên</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
-                    </div>
-
-                    {{!-- Sex --}}
-                    <div class="sex-info">
-                         <label>
-                            <input type="radio" name="radio" checked />
-                            <span>Nam</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio" />
-                            <span>Nữ</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio" />
-                            <span>Khác</span>
-                        </label>
-                    </div>
-                    {{!-- Phone Number --}}
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Số điện thoại</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Ngày sinh</span>
-                            <input class="form-control" type="date" value="2018-11-23" id="example-date-input">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="right-side">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn bg-gradient-info" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        Thêm địa chỉ
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn bg-gradient-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn bg-gradient-danger">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{!-- <div class="info">
-                        <select name="district" id="district">
-                            <option value="blank" selected>Quận/Huyện</option>
-                            <option value="d1">Quận 1</option>
-                            <option value="d2">Quận 2</option>
-                            <option value="d4">Quận 4</option>
-                            <option value="d5">Quận 5</option>
-                            <option value="d6">Quận 6</option>
-                            <option value="d7">Quận 7</option>
-                            <option value="d8">Quận 8</option>
-                        </select>
-                    </div>
-                    <div class="info">
-                        <select name="town" id="town">
-                            <option value="blank" selected>Phường/Xã</option>
-                            <option value="t1">phường 1</option>
-                            <option value="t2">phường 2</option>
-                            <option value="t4">phường 4</option>
-                            <option value="t5">phường 5</option>
-                            <option value="t6">phường 6</option>
-                            <option value="t7">phường 7</option>
-                            <option value="t8">phường 8</option>
-                        </select>
-                    </div>
-                    <div class="info">
-                        <label for="house-number">Số nhà, đường, khu phố</label>
-                        <input class="house-number" type="text" value="36, đường Lý Thường Kiệt" name="houseNumber">
-                    </div> --}}
-                    <div class="button-area">
-                        <button class="save-profile-btn" type="submit">Lưu thay đổi</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        {{!-- End infomation container --}}
+<div class="profile-container">
+  <div class="avatar-and-name">
+    <div>
+      <form class="a-edit" action="/profile/update-avatar" method="post" id="edit-profile-1"
+        enctype="multipart/form-data">
+        <img src="/upload/avatar_user/{{account.avatar}}" id="photo">
+        <input type="file" id="file" name="avatar" accept="image/*">
+        <label for="file" id="uploadBtn">Choose Photo</label>
+        <script src="/js/upload.js"></script>
+      </form>
+      {{!-- <button type="button" id="send-avatar">Lưu ảnh</button> --}}
     </div>
+    <div class="profile-name">
+      <h2>{{account.last_name}} {{account.first_name}}</h2>
+      {{#if (equal account.role 'V')}}  
+      <h4>Tình nguyện viên</h4>
+      {{/if}}
+    </div>
+  </div>
+
+  {{!-- Begin infomation container --}}
+  <div class="personal-info">
+    <form action="/profile" class="edit-profile" id="edit-profile-2" enctype="multipart/form-data">
+      <div class="left-side">
+        {{!-- Last Name --}}
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Họ và tên lót</span>
+            <input type="text" class="form-control custom-input" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default" value="{{account.last_name}}" name="lastName">
+          </div>
+        </div>
+
+        {{!-- First Name --}}
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Tên</span>
+            <input type="text" class="form-control custom-input" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default" value="{{account.first_name}}" name="firstName">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Số điện thoại</span>
+            <input type="text" class="form-control custom-input" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default" value="{{account.phone_number}}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ngày sinh</span>
+            <input class="form-control custom-input" type="date" value="{{formatDateUS account.date_of_birth}}"
+              id="example-date-input" name="birthDay">
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn bg-gradient-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Địa
+          chỉ</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Địa chỉ của bạn</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label for="">Hiện tại, ứng dụng này chỉ phục vụ khu vực Thành phố Hồ Chí Minh</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected="selected">Thành phố Hồ Chí Minh</option>
+                </select>
+                <br><br>
+                <select class="form-select" name="district" id="districts" aria-label="Default select example"
+                  onchange="getDistrict();">
+                  <option selected="selected" disabled>Chọn Quận/huyện</option>
+                  <option value="Quận 1">Quận 1</option>
+                  {{!-- <option value="Quận 2">Quận 2</option> --}}
+                  <option value="Quận 3">Quận 3</option>
+                  <option value="Quận 4">Quận 4</option>
+                  <option value="Quận 5">Quận 5</option>
+                  <option value="Quận 6">Quận 6</option>
+                  <option value="Quận 7">Quận 7</option>
+                  <option value="Quận 8">Quận 8</option>
+                  {{!-- <option value="Quận 9">Quận 9</option> --}}
+                  <option value="Quận 10">Quận 10</option>
+                  <option value="Quận 11">Quận 11</option>
+                  <option value="Quận 12">Quận 12</option>
+                  <option value="Quận Bình Tân">Quận Bình Tân</option>
+                  <option value="Quận Bình Thạnh">Quận Bình Thạnh</option>
+                  <option value="Quận Gò Vấp">Quận Gò Vấp</option>
+                  <option value="QuậN Phú Nhuận">Quận Phú Nhuận</option>
+                  <option value="Quận Tân Bình">Quận Tân Bình</option>
+                  <option value="Quận Tân Phú">Quận Tân Phú</option>
+                  <option value="Thành phố Thủ Đức">Thành phố Thủ Đức</option>
+                  <option value="Huyện Bình Chánh">Huyện Bình Chánh</option>
+                  <option value="Huyện Cần Giờ">Huyện Cần Giờ</option>
+                  <option value="Huyện Củ Chi">Huyện Củ Chi</option>
+                  <option value="Huyện Hóc Môn">Huyện Hóc Môn</option>
+                  <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
+                </select>
+                <br><br>
+                <select class="form-select" name="ward" id="wards" aria-label="Default select example">
+                  <option selected="selected" disabled>Chọn Phường/xã</option>
+                </select>
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Địa chỉ</label>
+                  <input class="form-control" type="text" id="example-text-input" name="street">
+                </div>
+                <hr>
+                <div>
+                  <p style="text-align: center;">Địa chỉ đã thêm</p>
+                  <ul class="list-group">
+                    {{#each address}}
+                    <li class="list-group-item list-group-item-success">{{this.address}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+
+              <script src="/js/inputAddress.js"></script>
+
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-area">
+          <button class="save-profile-btn" id="save-profile-btn" type="button">Lưu thay đổi</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{!-- End infomation container --}}
 </div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script src="/js/updateProfile.js"></script>

@@ -1,45 +1,175 @@
-<div id="content-container" class="content-container">
-    <div class="title">Danh sách đơn yêu cầu đã gửi</div><br>
-    <div class="waiting-content">
-        <table class="list">
+<div class="title">Danh sách đơn yêu cầu đã gửi</div><br>
+<div class="waiting-content">
+    <table class="list">
+        <tr>
+            <th>Mã đơn</th>
+            <th>Thời gian tạo</th>
+            <th>Nội dung</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+        <tbody>
+
+            {{#each orders}}
             <tr>
-                <th>Mã đơn</th>
-                <th>Thời gian tạo</th>
-                <th>Nội dung</th>
-                <th></th>
+                <td>{{this.id}}</td>
+                <td>{{formatDate this.create_time}}</td>
+                <td>
+                    {{#each ../items}}
+                    {{#if (equal this.order_id ../this.id)}}
+                    {{this.item_name}},
+                    {{/if}}
+                    {{/each}}
+                </td>
+                <td>
+                    {{#if (equal this.order_status "Chờ tiếp nhận")}}
+                    <span class="badge bg-gradient-warning">{{this.order_status}}</span>
+                    {{/if}}
+
+                    {{#if (equal this.order_status "Chờ giao hàng")}}
+                    <span class="badge bg-gradient-info">{{this.order_status}}</span>
+                    {{/if}}
+
+                    {{#if (equal this.order_status "Đã hoàn thành")}}
+                    <span class="badge bg-gradient-success">{{this.order_status}}</span>
+                    {{/if}}
+                </td>
+                <td>
+                    <button type="button" class="btn bg-gradient-default button-detail" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" data-id="{{this.id}}">Chi tiết</button>
+                </td>
             </tr>
-            <tbody>
-                <tr>
-                    <td>#1234</td>
-                    <td>7:50 12/10/2021</td>
-                    <td>
-                        Bắp cải, gạo thơm lài, dưa,...
-                    </td>
-                    <td>
-                        <button type="button" class="button-detail">Chi tiết</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>#5678</td>
-                    <td>8:03 12/10/2021</td>
-                    <td>
-                        Dưa hấu, cá hú, thịt ba rọi,...
-                    </td>
-                    <td>
-                        <button type="button" class="button-detail">Chi tiết</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div><br>
-    <p class="note">*Đội tình nguyễn đã nhận yêu cầu của bạn, chúng tôi sẽ sớm liên lạc với bạn.</p>
+            {{/each}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div><br>
+{{#if orders}}
+<p class="note">*Đội tình nguyễn đã nhận yêu cầu của bạn, chúng tôi sẽ sớm liên lạc với bạn.</p>
+{{else}}
+<p class="note">Hiện tại bạn chưa có yêu cầu nào</p>
+{{/if}}
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chi tiết yêu cầu của bạn</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+
+            {{!-- Body of modal --}}
+
+            <div class="modal-body" id="order-detail">
+                <div class="order-detail-title">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <hr>
+                <div class="order-detail-receive">
+                    <h5>Tình nguyện viên nhận</h5>
+                    <p class="volunteer-receive-name"></p>
+                    <p class="volunteer-receive-phone"></p>
+                </div>
+                <hr>
+                <div class="order-detail-body">
+                    <h4>Sản phẩm bạn đã gửi</h4>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+
+            {{!-- End body of modal --}}
+
+            <div class="modal-footer">
+                <div id="btn-edit-detail-order"></div>
+                <div><button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
+
 <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    function formatDate(date) {
+        if (date) {
+            let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+            return new Date(date).toLocaleDateString("vi-VN", option);
+        }
+    }
+    $(document).ready(function () {
+
+        $('.button-detail').click(function () {
+            const id = $(this).data('id');
+            $.ajax({
+                type: 'post',
+                url: '/waiting/order-details',
+                data: { id: id },
+                dataType: 'json',
+                success: function (res) {
+                    if (res) {
+                        console.log(res.orders, res.order_items, res.volunteer);
+                        $('#order-detail .order-detail-title p:first-child').html(`Mã đơn: <strong>${res.orders[0].id}</strong>`);
+
+                        $('#order-detail .order-detail-title p:nth-child(2)').html(`Đã gửi lúc: <strong>${formatDate(res.orders[0].create_time)}</strong>`);
+
+                        $('#order-detail .order-detail-title p:nth-child(3)').html(`Địa chỉ nhận: <span class="badge bg-gradient-dark">${res.orders[0].address}</span>`);
+
+                        if (res.orders[0].order_status == "Chờ tiếp nhận") {
+                            $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-warning">${res.orders[0].order_status}</span>`);
+                            $('#btn-edit-detail-order').html(`
+                                <button type="button" class="btn bg-gradient-secondary">
+                                    <a href="/waiting/delete-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
+                                    Xóa</a></button>
+                                <button type="button" class="btn bg-gradient-secondary">
+                                    <a href="/waiting/update-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
+                                    Chỉnh sửa</a></button>
+                                `)
+                        }
+                        else {
+                            $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-info">${res.orders[0].order_status}</span>`);
+                            $('#btn-edit-detail-order').html(`<button type="button" style="display:none;" class="btn bg-gradient-secondary">Chỉnh sửa</button>`)
+                        }
+
+                        // Volunteer info
+                        if (res.volunteer) {
+                            $('#order-detail .order-detail-receive .volunteer-receive-name').html(`Tên: <strong>${res.volunteer[0].last_name} ${res.volunteer[0].first_name}</strong>`);
+
+                            $('#order-detail .order-detail-receive .volunteer-receive-phone').html(`Số điện thoại: <strong>${res.volunteer[0].phone_number}</strong>`);
+                        }
+                        else {
+                            $('#order-detail .order-detail-receive .volunteer-receive-name').html(`Chưa có`);
+                        }
+
+                        let li = '';
+                        for (let i = 0; i < res.order_items.length; ++i) {
+                            li += `<li>${res.order_items[i].item_name}:  ${res.order_items[i].quantity}</li>`;
+                        }
+
+                        $('#order-detail .order-detail-body ul').html(li);
+
+                    }
+
+
+                    // $('#order-detail').append();
+                }
+            });
+        });
+    })
+</script>
