@@ -96,12 +96,12 @@ exports.chartFilter = (req, res, next) => {
         lastday = lastday.getFullYear() + '-'
             + (lastday.getMonth() + 1) + '-'
             + lastday.getDate();
-        
-            let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` where create_time >= ? and create_time <= ? group by order_status;";
-            db.query(sql, [firstday, lastday], (err, result) => {
-                if (err) throw err;
-                res.json({ data: result, code: 200 });
-            });
+
+        let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` where create_time >= ? and create_time <= ? group by order_status;";
+        db.query(sql, [firstday, lastday], (err, result) => {
+            if (err) throw err;
+            res.json({ data: result, code: 200 });
+        });
     }
 
 }
