@@ -142,15 +142,34 @@ body {
 }
 .header .header__account-area .header__img {
   display: flex;
-  width: 44px;
-  height: 44px;
+  width: max-content;
+  height: 50px;
 }
-.header .header__account-area .header__img img {
+.header .header__account-area .header__img .account-say-hi {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.header .header__account-area .header__img .account-say-hi p {
+  margin: 0;
+  margin-right: 15px;
+}
+.header .header__account-area .header__img .account-say-hi img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
   margin: auto;
+}
+.header .header__account-area .header__img .account-say-hi:hover {
+  background: #e4e4e4;
+}
+.header .header__account-area .header__img .account-say-hi:active {
+  background: #afa5d9;
 }
 .header .header__toggle {
   color: #0e2b6c;
@@ -1183,7 +1202,7 @@ select {
   background-color: #ffffff;
   border-radius: 10px;
   position: relative;
-  width: 85%;
+  width: 95%;
   box-shadow: 1px 1px 2px 2px #d3d3d3;
   margin: 0 auto;
   overflow-x: auto;
@@ -1191,7 +1210,7 @@ select {
 
 .list {
   margin: 0 auto;
-  width: 1000px;
+  width: 1200px;
   letter-spacing: 0.05em;
 }
 .list td {

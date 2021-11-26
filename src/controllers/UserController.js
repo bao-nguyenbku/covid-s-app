@@ -82,11 +82,11 @@ exports.updateProfile = async (req, res, next) => {
 function authLogin(req, res, next, input, result) {
     if (bcrypt.compareSync(input.password, result.password)) {
         req.session.user = result;
-        if (result.role == 'admin') {
-            res.render('admin/dashboard');
+        if (result.role == 'A') {
+            res.redirect('/admin');
         }
         else {
-            res.render('index');
+            res.redirect('/');
         }
     }
     else {
