@@ -31,8 +31,5 @@
     "nodemon": "^2.0.12",
     "password-hash": "^1.2.2",
     "sass": "^1.43.4"
-  },
-  "dependencies": {
-    "module-alias": "^2.2.2"
   }
 }
