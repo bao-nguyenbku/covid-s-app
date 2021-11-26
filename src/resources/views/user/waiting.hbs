@@ -1,4 +1,5 @@
 <div class="title">Danh sách đơn yêu cầu đã gửi</div><br>
+{{#if orders}}
 <div class="waiting-content">
     <table class="list">
         <tr>
@@ -49,12 +50,17 @@
             </tr>
         </tbody>
     </table>
-</div><br>
-{{#if orders}}
+</div>
+<br>
+
 <p class="note">*Đội tình nguyễn đã nhận yêu cầu của bạn, chúng tôi sẽ sớm liên lạc với bạn.</p>
 {{else}}
-<p class="note">Hiện tại bạn chưa có yêu cầu nào</p>
+<h2 class="note">Hiện tại bạn chưa có yêu cầu nào</h2>
 {{/if}}
+
+
+
+
 
 
 <!-- Modal -->
