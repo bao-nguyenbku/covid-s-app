@@ -1,0 +1,53 @@
+.chart-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  height: 600px;
+  width: 100%;
+  padding-top: 30px;
+  height: max-content;
+  .single-chart {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: 500px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: $shadow;
+    padding: 10px;
+    align-content: center;
+    #support-chart-filter {
+      float: right;
+    }
+    .chart-filter {
+      select {
+        float: right;
+        width: 200px;
+      }
+    }
+    .chart-1, .chart-2 {
+      position: absolute;
+      margin-top: 40px;
+      width: 100%;
+      height: 450px;
+      padding: 10px;
+    }
+    
+  }
+}
+
+@media (max-width: 930px) {
+  .chart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    height: max-content;
+    .single-chart {
+      .chart-1, .chart-2 {
+        padding: 10px;
+      }
+    }
+  }
+}

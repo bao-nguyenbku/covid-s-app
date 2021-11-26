@@ -1,0 +1,144 @@
+<div class="title">YÊU CẦU BẠN ĐÃ NHẬN</div>
+<div class="card-container">
+    {{#each data}}
+    <div class="card" onclick="modalDetail(1)">
+        {{!-- <div class="card-header">
+            <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+        </div> --}}
+        <div class="card-body">
+            <span class="tag tag-teal1">Quận Bình Tân</span>
+            <h3>
+                Thịt bò, dưa leo, cà chua, bột ngọt (chưa hoàn thành)
+            </h3>
+            <p>
+                {{address}}
+            </p>
+            <div class="user">
+                <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
+                    alt="user" />
+                <div class="user-info">
+                    <h5> {{name}} </h5>
+                    <small>{{formatDate time}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<!--
+    <div class="card-modal">
+        <div class="card-modal-header">
+            <div class="user">
+                <div class="user-info">
+                    <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
+                        alt="user" />
+                    <h5>Thúy Ngân</h5>
+                </div>
+                <div class="user-info-address">
+                    <h5>Mã đơn: #1234</h5>
+                    <p>Địa chỉ: 123, đường số 4, quận Bình Tân</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-modal-body">
+            {{!-- Remaining --}}
+            <h5 class="card-modal-body-title">Danh sách cần mua</h5>
+            <div class="card-modal-body-content">
+                <div class="card-item-container">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-success"><i class="material-icons">done</i></button>
+                        
+                    </div>
+                </div>
+
+
+                <div class="card-item-container">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-success"><i class="material-icons">done</i></button>
+                        
+                    </div>
+                </div>
+
+
+                <div class="card-item-container">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-success"><i class="material-icons">done</i></button>
+                        
+                    </div>
+                </div>
+                {{!-- End Remaining --}}
+                {{!-- Completed --}}
+                <h5 class="card-modal-body-title">Đã mua</h5>
+
+                <div class="card-item-container item-completed">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-light"><i class="material-icons">delete</i></button>
+                    </div>
+                </div>
+                <div class="card-item-container item-completed">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-light"><i class="material-icons">delete</i></button>
+                    </div>
+                </div>
+                <div class="card-item-container item-completed">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-light"><i class="material-icons">delete</i></button>
+                    </div>
+                </div>
+                <div class="card-item-container item-completed">
+                    <h4>Thịt bò</h4>
+                    <h4>2kg</h4>
+                    <div>
+                        <button class="btn btn-outline-light"><i class="material-icons">delete</i></button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Tổng tiền" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Hoàn thành</button>
+            </div>
+            <button type="button" class="btn btn-light btn-collapse" onclick="closeModal()">
+                >>>
+            </button>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    const cardModal = document.querySelectorAll('.card-modal');
+    function modalDetail(e) {
+        console.log(cardModal);
+        if (!cardModal[e - 1].classList.contains('modal-active')) {
+            cardModal[e - 1].classList.add('modal-active');
+        }
+        //if (!$('.card-modal').hasClass('modal-active')) {
+        //   $('.card-modal').addClass('modal-active');
+        //}
+
+    }
+    function closeModal() {
+        console.log('Close');
+        $('.card-modal').removeClass('modal-active');
+    }
+    -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{{!--
+<script src="/js/new_sidebar.js"></script> --}}

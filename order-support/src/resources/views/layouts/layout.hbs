@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- Reset CSS --}}
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" type="image/png" href="/img/logo01.png" />
+
+    {{!-- MATERIAL ICONS FONT --}}
+    <link rel="stylesheet" href="/material-icons/iconfont/material-icons.css">
+
+    {{!-- BOXICONS --}}
+    <link rel="stylesheet" href="/boxicons/css/boxicons.min.css">
+
+    {{!-- FONTAWESOME --}}
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+
+    <link rel="stylesheet" href="/vendor/animate/animate.css">
+
+    {{!-- SOFT UI CSS --}}
+    <link rel="stylesheet" href="/css/soft-ui-dashboard.min.css">
+    
+    {{!-- BOOTSTRAP --}}
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    
+    {{!-- DATA TABLE --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    
+    {{!-- CUSTOM CSS --}}
+    <link rel="stylesheet" href="/css/app.css">
+
+    <title>COVID-S</title>
+</head>
+
+<body>
+
+    <div id="main-container">
+        <div id="main">
+            {{#if session.user}}
+            {{>header}}
+            {{>sidebar}}
+            <div class="content-container" id="content-container">
+            {{{body}}}
+            </div>
+            {{else}}
+            <div class="content-container-no-log-in">
+                {{{body}}}
+            </div>
+            {{/if}}
+            
+        </div>
+    </div>
+    {{>footer}}
+
+
+    {{!-- BOOTSTRAP JS --}}
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/js/plugins/countfect.min.js" type="module"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/vendor/wow/wow.min.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#receive-tb').DataTable({ responsive: true });
+        });
+    </script>
+</body>
+
+</html>

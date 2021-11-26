@@ -1,0 +1,251 @@
+<div class="content-container" id="content-container">
+  <div class="order-status">
+    <h4>Danh sách bác sĩ tư vấn</h4>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm bác
+      sĩ</button>
+    <!-- Modal for adding new doctor -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thêm bác sĩ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/admin/doctor/add" method="post" enctype="multipart/form-data" id="add-doctor">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Tên bác sĩ</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Tiến sĩ, Bác sĩ Nguyễn Văn A" name="name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-tel-input" class="form-control-label">Số điện thoại</label>
+                    <input class="form-control" type="tel" placeholder="0123456789" id="example-tel-input" name="phone">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Chuyên ngành</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tai - mũi - họng"
+                      name="major">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Nơi làm việc</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Bệnh viện Đại học Y Dược Thành phố Hồ Chí Minh" name="work_hospital">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-number-input" class="form-control-label">Năm kinh nghiệm</label>
+                    <input class="form-control" type="number" value="4" placeholder="4" id="example-number-input"
+                      name="exp">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Khu vực hỗ trợ</label>
+                    <select class="form-control form-control-lg" name="support_zone" id="districts"
+                      aria-label="Default select example">
+                      <option selected="selected" disabled>Chọn Quận/huyện</option>
+                      <option value="Quận 1">Quận 1</option>
+                      {{!-- <option value="Quận 2">Quận 2</option> --}}
+                      <option value="Quận 3">Quận 3</option>
+                      <option value="Quận 4">Quận 4</option>
+                      <option value="Quận 5">Quận 5</option>
+                      <option value="Quận 6">Quận 6</option>
+                      <option value="Quận 7">Quận 7</option>
+                      <option value="Quận 8">Quận 8</option>
+                      {{!-- <option value="Quận 9">Quận 9</option> --}}
+                      <option value="Quận 10">Quận 10</option>
+                      <option value="Quận 11">Quận 11</option>
+                      <option value="Quận 12">Quận 12</option>
+                      <option value="Quận Bình Tân">Quận Bình Tân</option>
+                      <option value="Quận Bình Thạnh">Quận Bình Thạnh</option>
+                      <option value="Quận Gò Vấp">Quận Gò Vấp</option>
+                      <option value="QuậN Phú Nhuận">Quận Phú Nhuận</option>
+                      <option value="Quận Tân Bình">Quận Tân Bình</option>
+                      <option value="Quận Tân Phú">Quận Tân Phú</option>
+                      <option value="Thành phố Thủ Đức">Thành phố Thủ Đức</option>
+                      <option value="Huyện Bình Chánh">Huyện Bình Chánh</option>
+                      <option value="Huyện Cần Giờ">Huyện Cần Giờ</option>
+                      <option value="Huyện Củ Chi">Huyện Củ Chi</option>
+                      <option value="Huyện Hóc Môn">Huyện Hóc Môn</option>
+                      <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Mô tả</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="des"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="image-preview">
+                      <img id="image-preview-1">
+                    </div>
+                    <input type="file" style="height: 40px;" class="form-control" name="doctorImage" accept="image/*"
+                      onchange="imagePreview(event, 1)" id="image-input">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn bg-gradient-primary">Thêm mới</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Modal for update doctor --}}
+    <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin bác sĩ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" enctype="multipart/form-data" id="edit-doctor">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Tên bác sĩ</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Tiến sĩ, Bác sĩ Nguyễn Văn A" name="name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-tel-input" class="form-control-label">Số điện thoại</label>
+                    <input class="form-control" type="tel" placeholder="0123456789" id="example-tel-input" name="phone">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Chuyên ngành</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tai - mũi - họng"
+                      name="major">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Nơi làm việc</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Bệnh viện Đại học Y Dược Thành phố Hồ Chí Minh" name="work_hospital">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-number-input" class="form-control-label">Năm kinh nghiệm</label>
+                    <input class="form-control" type="number" value="4" placeholder="4" id="example-number-input"
+                      name="exp">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-control-label">Khu vực hỗ trợ</label>
+                    <select class="form-control form-control-lg" name="support_zone" id="districts"
+                      aria-label="Default select example">
+                      <option selected="selected" disabled>Chọn Quận/huyện</option>
+                      <option value="Quận 1">Quận 1</option>
+                      {{!-- <option value="Quận 2">Quận 2</option> --}}
+                      <option value="Quận 3">Quận 3</option>
+                      <option value="Quận 4">Quận 4</option>
+                      <option value="Quận 5">Quận 5</option>
+                      <option value="Quận 6">Quận 6</option>
+                      <option value="Quận 7">Quận 7</option>
+                      <option value="Quận 8">Quận 8</option>
+                      {{!-- <option value="Quận 9">Quận 9</option> --}}
+                      <option value="Quận 10">Quận 10</option>
+                      <option value="Quận 11">Quận 11</option>
+                      <option value="Quận 12">Quận 12</option>
+                      <option value="Quận Bình Tân">Quận Bình Tân</option>
+                      <option value="Quận Bình Thạnh">Quận Bình Thạnh</option>
+                      <option value="Quận Gò Vấp">Quận Gò Vấp</option>
+                      <option value="QuậN Phú Nhuận">Quận Phú Nhuận</option>
+                      <option value="Quận Tân Bình">Quận Tân Bình</option>
+                      <option value="Quận Tân Phú">Quận Tân Phú</option>
+                      <option value="Thành phố Thủ Đức">Thành phố Thủ Đức</option>
+                      <option value="Huyện Bình Chánh">Huyện Bình Chánh</option>
+                      <option value="Huyện Cần Giờ">Huyện Cần Giờ</option>
+                      <option value="Huyện Củ Chi">Huyện Củ Chi</option>
+                      <option value="Huyện Hóc Môn">Huyện Hóc Môn</option>
+                      <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Mô tả</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="des"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="image-preview">
+                      <img id="image-preview-2">
+                    </div>
+                    <input type="file" style="height: 40px;" class="form-control" name="doctorImage" accept="image/*"
+                      onchange="imagePreview(event, 2)" id="image-input">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn bg-gradient-primary">Cập nhật</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="order-table" id="volunteer-list">
+      <thead>
+        <tr>
+          <th>Tên</th>
+          <th>Chuyên môn</th>
+          <th>Kinh nghiệm</th>
+          <th>Nơi làm việc</th>
+          <th>Khu vực hỗ trợ</th>
+          <th>Số điện thoại</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.major}}</td>
+          <td>{{this.experience}}</td>
+          <td>{{this.work_hospital}}</td>
+          <td>{{this.support_zone}}</td>
+          <td>{{this.phone_number}}</td>
+          <td>
+            <button type="button" class="btn btn-info update-doctor-btn" data-bs-toggle="modal"
+              data-bs-target="#exampleModal-2" data-doctor-id="{{this.id}}">Sửa</button>
+            <button type="button" class="btn bg-gradient-warning" onclick="confirm('Bạn có chắc chắn xóa không?')"><a href="/admin/doctor/{{this.id}}/delete">Xóa</a></button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+<div>
+    <div class="title">BÁC SĨ TƯ VẤN</div>
+    <div class="dtr_search">
+        <div class="dtr-salign">
+            <input id="search-button" style="padding: 3px;" type="search" placeholder="Tìm kiếm..."
+                onkeyup="search(this.value)">
+            {{!-- <button><span class="fas fa-search"></span></button> --}}
+        </div>
+        <div class="dtr-filter">
+            <select class="form-select" id="dtr-sort-list" name="option" onchange="sortDT(this.value)">
+                <option value="blank">Sắp xếp theo</option>
+                <optgroup label="Tên">
+                    <option value="nameSort">A - Z</option>
+                    <option value="nameSort">Z - A</option>
+                </optgroup>
+                <optgroup label="Chuyên Môn">
+                    <option value="specialSort">A - Z</option>
+                    <option value="specialSort">Z - A</option>
+                </optgroup>
+                <optgroup label="Kinh nghiệm">
+                    <option value="experienceSort">Tăng dần</option>
+                    <option value="experienceSort">Giảm dần</option>
+                </optgroup>
+            </select>
+            <select class="form-select" id="dtr-filter-list-re" onchange="filterDT(this.value)">
+                <option value="region">Khu vực</option>
+                <option value="Quận 1">Quận 1</option>
+                <option value="Quận 2">Quận 2</option>
+                <option value="Quận 3">Quận 3</option>
+                <option value="Quận 4">Quận 4</option>
+                <option value="Quận 5">Quận 5</option>
+                <option value="Quận 6">Quận 6</option>
+                <option value="Quận 7">Quận 7</option>
+                <option value="Quận 8">Quận 8</option>
+                <option value="Quận 9">Quận 9</option>
+                <option value="Quận 10">Quận 10</option>
+                <option value="Quận 11">Quận 11</option>
+                <option value="Quận 12">Quận 12</option>
+                <option value="Quận bình tân">Q.Bình Tân</option>
+                <option value="Quận Bình Thạnh">Q.Bình Thạnh</option>
+                <option value="Quận Gò Vấp">Q.Gò Vấp</option>
+                <option value="QuậN Phú Nhuận">Q.Phú Nhuận</option>
+                <option value="Quận Tân Bình">Q.Tân Bình</option>
+                <option value="Quận Tân Phú">Q.Tân Phú</option>
+                <option value="TP Thủ Đức">TP Thủ Đức</option>
+                <option value="Huyện Bình Chánh">H.Bình Chánh</option>
+                <option value="Huyện Cần Giờ">H.Cần Giờ</option>
+                <option value="Huyện Củ Chi">H.Củ Chi</option>
+                <option value="Huyện Hóc Môn">H.Hóc Môn</option>
+                <option value="Huyện Nhà Bè">H.Nhà Bè</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div id="doctor-list" class="dtr-container overflow-auto">
+    {{#each data}}
+    <div name="{{this.support_zone}}" class="dtr-block">
+        <div id='{{this.name}}' name="doctorname" class="dtr-block-title">
+            <h4 class="dtr-name"><strong>{{this.name}}</strong></h4>
+
+            <button class="dtr-detail-btn btn btn-light" name="{{this.id}}" onclick="ondetail(this.name)"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">Chi tiết</button>
+        </div>
+        <div class="dtr-block-body">
+            <img class="dtr-photo" src="/upload/doctor/{{this.image}}" alt="Bác sĩ" title="ảnh bác sĩ">
+            <div class="dtr-detail">
+                <span name="{{this.major}}" class="far fa-id-card">
+                    <p>Chuyên khoa {{this.major}}</p>
+                </span>
+                <span class="far fa-id-badge">
+                    <p>{{this.work_hospital}}</p>
+                </span>
+                <span class="fas fa-phone-alt">
+                    <p>{{this.phone_number}}</p>
+                </span>
+                <span name="{{this.experience}}" class="fas fa-award">
+                    <p>{{this.experience}} năm kinh nghiệm</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+
+<div id="content-container2" class="content-container">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông tin về bác sĩ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                {{!-- Body of modal --}}
+
+                <div class="modal-body" id="dtr-detail-profile">
+                    {{!-- <div class="img-file-dtr">
+                        <img src="">
+                    </div>
+                    <hr> --}}
+                    <div class="info-dtr">
+                        <p>Tên bác sĩ: <strong id="Doctorname"></strong></p>
+                        <p>Nơi công tác: <strong id="work_hospital"></strong></p>
+                        <p>Chuyên khoa: <strong id="major"></strong></p>
+                        <p>Số điện thoại: <strong id="phone_number"></strong></p>
+                        {{!-- <p>Email: <strong id="email"></strong></p> --}}
+                        {{!-- <p>Chức vụ: <strong id="job_title"></strong></p> --}}
+                        <p>Khu vực hỗ trợ: <strong id="support_zone"></strong></p>
+                        <p style="text-align: justify;">Mô tả: <strong id="descriptions"></strong></p>
+                    </div>
+                </div>
+
+                {{!-- End body of modal --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Modal detail of doctor --}}
+    {{!-- <div class="dtr-profile-modal" id="">
+        <div class="img-file-dtr">
+            <img src="upload/bacsi.png">
+        </div>
+        <hr>
+        <div class="info-dtr">
+            <p>Tên bác sĩ: <strong id="Doctorname"></strong></p>
+            <p>Nơi công tác: <strong id="work_hospital"></strong></p>
+            <p>Chuyên khoa: <strong id="major"></strong></p>
+            <p>Số điện thoại: <strong id="phone_number"></strong></p> --}}
+            {{!-- <p>Email: <strong id="email"></strong></p> --}}
+            {{!-- <p>Chức vụ: <strong id="job_title"></strong></p> --}}
+            {{!-- <p>Khu vực hỗ trợ: <strong id="support_zone"></strong></p>
+            <p>Mô tả: <strong id="descriptions"></strong></p>
+        </div>
+        <button class='btn btn-primary btn-out' onclick="outDetail()">Thoát</button>
+    </div> --}}
+
+    {{!-- End of modal detail of doctor --}}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/doctorjs.js"></script>
+{{!--
+<script src="/js/new_sidebar.js"></script> --}}

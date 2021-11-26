@@ -1,0 +1,36 @@
+#main-container {
+  // display: flex;
+  // margin-top: 60px;
+  // padding-bottom: 30px;
+  position: relative;
+  min-height: 100%;
+  margin-bottom: calc(-1 * $footer-height);
+  // height: 100%;
+  // transition: all 0.5s ease;
+}
+#main {
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+.content-container {
+  width: 100%;
+  margin-top: 80px;
+  padding-left: 260px;
+  padding-right: 70px;
+  transition: all 0.5s ease;
+  &.content-active {
+    padding-left: 80px;
+  }
+}
+.content-container-no-log-in {
+  width: 100%;
+  top: 0;
+}
+@media screen and (max-width: 744px) {
+  .content-container {
+    padding-right: 20px;
+    &.content-active {
+      padding-left: 20px;
+    }
+  }
+}

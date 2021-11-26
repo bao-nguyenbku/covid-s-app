@@ -1,0 +1,44 @@
+.overview {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+.admin-summary {
+  width: 200px;
+  height: 130px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px 0 10px;
+  &-1 {
+    background: rgba(230, 142, 11, 0.2);
+    h5 {
+      color: rgb(230, 142, 11);
+    }
+  }
+  &-2 {
+    background: rgba(16, 194, 25, 0.2);
+    h5 {
+      color: rgb(16, 194, 25);
+    }
+  }
+  &-3 {
+    background: rgba(6, 168, 197, 0.2);
+    h5 {
+      color: rgb(6, 168, 197);
+    }
+  }
+}
+.order-status {
+  background: #fff;
+  margin-top: 40px;
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: $shadow;
+  overflow-x: auto;
+  padding: 20px;
+  h4 {
+    text-align: center;
+  }
+}

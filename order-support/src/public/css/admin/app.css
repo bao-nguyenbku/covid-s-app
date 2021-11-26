@@ -1,0 +1,148 @@
+.overview {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.admin-summary {
+  width: 200px;
+  height: 130px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px 0 10px;
+}
+.admin-summary-1 {
+  background: rgba(230, 142, 11, 0.2);
+}
+.admin-summary-1 h5 {
+  color: #e68e0b;
+}
+.admin-summary-2 {
+  background: rgba(16, 194, 25, 0.2);
+}
+.admin-summary-2 h5 {
+  color: #10c219;
+}
+.admin-summary-3 {
+  background: rgba(6, 168, 197, 0.2);
+}
+.admin-summary-3 h5 {
+  color: #06a8c5;
+}
+
+.order-status {
+  background: #fff;
+  margin-top: 40px;
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 2px 2px 10px #b0b0b5;
+  overflow-x: auto;
+  padding: 20px;
+}
+.order-status h4 {
+  text-align: center;
+}
+
+.order-table {
+  position: relative;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 1200px !important;
+  margin: 0 auto;
+}
+.order-table th {
+  cursor: pointer;
+}
+.order-table thead tr th {
+  border-bottom: 2px solid #000;
+  padding: 10px;
+}
+.order-table thead tr th:nth-child(1) {
+  padding-left: 10px;
+}
+.order-table thead tr th:last-child {
+  padding-right: 10px;
+}
+.order-table tbody tr {
+  border-bottom: 1px solid #797979;
+}
+.order-table tbody tr td {
+  padding: 15px;
+}
+.order-table tbody tr td:first-child {
+  padding-left: 10px;
+}
+.order-table tbody tr td:last-child {
+  padding-right: 10px;
+}
+.order-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.chart-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  height: 600px;
+  width: 100%;
+  padding-top: 30px;
+  height: max-content;
+}
+.chart-container .single-chart {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  height: 500px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #b0b0b5;
+  padding: 10px;
+  align-content: center;
+}
+.chart-container .single-chart #support-chart-filter {
+  float: right;
+}
+.chart-container .single-chart .chart-filter select {
+  float: right;
+  width: 200px;
+}
+.chart-container .single-chart .chart-1, .chart-container .single-chart .chart-2 {
+  position: absolute;
+  margin-top: 40px;
+  width: 100%;
+  height: 450px;
+  padding: 10px;
+}
+
+@media (max-width: 930px) {
+  .chart-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    height: max-content;
+  }
+  .chart-container .single-chart .chart-1, .chart-container .single-chart .chart-2 {
+    padding: 10px;
+  }
+}
+.image-preview {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+#image-preview-1, #image-preview-2 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: 1px dashed #bdbdbd;
+}
+
+/*# sourceMappingURL=app.css.map */

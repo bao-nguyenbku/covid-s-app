@@ -1,0 +1,56 @@
+{{#if message}}
+<div class="toast bg-warning bg-gradient align-items-center text-white bg-primary border-0 position-absolute p-3 top-7 end-0"
+    role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            <h6 class="text-dark">{{message}}</h6>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+    </div>
+</div>
+{{/if}}
+<div class="login-center register">
+    <h2>Tạo tài khoản</h2>
+    <form action="/register" method="POST">
+        <div class="txt_field">
+            <input type="text" name="lastName" required>
+            <span></span>
+            <label>Họ và tên lót</label>
+        </div>
+        <div class="txt_field">
+            <input type="text" name="firstName" required>
+            <span></span>
+            <label>Tên</label>
+        </div>
+        <div class="txt_field">
+            <input type="text" name="phoneNumber" required>
+            <span></span>
+            <label>Số điện thoại</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="password" required>
+            <span></span>
+            <label>Mật khẩu</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="confirmPassword" required>
+            <span></span>
+            <label>Nhập lại mật khẩu</label>
+        </div>
+        <button type="submit" class="log-in-button">Đăng ký</button>
+        <div class="signup_link">
+            Bạn đã có tài khoản? <a href="/login">Đăng nhập ngay</a>
+        </div>
+    </form>
+</div>
+<div class="go-to-home-page">
+    <a href="/"><i class="fas fa-arrow-left"></i>Trở về trang chủ</a>
+</div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.toast').toast({ animation: true, delay: 2000 });
+        $('.toast').toast('show');
+    });
+</script>
