@@ -13,7 +13,7 @@ exports.dashboard = (req, res, next) => {
                 summary2: result[2][0],
                 summary3: result[3][0]
             });
-}
+        }
     });
 }
 
@@ -37,7 +37,7 @@ exports.memberAccept = (req, res, next) => {
     db.query(sql, ['T', id], (err, result) => {
         if (err) throw err;
         res.json({ status: 200 });
-    }); 
+    });
 
 }
 exports.showDoctor = (req, res, next) => {
@@ -49,7 +49,9 @@ exports.showDoctor = (req, res, next) => {
 }
 
 
-// API
+/**
+ * FETCH API
+ */
 exports.getSupportData = (req, res, next) => {
     let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
     db.query(sql, (err, result) => {
@@ -59,4 +61,47 @@ exports.getSupportData = (req, res, next) => {
         }
         // console.log(result);
     });
+}
+exports.chartFilter = (req, res, next) => {
+    const type = req.body.filter.split('=')[1];
+    if (type == 'all') {
+        let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            if (result) {
+                res.json({ data: result, code: 200 });
+            }
+            // console.log(result);
+        });
+    }
+    else if (type == 'month') {
+        const day = new Date();
+        const today = day.getFullYear() + '-' + (day.getMonth() + 1) + '-' + '01';
+        let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` where create_time >= ? group by order_status;";
+        db.query(sql, [today], (err, result) => {
+            if (err) throw err;
+            res.json({ data: result, code: 200 });
+        });
+    }
+    else if (type == 'week') {
+        const curr = new Date();
+        let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
+        var last = first + 6; // last day is the first day + 6
+
+        var firstday = new Date(curr.setDate(first));
+        var lastday = new Date(curr.setDate(last));
+        firstday = firstday.getFullYear() + '-'
+            + (firstday.getMonth() + 1) + '-'
+            + firstday.getDate();
+        lastday = lastday.getFullYear() + '-'
+            + (lastday.getMonth() + 1) + '-'
+            + lastday.getDate();
+        
+            let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` where create_time >= ? and create_time <= ? group by order_status;";
+            db.query(sql, [firstday, lastday], (err, result) => {
+                if (err) throw err;
+                res.json({ data: result, code: 200 });
+            });
+    }
+
 }

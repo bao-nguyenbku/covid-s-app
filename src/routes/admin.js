@@ -4,7 +4,7 @@ const AdminController = require('../controllers/AdminController');
 const DoctorController = require('../controllers/DoctorController');
 const auth = require('../controllers/AuthenticateUser');
 router.get('/', /*auth('A'),*/ AdminController.dashboard);
-
+router.post('/chart-filter', /*auth('A'),*/ AdminController.chartFilter);
 router.get('/member', /*auth('A'),*/ AdminController.member);
 router.post('/member/accept', /*auth('A'),*/ AdminController.memberAccept);
 router.get('/doctor', /*auth('A'),*/ AdminController.showDoctor);

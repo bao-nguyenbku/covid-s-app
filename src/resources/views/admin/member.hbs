@@ -52,7 +52,7 @@
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
           <td>{{this.email}}</td>
-          <td><button class="btn bg-gradient-success admin-accept-volunteer" data-id="{{this.id}}">Chấp nhận yêu cầu</button></td>
+          <td><button class="btn bg-gradient-success admin-accept-volunteer" onclick="confirm('Bạn có chắc chắn chấp nhận tình nguyện viên này hoạt động?')" data-id="{{this.id}}">Chấp nhận yêu cầu</button></td>
         </tr>
         {{/if}}
         {{/each}}

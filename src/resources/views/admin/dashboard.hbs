@@ -17,10 +17,10 @@
     </div>
     <div class="chart-container">
         <div class="single-chart">
-            <form action="" class="chart-filter">
+            <form action="/admin/filter-chart" class="chart-filter">
                 <select class="form-select" aria-label="Default select example" name="filter-chart"
                     onchange="this.form.submit()">
-                    <option disabled="disabled" selected>Thống kê theo</option>
+                    <option disabled="disabled" selected>Tất cả</option>
                     <option value="today">Hôm nay</option>
                     <option value="week">Tuần này</option>
                     <option value="month">Tháng này</option>
@@ -34,9 +34,8 @@
         <div class="single-chart">
             <form action="" class="chart-filter">
                 <select class="form-select" aria-label="Default select example" name="filter-chart"
-                    onchange="this.form.submit()">
-                    <option disabled="disabled" selected>Thống kê theo</option>
-                    <option value="today">Hôm nay</option>
+                    id="chart-filter-select">
+                    <option value="all" selected>Tất cả</option>
                     <option value="week">Tuần này</option>
                     <option value="month">Tháng này</option>
                 </select>
@@ -99,26 +98,6 @@
                     </td>
                 </tr>
                 {{/each}}
-                {{!-- <tr>
-                    <td>#1234</td>
-                    <td>Trần Thị Bé</td>
-                    <td>123, tổ 9, khu phố 7</td>
-                    <td>20:10 20-09-2021</td>
-                    <td>14:34 23-10-2021</td>
-                    <td>Lương thực</td>
-                    <td><span class="badge bg-gradient-primary">Đã gửi</span></td>
-                    <td>400.000đ</td>
-                </tr>
-                <tr>
-                    <td>#1234</td>
-                    <td>Nguyễn Thiên Ân</td>
-                    <td>277, ấp Tân Tịch, Tịnh Thới</td>
-                    <td>11:30 20-10-2021</td>
-                    <td>14:12 21-10-2021</td>
-                    <td>Lương thực</td>
-                    <td><span class="badge bg-gradient-warning">Đã nhận</span></td>
-                    <td>550.000đ</td>
-                </tr> --}}
             </tbody>
         </table>
 
@@ -142,17 +121,93 @@
                     for (let i = 0; i < res.data[1].length; i++) {
                         if (res.data[1][i].order_status == "Chờ giao hàng") {
                             var shipping = res.data[1][i]["count(order_status)"] * 100 / total;
-                            console.log(shipping);
+                            //console.log(shipping);
                         }
                         if (res.data[1][i].order_status == "Chờ tiếp nhận") {
                             var waiting = res.data[1][i]["count(order_status)"] * 100 / total;
-                            console.log(waiting);
+                            //console.log(waiting);
                         }
                         if (res.data[1][i].order_status == "Đã hoàn thành") {
                             var done = res.data[1][i]["count(order_status)"] * 100 / total;
-                            console.log(done);
+                            //console.log(done);
                         }
                     }
+                    const ctx2 = document.getElementById('support-done-chart').getContext('2d');
+                    var chart_1 = new Chart(ctx2, {
+                        type: "pie",
+                        data: {
+                            labels: ["Đã hoàn thành", "Chờ tiếp nhận", "Chờ giao hàng"],
+                            datasets: [{
+                                // tension: 0.4,
+                                // borderWidth: 0,
+                                // pointRadius: 0,
+                                // borderColor: "#DA007A",
+                                // borderWidth: 0,
+                                backgroundColor: ["#cb0c9f", "#17c1e8", "#f53939"],
+                                fill: true,
+                                data: [done, waiting, shipping]
+                            },
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    position: 'top',
+                                    text: 'Phần trăm thực hiện yêu cầu tiếp tế',
+                                    font: {
+                                        size: 20
+                                    }
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        font: {
+                                            size: 16
+                                        }
+                                    }
+                                }
+                            },
+                            /*interaction: {
+                              intersect: false,
+                              mode: 'index',
+                            }*/
+                        },
+                    });
+                }
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#chart-filter-select').change(function () {
+            const data = $('.chart-filter').serialize();
+            $.ajax({
+                type: 'post',
+                url: '/admin/chart-filter',
+                data: { filter: data },
+                dataType: 'json',
+                success: function (res) {
+                    const total = res.data[0][0]["count(id)"];
+                    for (let i = 0; i < res.data[1].length; i++) {
+                        if (res.data[1][i].order_status == "Chờ giao hàng") {
+                            var shipping = res.data[1][i]["count(order_status)"] * 100 / total;
+                            //console.log(shipping);
+                        }
+                        if (res.data[1][i].order_status == "Chờ tiếp nhận") {
+                            var waiting = res.data[1][i]["count(order_status)"] * 100 / total;
+                            //console.log(waiting);
+                        }
+                        if (res.data[1][i].order_status == "Đã hoàn thành") {
+                            var done = res.data[1][i]["count(order_status)"] * 100 / total;
+                            //console.log(done);
+                        }
+                    }
+                    $("canvas#support-done-chart").remove();
+                    $("div.chart-2").append('<canvas id="support-done-chart" width="100%" height="100%"></canvas>');
                     const ctx2 = document.getElementById('support-done-chart').getContext('2d');
                     new Chart(ctx2, {
                         type: "pie",
@@ -198,12 +253,11 @@
                         },
                     });
                 }
-
-                console.log(res.data);
-            }
+            });
         });
     });
 </script>
+{{!--
 <script>
     $(document).ready(function () {
         const ctx1 = document.getElementById('support-chart').getContext('2d');
@@ -328,4 +382,4 @@
         });
     });
 
-</script>
+</script> --}}
