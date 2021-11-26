@@ -6,6 +6,7 @@ const auth = require('../controllers/AuthenticateUser');
 router.get('/', /*auth('A'),*/ AdminController.dashboard);
 
 router.get('/member', /*auth('A'),*/ AdminController.member);
+router.post('/member/accept', /*auth('A'),*/ AdminController.memberAccept);
 router.get('/doctor', /*auth('A'),*/ AdminController.showDoctor);
 router.post('/doctor/add', /*auth('A'),*/ DoctorController.add);
 router.get('/doctor/:id', /*auth('A'),*/ DoctorController.getDoctor);

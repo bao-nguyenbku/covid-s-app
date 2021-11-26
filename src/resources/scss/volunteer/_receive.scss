@@ -65,8 +65,9 @@
   }
 }
 .receive-filter {
-  width: 200px;
-  margin-left: 0;
-  margin-right: auto;
-  margin-bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

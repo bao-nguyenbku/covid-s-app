@@ -1,10 +1,10 @@
 const db = require('../config/db/DBconnection');
 
 exports.show = (req, res, next) => {
-    let sql = "select *, `order`.id as order_id from `order`, `account` where `order`.customer_id = `account`.id";
+    let sql = "select last_name, first_name, `order`.address, `order`.create_time, `order`.volunteer_id, `order`.id as order_id from `order`, `account` where `order`.customer_id = `account`.id";
     db.query(sql, (err, result) => {
         if (err) throw err;
-
+        //TODO: query to get customer id
         // res.json(result);
         res.render('volunteer/receive', { result });
     });
