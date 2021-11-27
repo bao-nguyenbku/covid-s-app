@@ -22,7 +22,7 @@
                     <option value="experienceSort">Giảm dần</option>
                 </optgroup>
             </select>
-            <select class="form-select" id="dtr-filter-list-re" onchange="filterDT(this.value)">
+            <select class="form-select" id="dtr-filter-list-re" {{#each data1}} name="{{this}}"{{/each}} onchange="filterDT(this.value)">
                 <option value="region">Khu vực</option>
                 <option value="Quận 1">Quận 1</option>
                 <option value="Quận 2">Quận 2</option>
@@ -56,7 +56,7 @@
 <div id="doctor-list" class="dtr-container overflow-auto">
     {{#each data}}
     <div name="{{this.support_zone}}" class="dtr-block">
-        <div id='{{this.name}}' name="doctorname" class="dtr-block-title">
+        <div id='{{this.name}}' name="{{this.name}}" class="dtr-block-title">
             <h4 class="dtr-name"><strong>{{this.name}}</strong></h4>
 
             <button class="dtr-detail-btn btn btn-light" name="{{this.id}}" onclick="ondetail(this.name)"
@@ -149,5 +149,3 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/doctorjs.js"></script>
-{{!--
-<script src="/js/new_sidebar.js"></script> --}}

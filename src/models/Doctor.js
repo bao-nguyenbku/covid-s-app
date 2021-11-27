@@ -31,7 +31,17 @@ Doctor.getById = (id, result) => {
         result(null, res);
     });
 }
-
+Doctor.getAddress = (id, result) => {
+    let query = "SELECT address FROM `account_address` WHERE `account_id`= '"+id+"';";
+    db.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+        result(null, res);
+    });
+}
 // Doctor.getFilter = (region, result) => {
 //     let query = "SELECT * FROM doctor WHERE support_zone = "+ region +";";
 
