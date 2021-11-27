@@ -22,10 +22,9 @@ exports.member = (req, res, next) => {
     db.query(sql, (err, result) => {
         if (err) throw err;
         // res.json(result);
-        let sql2 = "select count(`order`.id), `order`.order_status from `order`, volunteer where `order`.volunteer_id = volunteer.account_id group by `order`.order_status";
+        let sql2 = "select count(`order`.id) as numOfOrders, `order`.order_status, volunteer.account_id from `order`, volunteer where `order`.volunteer_id = volunteer.account_id group by `order`.order_status, volunteer.account_id";
         db.query(sql2, (err, orderDone) => {
             if (err) throw err;
-            // res.json(orderDone);
             res.render('admin/member', { layout: 'admin', data: result, orders: orderDone });
         });
     });

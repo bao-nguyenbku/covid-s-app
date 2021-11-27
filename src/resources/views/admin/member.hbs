@@ -14,16 +14,27 @@
         </tr>
       </thead>
       <tbody>
-        {{#each data}}  
-        {{#if (equal this.accept "T")}}  
+        {{#each data}}
+        {{#if (equal this.accept "T")}}
         <tr>
           <td>{{this.id}}</td>
           <td>{{formatDate this.create_time}}</td>
           <td>{{this.last_name}}</td>
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
-          <td>1</td>
-          <td>1</td>
+
+          {{#each ../orders}}
+            {{#if (equal this.account_id ../this.id)}}
+              {{#if (equal this.order_status "Chờ giao hàng")}}
+                <td>{{this.numOfOrders}}</td>
+              {{/if}}
+              {{#if (equal this.order_status "Đã hoàn thành")}}
+                <td>{{this.numOfOrders}}</td>
+              {{else}}
+                <td>0</td>
+              {{/if}}
+            {{/if}}
+          {{/each}}
         </tr>
         {{/if}}
         {{/each}}
@@ -52,7 +63,9 @@
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
           <td>{{this.email}}</td>
-          <td><button class="btn bg-gradient-success admin-accept-volunteer" onclick="confirm('Bạn có chắc chắn chấp nhận tình nguyện viên này hoạt động?')" data-id="{{this.id}}">Chấp nhận yêu cầu</button></td>
+          <td><button class="btn bg-gradient-success admin-accept-volunteer"
+              onclick="confirm('Bạn có chắc chắn chấp nhận tình nguyện viên này hoạt động?')" data-id="{{this.id}}">Chấp
+              nhận yêu cầu</button></td>
         </tr>
         {{/if}}
         {{/each}}
@@ -64,15 +77,15 @@
 </div>
 <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('.admin-accept-volunteer').click(function() {
+  $(document).ready(function () {
+    $('.admin-accept-volunteer').click(function () {
       const id = $(this).data('id');
       $.ajax({
         type: 'post',
         url: '/admin/member/accept',
         data: { id: id },
         dataType: 'json',
-        success: function(res) {
+        success: function (res) {
           if (res.status == 200) {
             window.location.href = "/admin/member";
           }
@@ -80,5 +93,5 @@
       });
     });
   });
-  
+
 </script>
