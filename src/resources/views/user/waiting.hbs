@@ -159,7 +159,7 @@
                         else if(res.orders[0].order_status == "Đã hoàn thành"){
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-success">${res.orders[0].order_status}</span>`);
                             $('#btn-edit-detail-order').html(`
-                                <button type="button" class="btn bg-gradient-secondary">
+                                <button type="button" class="btn bg-gradient-secondary" style="display:none;">
                                     <a href="/waiting/delete-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
                                     Xóa</a></button>`)
                         }
