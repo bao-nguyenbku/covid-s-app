@@ -169,6 +169,12 @@
   transform: scale(1.1, 1.1);
 }
 
+.edit-orders-container {
+  margin-top: 100px !important;
+}
+.edit-orders {
+  margin: 0 !important;
+}
 
 @media screen and (max-width: 744px) {
   .waiting-content {
