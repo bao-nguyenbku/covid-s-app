@@ -7,7 +7,7 @@ const auth = require('../controllers/AuthenticateUser');
 
 router.get('/', auth('A'), AdminController.dashboard);
 router.post('/chart-filter', auth('A'), AdminController.chartFilter);
-router.get('/member', auth('A'), AdminController.member);
+router.get('/member', /*auth('A'),*/ AdminController.member);
 router.post('/member/accept', auth('A'), AdminController.memberAccept);
 
 

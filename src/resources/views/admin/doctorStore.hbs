@@ -48,7 +48,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-number-input" class="form-control-label">Năm kinh nghiệm</label>
-                    <input class="form-control" type="number" value="4" placeholder="4" id="example-number-input"
+                    <input class="form-control" type="number" placeholder="Năm kinh nghiệm" id="example-number-input"
                       name="exp">
                   </div>
                 </div>
@@ -155,7 +155,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-number-input" class="form-control-label">Năm kinh nghiệm</label>
-                    <input class="form-control" type="number" value="4" placeholder="4" id="example-number-input"
+                    <input class="form-control" type="number" placeholder="Năm kinh nghiệm" id="example-number-input"
                       name="exp">
                   </div>
                 </div>
@@ -241,7 +241,7 @@
           <td>
             <button type="button" class="btn btn-info update-doctor-btn" data-bs-toggle="modal"
               data-bs-target="#exampleModal-2" data-doctor-id="{{this.id}}">Sửa</button>
-            <button type="button" class="btn bg-gradient-warning" onclick="confirm('Bạn có chắc chắn xóa không?')"><a href="/admin/doctor/{{this.id}}/delete">Xóa</a></button>
+            <button type="button" class="btn bg-gradient-warning"><a onclick="confirm('Bạn có chắc chắn xóa không?')" href="/admin/doctor/{{this.id}}/delete">Xóa</a></button>
           </td>
         </tr>
         {{/each}}
