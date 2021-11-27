@@ -147,6 +147,26 @@
     color: #fff;
   }
 }
+.background-banner {
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  img {
+    width: 100%;
+   
+  }
+}
+.register {
+  position: absolute;
+  top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (max-width: 430px) {
   .login-center {
     width: 100%;

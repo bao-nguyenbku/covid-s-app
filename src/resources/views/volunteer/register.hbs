@@ -1,3 +1,6 @@
+<div class="background-banner">
+  <img class="wow fadeIn" src="/img/ttxvn_thanh_nien_tinh_nguyem_tphcm.jpeg" alt="">
+</div>
 {{#if message}}
 <div
   class="toast bg-warning bg-gradient align-items-center text-white bg-primary border-0 position-absolute p-3 top-7 end-0"
@@ -11,7 +14,7 @@
   </div>
 </div>
 {{/if}}
-<div class="login-center register">
+<div class="login-center register wow fadeInDownBig">
   <h2>Tạo tài khoản tình nguyện viên</h2>
   <form action="/register/volunteer" method="POST">
     <div class="txt_field">
@@ -49,10 +52,11 @@
       Bạn đã có tài khoản? <a href="/login">Đăng nhập ngay</a>
     </div>
   </form>
+  <div class="go-to-home-page">
+    <a href="/"><i class="fas fa-arrow-left"></i>Trở về trang chủ</a>
+  </div>
 </div>
-<div class="go-to-home-page">
-  <a href="/"><i class="fas fa-arrow-left"></i>Trở về trang chủ</a>
-</div>
+
 <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function () {
