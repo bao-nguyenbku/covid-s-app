@@ -95,29 +95,29 @@
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  .info {
-    display: inline-block;
-    padding: 8px;
-    border: 1px solid $dark-blue;
-    border-radius: 8px;
-    background-color: #fff;
-    width: max-content;
-    label {
-      font-size: 16px;
-      color: rgb(175, 175, 175);
-    }
-    input {
-      margin-top: 5px;
-      border: none;
-      outline: none;
-      display: block;
-      background: none;
-      width: 100%;
-      height: 20px;
-      font-size: 20px;
-      padding-left: 0;
-    }
-  }
+  // .info {
+  //   display: inline-block;
+  //   padding: 8px;
+  //   border: 1px solid $dark-blue;
+  //   border-radius: 8px;
+  //   background-color: #fff;
+  //   width: max-content;
+  //   label {
+  //     font-size: 16px;
+  //     color: rgb(175, 175, 175);
+  //   }
+  //   input {
+  //     margin-top: 5px;
+  //     border: none;
+  //     outline: none;
+  //     display: block;
+  //     background: none;
+  //     width: 100%;
+  //     height: 20px;
+  //     font-size: 20px;
+  //     padding-left: 0;
+  //   }
+  // }
   .left-side {
     display: block;
     width: 100%;
@@ -132,52 +132,52 @@
     .custom-input {
       padding-left: 10px;
     }
-    .sex-info {
-      display: flex;
-      margin: 0 auto;
-      height: 55px;
-      width: max-content;
-      label {
-        display: flex;
-        cursor: pointer;
-        font-weight: 500;
-        position: relative;
-        padding: 3px 0px 3px 0px;
-        overflow: hidden;
-        input {
-          position: absolute;
-          left: -9999px;
-          &:checked + span {
-            background-color: mix(#fff, $dark-blue, 84%);
-            &:before {
-              box-shadow: inset 0 0 0 0.4375em $dark-blue;
-            }
-          }
-        }
-        span {
-          display: flex;
-          align-items: center;
-          padding: 0.375em 0.75em 0.375em 0.375em;
-          border-radius: 10px; // or something higher...
-          transition: 0.25s ease;
-          &:hover {
-            background-color: mix(#fff, $dark-blue, 84%);
-          }
-          &:before {
-            display: flex;
-            flex-shrink: 0;
-            content: '';
-            background-color: #fff;
-            width: 1.5em;
-            height: 1.5em;
-            border-radius: 50%;
-            margin-right: 0.375em;
-            transition: 0.25s ease;
-            box-shadow: inset 0 0 0 0.125em $dark-blue;
-          }
-        }
-      }
-    }
+    // .sex-info {
+    //   display: flex;
+    //   margin: 0 auto;
+    //   height: 55px;
+    //   width: max-content;
+    //   label {
+    //     display: flex;
+    //     cursor: pointer;
+    //     font-weight: 500;
+    //     position: relative;
+    //     padding: 3px 0px 3px 0px;
+    //     overflow: hidden;
+    //     input {
+    //       position: absolute;
+    //       left: -9999px;
+    //       &:checked + span {
+    //         background-color: mix(#fff, $dark-blue, 84%);
+    //         &:before {
+    //           box-shadow: inset 0 0 0 0.4375em $dark-blue;
+    //         }
+    //       }
+    //     }
+    //     span {
+    //       display: flex;
+    //       align-items: center;
+    //       padding: 0.375em 0.75em 0.375em 0.375em;
+    //       border-radius: 10px; // or something higher...
+    //       transition: 0.25s ease;
+    //       &:hover {
+    //         background-color: mix(#fff, $dark-blue, 84%);
+    //       }
+    //       &:before {
+    //         display: flex;
+    //         flex-shrink: 0;
+    //         content: '';
+    //         background-color: #fff;
+    //         width: 1.5em;
+    //         height: 1.5em;
+    //         border-radius: 50%;
+    //         margin-right: 0.375em;
+    //         transition: 0.25s ease;
+    //         box-shadow: inset 0 0 0 0.125em $dark-blue;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .right-side {
