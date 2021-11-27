@@ -1,7 +1,8 @@
 <div class="title">YÊU CẦU BẠN ĐÃ NHẬN</div>
 <div class="card-container">
     {{#each orders}}
-    <div class="card">
+    {{#if (equal this.order_status "Chờ giao hàng")}}
+    <div class="card button-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{this.ID}}">
         {{!-- <div class="card-header">
             <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
         </div> --}}
@@ -9,9 +10,9 @@
             <span class="tag tag-teal1">{{this.quan}}</span>
             <h3>
                 {{#each ../items}}
-                    {{#if (equal this.order_id ../this.ID)}}
-                    {{this.item_name}},
-                    {{/if}}
+                {{#if (equal this.order_id ../this.ID)}}
+                {{this.item_name}},
+                {{/if}}
                 {{/each}}
             </h3>
             <p>
@@ -25,47 +26,57 @@
                     <small>{{formatDate this.time}}</small>
                 </div>
             </div>
-            <button type="button" class="btn btn-danger button-detail" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" data-id="{{this.ID}}">Hoàn thành</button>
+            {{!-- <button type="button" class="btn btn-danger button-detail" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-id="">Hoàn thành</button> --}}
         </div>
     </div>
+    {{/if}}
     {{/each}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Chi tiết yêu cầu bạn đã nhận</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="modal-body" id="order-detail">
-                <div class="order-detail-title">
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Chi tiết yêu cầu bạn đã nhận</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
                 </div>
-                <hr>            
-                <div class="order-detail-body">
-                    <h4>Danh sách sản phẩm cần mua</h4>
+                <div class="modal-body" id="order-detail">
+                    <div class="order-detail-title">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <hr>
+                    <div class="order-detail-body">
+                        <h4>Danh sách sản phẩm cần mua</h4>
                         <ul>
                         </ul>
                     </div>
-            </div>
                     <hr>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Tổng tiền" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <button class="btn btn-danger" type="button" id="button-addon2">Hoàn thành</button>
+                    <div class="order-detail-body-done">
+                        <h4>Đã xong</h4>
+                        <ul>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="input-group mb-3">
+                        <form action="" id="confirm-done-order">
+                            <input type="text" class="form-control" placeholder="Tổng tiền"
+                                aria-label="Recipient's username" aria-describedby="button-addon2" name="cost">
+                            <button style="margin: 0;" class="btn btn-danger" type="submit" id="button-addon2">Hoàn
+                                thành</button>
+                        </form>
+                    </div>
                 </div>
-            {{!-- End body of modal --}}
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                {{!-- End body of modal --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
@@ -80,10 +91,10 @@
         $('.button-detail').click(function () {
             const id = $(this).data('id');
             console.log(id);
-           $.ajax({
+            $.ajax({
                 type: 'POST',
                 url: '/receive/accept/details',
-                data: {id: id},
+                data: { id: id },
                 dataType: 'json',
                 success: function (res) {
                     if (res) {
@@ -93,19 +104,41 @@
                         $('#order-detail .order-detail-title p:nth-child(2)').html(`Đã gửi lúc: <strong>${formatDate(res.orders[0].create_time)}</strong>`);
 
                         $('#order-detail .order-detail-title p:nth-child(3)').html(`Tên khách hàng: <strong>${res.customer[0].last_name} ${res.customer[0].first_name}</strong>`);
-                        
+
                         $('#order-detail .order-detail-title p:nth-child(4)').html(`Địa chỉ nhận: <span class="badge bg-gradient-dark">${res.orders[0].address}</span>`);
 
+                        $('#button-addon2').attr('data-id', `${res.orders[0].id}`);
                     }
-                     let li = '';
-                        for (let i = 0; i < res.order_items.length; ++i) {
-                            li += `<li>${res.order_items[i].item_name}:  ${res.order_items[i].quantity}</li>`;
-                        }
+                    let li = '';
+                    for (let i = 0; i < res.order_items.length; ++i) {
+                        li += `<li>${res.order_items[i].item_name}:  ${res.order_items[i].quantity}</li>`;
+                    }
 
-                        $('#order-detail .order-detail-body ul').html(li);
+                    $('#order-detail .order-detail-body ul').html(li);
                     // $('#order-detail').append();
                 }
             });
         });
     })
+</script>
+<script>
+    $(document).ready(function () {
+        $('#button-addon2').click(function (e) {
+            e.preventDefault();
+            const data = {
+                id: $(this).data('id'),
+                cost: $('#confirm-done-order').serialize().split('=')[1]
+            }
+            $.ajax({
+                type: 'post',
+                url: '/receive/accept',
+                data: { data },
+                success: function (res) {
+                    if (res.status == 200) {
+                        console.log("Success");
+                    }
+                }
+            });
+        });
+    });
 </script>
