@@ -67,18 +67,17 @@ function sortDT(value) {
 // Sắp xếp tên theo thứ tự a - z
 
 function asc_sort1(a, b) {
-    a = $(a).children(".dtr-block-title").attr('id').split(' ');
+    a = $(a).children(".dtr-block-title").attr('name').split(' ');
     a = a[a.length - 1];
-    b = $(b).children(".dtr-block-title").attr('id').split(' ');
+    b = $(b).children(".dtr-block-title").attr('name').split(' ');
     b = b[b.length - 1];
-
     return (a > b) ? 1 : -1;
 }
 // Sắp xếp tên theo thứ tự z - a
 function desc_sort1(a, b) {
-    a = $(a).children(".dtr-block-title").attr('id').split(' ');
+    a = $(a).children(".dtr-block-title").attr('name').split(' ');
     a = a[a.length - 1];
-    b = $(b).children(".dtr-block-title").attr('id').split(' ');
+    b = $(b).children(".dtr-block-title").attr('name').split(' ');
     b = b[b.length - 1];
 
     return (a > b) ? -1 : 1;

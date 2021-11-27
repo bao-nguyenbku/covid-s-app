@@ -57,7 +57,7 @@
 <div id="doctor-list" class="dtr-container overflow-auto">
     {{#each data}}
     <div name="{{this.support_zone}}" class="dtr-block">
-        <div id='{{this.name}}' name="doctorname" class="dtr-block-title">
+        <div id='{{this.name}}' name="{{this.name}}" class="dtr-block-title">
             <h4 class="dtr-name">Bác sĩ <strong>{{this.name}}</strong></h4>
 
             <button class="dtr-detail-btn btn btn-light" name="{{this.id}}" onclick="ondetail(this.name)"
@@ -123,18 +123,6 @@
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="info-dtr">
-            <p>Tên bác sĩ: <strong id="Doctorname"></strong></p>
-            <p>Nơi công tác: <strong id="work_hospital"></strong></p>
-            <p>Chuyên khoa: <strong id="major"></strong></p>
-            <p>Số điện thoại: <strong id="phone_number"></strong></p>
-            <p>Email: <strong id="email"></strong></p>
-            <p>Chức vụ: <strong id="job_title"></strong></p>
-            <p>Khu vực hỗ trợ: <strong id="support_zone"></strong></p>
-            <p>Mô tả: <strong id="descriptions"></strong></p>
-        </div>
-        <button class='btn btn-primary btn-out' onclick="outDetail()">Thoát</button>
     </div>
 
     {{!-- Modal detail of doctor --}}
