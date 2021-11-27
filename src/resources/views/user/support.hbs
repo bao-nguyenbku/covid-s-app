@@ -3,17 +3,14 @@
 <form action="/support/create" method="post" class="support-form">
     <div class="delivery-address">
         {{!-- <label class="label-for-address" for="address">Địa chỉ nhận hàng</label> --}}
-        <div class="input-and-btn">
+        <div class="input-and-btn" >
             <input type="text" name="address" id="address" placeholder="Địa chỉ nhận hàng">
-            <button type="button" class="btn bg-gradient-info choose-address-btn" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Chọn địa chỉ</button>
-
+  
         </div>
-
-        {{!-- <select name="foodTypeSelect" class="field-select">
-            <option value="Lương thực">Lương thực</option>
-            <option value="Thuốc">Thuốc</option>
-        </select> --}}
+        <div class="button-choose-address">
+            <button type="button" id = "btn-address" class="btn bg-gradient-info choose-address-btn" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Chọn địa chỉ</button>
+        </div>
 
     </div>
 
@@ -22,18 +19,25 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chọn địa chỉ</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" class = "button-detail">Chọn địa chỉ</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
 
                 {{!-- Body of modal --}}
-
+                
                 <div class="modal-body" id="address-select">
-
+                    
+                    
+                   <select class="form-control form-control-lg" name="addressChoose" id="districts"
+                      aria-label="Default select example" onchange="blockAddressInput(this.value)">
+                        {{#each rows}}
+                        <option value="{{this.address}}">{{this.address}}</option>
+                        {{/each}}
+                    </select>
                 </div>
-
+                
                 {{!-- End body of modal --}}
 
                 <div class="modal-footer">
@@ -58,6 +62,7 @@
             <button type="submit" class="button-submit-items">Gửi yêu cầu</button>
         </div>
     </div>
+    
 </form>
 
 
@@ -77,4 +82,6 @@
     function removeRow(e) {
         e.parentElement.remove();
     }
+
+
 </script>
