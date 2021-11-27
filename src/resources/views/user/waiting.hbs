@@ -4,7 +4,7 @@
     <table class="list">
         <tr>
             <th>Mã đơn</th>
-            <th>Thời gian tạo</th>
+            <th class="col-time">Thời gian tạo</th>
             <th>Nội dung</th>
             <th>Trạng thái</th>
             <th></th>
@@ -14,7 +14,7 @@
             {{#each orders}}
             <tr>
                 <td>{{this.id}}</td>
-                <td>{{formatDate this.create_time}}</td>
+                <td class="col-time">{{formatDate this.create_time}}</td>
                 <td>
                     {{#each ../items}}
                     {{#if (equal this.order_id ../this.id)}}
@@ -43,7 +43,7 @@
             {{/each}}
             <tr>
                 <td></td>
-                <td></td>
+                <td class="col-time"></td>
                 <td></td>
                 <td></td>
                 <td></td>
