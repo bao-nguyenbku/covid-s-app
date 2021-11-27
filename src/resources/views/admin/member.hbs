@@ -10,7 +10,6 @@
           <th>Tên</th>
           <th>Số điện thoại</th>
           <th>Yêu cầu đã nhận</th>
-          <th>Yêu cầu hoàn thành</th>
         </tr>
       </thead>
       <tbody>
@@ -22,20 +21,13 @@
           <td>{{this.last_name}}</td>
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
-
-          {{#each ../orders}}
-            {{#if (equal this.account_id ../this.id)}}
-              {{#if (equal this.order_status "Chờ giao hàng")}}
-                <td>{{this.numOfOrders}}</td>
-              {{else}}
-                {{#if (equal this.order_status "Đã hoàn thành")}}
-                <td>{{this.numOfOrders}}</td>
-                {{else}}
-                <td>0</td>
-                {{/if}}
-              {{/if}}
+          <td>
+            {{#each ../orders}}
+            {{#if (equal this.volunteer_id ../this.id)}}
+              {{this.numOfOrders}}
             {{/if}}
-          {{/each}}
+            {{/each}}
+          </td>
         </tr>
         {{/if}}
         {{/each}}
