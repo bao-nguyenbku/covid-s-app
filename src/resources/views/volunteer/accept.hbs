@@ -1,7 +1,9 @@
 <div class="title">YÊU CẦU BẠN ĐÃ NHẬN</div>
 <div class="card-container">
     {{#each data}}
-    <div class="card" onclick="modalDetail(1)">
+    {{!-- <button type="button" id = "btn-address" class="btn bg-gradient-info choose-address-btn" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Chọn địa chỉ</button> --}}
+    <div class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
         {{!-- <div class="card-header">
             <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
         </div> --}}
@@ -24,6 +26,30 @@
         </div>
     </div>
     {{/each}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" class="button-detail">Chọn địa chỉ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                {{!-- Body of modal --}}
+
+                <div class="modal-body">
+                    ....
+                </div>
+
+                {{!-- End body of modal --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--

@@ -18,7 +18,7 @@
         {{#if (equal this.accept "T")}}  
         <tr>
           <td>{{this.id}}</td>
-          <td>{{this.create_time}}</td>
+          <td>{{formatDate this.create_time}}</td>
           <td>{{this.last_name}}</td>
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
@@ -52,7 +52,7 @@
           <td>{{this.first_name}}</td>
           <td>{{this.phone_number}}</td>
           <td>{{this.email}}</td>
-          <td><button class="btn bg-gradient-success">Chấp nhận yêu cầu</button></td>
+          <td><button class="btn bg-gradient-success admin-accept-volunteer" onclick="confirm('Bạn có chắc chắn chấp nhận tình nguyện viên này hoạt động?')" data-id="{{this.id}}">Chấp nhận yêu cầu</button></td>
         </tr>
         {{/if}}
         {{/each}}
@@ -62,3 +62,23 @@
   </div>
 
 </div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.admin-accept-volunteer').click(function() {
+      const id = $(this).data('id');
+      $.ajax({
+        type: 'post',
+        url: '/admin/member/accept',
+        data: { id: id },
+        dataType: 'json',
+        success: function(res) {
+          if (res.status == 200) {
+            window.location.href = "/admin/member";
+          }
+        }
+      });
+    });
+  });
+  
+</script>

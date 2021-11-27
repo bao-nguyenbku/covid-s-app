@@ -22,7 +22,8 @@ exports.showProfile = (req, res, next) => {
         });
     }
     else {
-        res.redirect('/profile');
+        res.render('user/profile');
+        // res.redirect('/profile');
     }
 }
 
@@ -79,14 +80,35 @@ exports.updateProfile = async (req, res, next) => {
         });
     }
 }
+
+exports.deleteAddress = (req, res, next) => {
+    const address = req.body.address;
+    if(req.session.user) {
+        let sql1 = "select id from account where phone_number = ?";
+        db.query(sql1, [req.session.user.phone_number], (err, result) => {
+            if (err) throw err;
+            if (result.length > 0) {
+                const id = result[0].id;
+                let sql2 = "delete from account_address where account_id = ? and address = ?";
+                db.query(sql2, [id, address], (err, deleteDone) => {
+                    if (err) throw err;
+                    res.json({ status: 200 });
+                })
+            }
+        });
+    }
+    else {
+        res.json({ status: 304 });
+    }
+}
 function authLogin(req, res, next, input, result) {
     if (bcrypt.compareSync(input.password, result.password)) {
         req.session.user = result;
-        if (result.role == 'admin') {
-            res.render('admin/dashboard');
+        if (result.role == 'A') {
+            res.redirect('/admin');
         }
         else {
-            res.render('index');
+            res.redirect('/');
         }
     }
     else {

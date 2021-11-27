@@ -5,5 +5,5 @@ router.get('/', UserController.showProfile);
 
 router.post('/', UserController.updateProfile);
 router.post('/update-avatar', UserController.updateAvatar);
-
+router.post('/delete-address', UserController.deleteAddress);
 module.exports = router;
