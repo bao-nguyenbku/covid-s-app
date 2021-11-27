@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const AdminController = require('../controllers/AdminController');
-router.get('/', AdminController.dashboard);
+const auth = require('../controllers/AuthenticateUser');
+router.get('/', /*auth('A'),*/ AdminController.dashboard);
 
-router.get('/member', AdminController.member);
+router.get('/member', /*auth('A'),*/ AdminController.member);
+router.get('/doctor', /*auth('A'),*/ AdminController.showDoctor);
 
+router.get('/member/api/support-done-chart', AdminController.getSupportData);
 
 module.exports = router;

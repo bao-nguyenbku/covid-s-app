@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
-
-router.get('/', (req, res, next) => {
-    res.render('user/waiting');
-});
-
+const waitingController = require('../controllers/WaitingController');
+// router.get('/edit/:id', waitingController.edit);
+// router.get('/:id', waitingController.detail);
+router.get('/', waitingController.show);
+router.post('/order-details', waitingController.showDetail);
 
 
 module.exports = router;

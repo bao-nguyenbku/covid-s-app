@@ -8,13 +8,11 @@ const waitingRouter = require('./waiting');
 const doctorRouter = require('./doctor');
 const adminRouter = require('./admin');
 const receiveRouter = require('./receive');
-const shippingRouter = require('./shipping');
 
 function route(app) {
     app.use('/doctor', doctorRouter);
     app.use('/receive', receiveRouter);
     app.use('/support', supportRouter);
-    app.use('/shipping', shippingRouter);
     app.use('/waiting', waitingRouter);
     app.use('/admin', adminRouter);
     app.use('/login', loginRouter);

@@ -3,12 +3,13 @@ const toggle = document.getElementById('header-toggle');
 const nav = document.getElementById('nav-bar');
 const container = document.getElementById('content-container');
 const headerpd = document.getElementById('header');
+
 toggle.addEventListener('click', () => {
     if (window.matchMedia("(max-width: 1024px)").matches
         && !window.matchMedia("(max-width: 744px)").matches) {
         nav.classList.toggle('sidebar-show');
         headerpd.classList.toggle('body-pd');
-        
+
     }
     else if (window.matchMedia("(max-width: 744px)").matches) {
         nav.classList.toggle('sidebar-show');
@@ -16,7 +17,7 @@ toggle.addEventListener('click', () => {
         nav.classList.toggle('close_744');
         headerpd.classList.toggle('body-pd_744');
         headerpd.classList.toggle('body-pd');
-        
+
         if (!container.classList.contains('content-active')) {
             container.classList.add('content-active');
         }
@@ -24,7 +25,7 @@ toggle.addEventListener('click', () => {
 
     // Normal width
     else {
-        
+
         nav.classList.toggle('sidebar-show');
         headerpd.classList.toggle('body-pd');
         container.classList.toggle('content-active');
@@ -32,6 +33,8 @@ toggle.addEventListener('click', () => {
     var currSidebar = nav.classList.contains('sidebar-show') ? 'sidebar-show' : 'none';
     localStorage.setItem('collapseSidebar', currSidebar);
 });
+
+
 
 function responsive() {
     const width = $(window).width();
@@ -77,56 +80,13 @@ function responsive() {
     currSidebar = nav.classList.contains('sidebar-show') ? 'sidebar-show' : 'none';
     localStorage.setItem('collapseSidebar', currSidebar);
 }
-$(window).resize(function(){
+$(window).resize(function () {
     responsive();
 });
-$(document).ready(function() {
+$(document).ready(function () {
     responsive();
 
 });
-var sticky = $('.sticky');
-var contentOffset;
-var nav_height;
-
-if (sticky.length) {
-
-    if (sticky.data('offset')) {
-        contentOffset = sticky.data('offset');
-    }
-    else {
-        contentOffset = sticky.offset().top;
-    }
-    nav_height = sticky.height();
-}
-
-var scrollTop = $(window).scrollTop();
-var window_height = $(window).height();
-var doc_height = $(document).height();
-
-$(window).bind('resize', function () {
-    scrollTop = $(window).scrollTop();
-    window_height = $(window).height();
-    doc_height = $(document).height();
-    navHeight();
-});
-
-$(window).bind('scroll', function () {
-    stickyNav();
-});
-
-function navHeight() {
-    sticky.css('max-height', window_height + 'px');
-}
-
-function stickyNav() {
-    scrollTop = $(window).scrollTop();
-    if (scrollTop > contentOffset) {
-        sticky.addClass('fixed');
-    }
-    else {
-        sticky.removeClass('fixed');
-    }
-};
 
 /**************************
 * GET SIDE-BAR LINK ACTIVE 

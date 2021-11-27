@@ -20,15 +20,19 @@
     {{!-- BOOTSTRAP --}}
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
 
-
-    {{!-- Custom CSS --}}
-    <link rel="stylesheet" href="/css/admin/app.css">
+    {{!-- DATA TABLE --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    
+    {{!-- SOFT UI DASHBOARD --}}
+    <link rel="stylesheet" href="/css/soft-ui-dashboard.min.css">
+    
+    {{!-- CUSTOM CSS --}}
+    <link rel="stylesheet" href="/css/admin/app.css">
+    <link rel="stylesheet" href="/css/app.css">
+    
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="/js/plugins/countUp.min.js"></script>
-    <link rel="stylesheet" href="/css/soft-ui-dashboard.min.css">
-    <link rel="stylesheet" href="/css/app.css">
+    {{!-- <script src="/js/plugins/countUp.min.js"></script> --}}
     <title>COVID-S</title>
 </head>
 
@@ -48,15 +52,16 @@
     {{!-- <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script> --}}
     <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-     <script src="/js/soft-ui-dashboard.min.js"></script>
+    {{!-- <script src="/js/soft-ui-dashboard.min.js"></script> --}}
     <script src="/vendor/wow/wow.min.js"></script>
     <!--=============== MAIN JS ===============-->
     <script src="/js/main.js"></script>
     <script src="/js/sidebar.js"></script>
     <script>
         $(document).ready(function () {
-            $('#member-table').DataTable();
-            $('#support-table').DataTable();
+            $('#support-table').DataTable({ responsive: true });
+            $('#volunteer-list').DataTable({ responsive: true });
+            $('#volunteer-request').DataTable({ responsive: true });
         });
     </script>
 </body>

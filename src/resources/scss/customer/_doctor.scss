@@ -107,8 +107,6 @@
         width: 150px;
         height: 150px;
         object-fit: cover;
-        border: 1px dashed $primary-blue;
-        border-radius: 50%;
       }
       .dtr-detail {
         display: block;
@@ -126,42 +124,64 @@
   }
 }
 
-.dtr-profile-modal {
-  background-color: rgb(255, 255, 255);
-  box-shadow: $shadow;
-  display: none;
-  padding: 10px;
-  border-radius: 10px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  height: max-content;
-  z-index: 2;
-  transition: 0.5s;
+// .dtr-profile-modal {
+//   background-color: rgb(255, 255, 255);
+//   box-shadow: $shadow;
+//   display: none;
+//   padding: 10px;
+//   border-radius: 10px;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 100px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: 60%;
+//   height: max-content;
+//   z-index: 2;
+//   transition: 0.5s;
+//   .img-file-dtr {
+//     position: relative;
+//     width: 100%;
+//     object-fit: cover;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     img {
+//       position: relative;
+//       width: 200px;
+//     }
+//   }
+//   .btn-out {
+//     float: right;
+//     margin: 0;
+//   }
+//   //   box-shadow: 3px 3px 3px;
+// }
+.modal-dialog {
+  max-width: 1000px;
+}
+#dtr-detail-profile {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
   .img-file-dtr {
-    position: relative;
-    width: 100%;
-    object-fit: cover;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     img {
-      position: relative;
       width: 200px;
+      position: relative;
+      
     }
   }
-  .btn-out {
-    float: right;
-    margin: 0;
+  .info-dtr {
+    padding-left: 20px;
+    position: relative;
+    width: 100%;
+    p {
+      font-size: 20px;
+    }
   }
-  //   box-shadow: 3px 3px 3px;
 }
-
 @media screen and (max-width: 937px) {
   .dtr-container {
     grid-template-columns: 1fr 1fr;
@@ -201,6 +221,7 @@
         .dtr-photo {
           width: 100px;
           height: 100px;
+          object-fit: cover;
         }
       }
     }

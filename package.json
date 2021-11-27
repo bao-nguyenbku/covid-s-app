@@ -30,6 +30,7 @@
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12",
     "password-hash": "^1.2.2",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "short-uuid": "^4.2.0"
   }
 }

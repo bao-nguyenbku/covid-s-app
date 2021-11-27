@@ -46,7 +46,29 @@ app.engine('hbs', expresshbs({
         isEmpty: function (item) { return item == null; },
         isAdmin: function (User) {
             return User == 'admin';
+        },
+        formatDate: function (date) {
+            if (date) {
+                let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+                return new Date(date).toLocaleDateString("vi-VN", option);
+            }
+        },
+        formatCurrency: function (num) {
+            //======================================
+            // FORMAT CURRENCY BEFORE SHOW OUT
+            //======================================
+            const formatter = new Intl.NumberFormat("vi-VN", {
+                style: "currency",
+                currency: "VND"
+            });
+
+            return formatter.format(num);
+
+        },
+        equal: function(a, b) {
+            return a == b;
         }
+
     }
 }));
 app.set('view engine', 'hbs');

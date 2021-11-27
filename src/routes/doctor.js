@@ -1,14 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const doctorcontroller = require('../controllers/DoctorController');
+const doctorController = require('../controllers/DoctorController');
 
-router.use('/detail', doctorcontroller.detail);
-router.use('/filter', doctorcontroller.detail);
+router.get('/detail', doctorController.detail);
+router.post('/filter', doctorController.detail);
 
-router.use('/', doctorcontroller.index);
-// router.get('/', (req, res, next) => {
-//     res.render('user/doctor');
-// });
+router.get('/', doctorController.show);
 
 module.exports = router; 
