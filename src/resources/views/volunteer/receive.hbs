@@ -2,10 +2,11 @@
 <div class="receive-container">
     <div class="receive-tb-container">
         <div class="receive-filter">
-            <select class="form-select" aria-label="Default select example">
+            <input id="myInput" type="text" placeholder="Tìm kiếm...">
+            {{!-- <select class="form-select" aria-label="Default select example">
                 <option selected="selected">Khu vực</option>
                 <option value="Quận 1">Quận 1</option>
-                {{!-- <option value="Quận 2">Quận 2</option> --}}
+               
                 <option value="Quận 3">Quận 3</option>
                 <option value="Quận 4">Quận 4</option>
                 <option value="Quận 5">Quận 5</option>
@@ -27,7 +28,7 @@
                 <option value="Huyện Củ Chi">Huyện Củ Chi</option>
                 <option value="Huyện Hóc Môn">Huyện Hóc Môn</option>
                 <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
-            </select>
+            </select> --}}
         </div>
         <table id="receive-tb" class="order-table">
             <thead>
@@ -39,7 +40,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="receive-body">
                 {{#each result}}
                 {{#if (equal this.volunteer_id null)}}
                 <tr>
@@ -49,8 +50,8 @@
                     <td>{{formatDate this.create_time}}</td>
                     <td>
                         <div class="receive-btn-area">
-                            <button type="button" data-id="{{this.order_id}}"
-                                class="btn btn-success receive-btn">Nhận</button>
+                            <button type="button" onclick="confirm('Bạn chắc chắn sẽ nhận đơn này?')"
+                                data-id="{{this.order_id}}" class="btn btn-success receive-btn">Nhận</button>
                         </div>
                     </td>
                 </tr>
@@ -66,7 +67,7 @@
     $(document).ready(function () {
         $('.receive-btn').click(function () {
             const orderId = $(this).data('id');
-            { { !--console.log(orderId); --} }
+            console.log(orderId);
             $.ajax({
                 type: "post",
                 url: "/receive/confirm",
@@ -80,5 +81,14 @@
             });
         });
     });
-
+</script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#receive-body tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>

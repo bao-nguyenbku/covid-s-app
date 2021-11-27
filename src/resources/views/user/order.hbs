@@ -1,6 +1,6 @@
 {{#each orders}}
-<div class="receive-container">
-    <div class="receive-tb-container">
+<div class="receive-container edit-orders-container">
+    <div class="receive-tb-container edit-orders">
         <form action="/waiting/update-order" method="POST" id="edit-order">
             <div class="title" style="margin: 0px;">Mã đơn: {{this.id}}
                 <input type="text" style="color: black; display:none;" value="{{this.id}}" name="idOrder">

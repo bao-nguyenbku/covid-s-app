@@ -82,14 +82,33 @@
     }
     .header__img {
       display: flex;
-      width: 44px;
-      height: 44px;
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: auto;
+      width: max-content;
+      height: 50px;
+      .account-say-hi {
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        p {
+          margin: 0;
+          margin-right: 15px;
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: auto;
+        }
+        &:hover {
+          background: rgb(228, 228, 228);
+        }
+        &:active {
+          background: #afa5d9;
+        }
       }
     }
   }
@@ -110,7 +129,7 @@
   height: 100vh;
   background: #fff;
   padding: 5px 0 0 0;
-
+  box-shadow: $shadow;
   transition: 0.5s;
   z-index: var(--z-fixed);
   .nav__list {
@@ -213,7 +232,7 @@
 /*Add padding body movil*/
 .body-pd {
   padding-left: calc(var(--nav-width) + 188px);
-  padding-right: 20px;
+  padding-right: 70px;
 }
 .body-pd_744 {
   padding-left: 20px;
@@ -261,8 +280,21 @@
   .header-logo {
     display: none;
   }
+  .header {
+    .header__account-area {
+      .header__sign-in {
+        a {
+          font-size: 17px;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 744px) {
+  .header-no-log-in {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .header-logo {
     display: none;
   }
@@ -274,6 +306,18 @@
   .header__account-area {
     .header__sign-in {
       font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    .header__account-area {
+      .header__sign-in {
+        a {
+          font-size: 13px;
+        }
+      }
     }
   }
 }

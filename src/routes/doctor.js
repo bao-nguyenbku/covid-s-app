@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../controllers/AuthenticateUser');
 
 const doctorController = require('../controllers/DoctorController');
 
-router.get('/detail', doctorController.detail);
-router.post('/filter', doctorController.detail);
+router.get('/detail', auth(['V', 'C', 'A']), doctorController.detail);
+router.post('/filter', auth(['V', 'C', 'A']), doctorController.detail);
 
-router.get('/', doctorController.show);
+router.get('/', auth(['V', 'C', 'A']), doctorController.show);
 
 module.exports = router; 

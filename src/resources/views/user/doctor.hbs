@@ -22,32 +22,30 @@
                     <option value="experienceSort">Giảm dần</option>
                 </optgroup>
             </select>
-            <select class="form-select" id="dtr-filter-list-re" onchange="filterDT(this.value)">
+            <select class="form-select" id="dtr-filter-list-re" {{#each data1}} name="{{this}}"{{/each}} onchange="filterDT(this.value)">
                 <option value="region">Khu vực</option>
                 <option value="Quận 1">Quận 1</option>
-                <option value="Quận 2">Quận 2</option>
                 <option value="Quận 3">Quận 3</option>
                 <option value="Quận 4">Quận 4</option>
                 <option value="Quận 5">Quận 5</option>
                 <option value="Quận 6">Quận 6</option>
                 <option value="Quận 7">Quận 7</option>
                 <option value="Quận 8">Quận 8</option>
-                <option value="Quận 9">Quận 9</option>
                 <option value="Quận 10">Quận 10</option>
                 <option value="Quận 11">Quận 11</option>
                 <option value="Quận 12">Quận 12</option>
-                <option value="Quận bình tân">Q.Bình Tân</option>
-                <option value="Quận Bình Thạnh">Q.Bình Thạnh</option>
-                <option value="Quận Gò Vấp">Q.Gò Vấp</option>
-                <option value="QuậN Phú Nhuận">Q.Phú Nhuận</option>
-                <option value="Quận Tân Bình">Q.Tân Bình</option>
-                <option value="Quận Tân Phú">Q.Tân Phú</option>
+                <option value="Quận Bình Tân">Quận Bình Tân</option>
+                <option value="Quận Bình Thạnh">Quận Bình Thạnh</option>
+                <option value="Quận Gò Vấp">Quận Gò Vấp</option>
+                <option value="QuậN Phú Nhuận">Quận Phú Nhuận</option>
+                <option value="Quận Tân Bình">Quận Tân Bình</option>
+                <option value="Quận Tân Phú">Quận Tân Phú</option>
                 <option value="TP Thủ Đức">TP Thủ Đức</option>
-                <option value="Huyện Bình Chánh">H.Bình Chánh</option>
-                <option value="Huyện Cần Giờ">H.Cần Giờ</option>
-                <option value="Huyện Củ Chi">H.Củ Chi</option>
-                <option value="Huyện Hóc Môn">H.Hóc Môn</option>
-                <option value="Huyện Nhà Bè">H.Nhà Bè</option>
+                <option value="Huyện Bình Chánh">Huyện Bình Chánh</option>
+                <option value="Huyện Cần Giờ">Huyện Cần Giờ</option>
+                <option value="Huyện Củ Chi">Huyện Củ Chi</option>
+                <option value="Huyện Hóc Môn">Huyện Hóc Môn</option>
+                <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
             </select>
         </div>
     </div>
@@ -56,7 +54,7 @@
 <div id="doctor-list" class="dtr-container overflow-auto">
     {{#each data}}
     <div name="{{this.support_zone}}" class="dtr-block">
-        <div id='{{this.name}}' name="doctorname" class="dtr-block-title">
+        <div id='{{this.name}}' name="{{this.name}}" class="dtr-block-title">
             <h4 class="dtr-name"><strong>{{this.name}}</strong></h4>
 
             <button class="dtr-detail-btn btn btn-light" name="{{this.id}}" onclick="ondetail(this.name)"
@@ -149,5 +147,3 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/doctorjs.js"></script>
-{{!--
-<script src="/js/new_sidebar.js"></script> --}}

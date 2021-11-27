@@ -13,7 +13,20 @@ class DoctorController {
                 var string = JSON.stringify(data);
                 data = JSON.parse(string);
                 // res.json(data);
-                res.render('user/doctor', { data });
+                let request = req.session.user.id;
+                Doctor.getAddress(request,(err, data1) => {
+                    if (err)
+                        res.status(500).send({
+                            message: err.message
+                        });
+                    else {
+                        var string = JSON.stringify(data1);
+                        data1 = JSON.parse(string);
+                        data1= data1[0];
+                        res.render('user/doctor', { data, data1});
+                    }
+                });
+                
             }
         });
     }
