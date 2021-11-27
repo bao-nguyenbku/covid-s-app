@@ -12,6 +12,6 @@ router.post('/doctor/add', /*auth('A'),*/ DoctorController.add);
 router.get('/doctor/:id', /*auth('A'),*/ DoctorController.getDoctor);
 router.post('/doctor/:id/edit', /*auth('A'),*/ DoctorController.update);
 router.get('/doctor/:id/delete', /*auth('A'),*/ DoctorController.delete);
-router.get('/member/api/support-done-chart', AdminController.getSupportData);
-
+router.get('/member/api/support-done-chart', AdminController.getSupportDoneData);
+router.get('/member/api/support-chart', AdminController.getSupportData);
 module.exports = router;
