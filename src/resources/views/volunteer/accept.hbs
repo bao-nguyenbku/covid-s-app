@@ -115,7 +115,7 @@
 
                     }
 
-                    $('#order-detail .order-detail-body ul').append(li);
+                    $('#order-detail .order-detail-body ul').html(li);
                 }
             });
         });
@@ -124,18 +124,19 @@
 <script>
     function doneItem(id, elem) {
         $(document).ready(function () {
-            const li = elem.parentNode;
-           
-            //console.log($('#list-receive-orders li')[index]);
-            $('#list-receive-orders-done').append(li);
-            $('#list-receive-orders-done li').each(function (e) {
-               
-                let tmp1 = $(this).text().replace("Xong", "");
-                const tmp2 = tmp1.replace(/(\r\n|\n|\r)/gm, "", "").trim();
-                $(this).text(tmp2);
-                $(this).removeClass('list-group-item-danger');
-                $(this).addClass('list-group-item-success');
-            });
+            const orderId = $('#order-detail .order-detail-title p:first-child').text().replace("Mã đơn: ", "").trim();
+            if (id == orderId) {
+               const li = elem.parentNode;
+                $('#list-receive-orders-done').append(li);
+                $('#list-receive-orders-done li').each(function (e) {
+                    let tmp1 = $(this).text().replace("Xong", "");
+                    const tmp2 = tmp1.replace(/(\r\n|\n|\r)/gm, "", "").trim();
+                    $(this).text(tmp2);
+                    $(this).removeClass('list-group-item-danger');
+                    $(this).addClass('list-group-item-success');
+                });
+            }
+
         });
     }
 </script>

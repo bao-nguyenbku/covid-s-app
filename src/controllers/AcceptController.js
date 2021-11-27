@@ -19,9 +19,9 @@ const db = require('../config/db/DBconnection');
     }
     }*/
   exports.show = (req, res, next) => {
-      // if (req.session.user) {
+      if (req.session.user) {
           let sql = "select id from account where phone_number = ?";
-          db.query(sql, ['1234567890'], (err, re) => {
+          db.query(sql, [req.session.user.phone_number], (err, re) => {
               if (err) throw err;
               const id = re[0].id;
               let sql2 = "SELECT `order`.create_time AS time, `order`.order_status, `order`.id as ID, `order`.district as quan, `order`.address as address, CONCAT(`last_name`,' ', `first_name`) AS `name` FROM `order` JOIN `account` ON `order`.customer_id = account.id where volunteer_id = ?;";
@@ -40,7 +40,7 @@ const db = require('../config/db/DBconnection');
                   }
               });
           });
-      // }
+      }
   }
   exports.showDetail = (req, res, next) => {
     let sql = "SELECT * FROM `order` WHERE id = ?; SELECT * FROM order_item WHERE order_id = ?";
