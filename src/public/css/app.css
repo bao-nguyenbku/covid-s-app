@@ -1272,7 +1272,7 @@ select {
 
 .list {
   margin: 0 auto;
-  width: 1200px;
+  width: 95%;
   letter-spacing: 0.05em;
 }
 .list td {
@@ -1344,7 +1344,7 @@ select {
   position: relative;
   border-collapse: collapse;
   border-spacing: 0;
-  width: 1200px !important;
+  width: 100% !important;
   margin: 0 auto;
 }
 .order-table1 th {
@@ -1405,10 +1405,46 @@ select {
     width: 100%;
   }
   .waiting-content .list {
-    width: 500px;
+    width: 95%;
   }
   .waiting-content .list * {
     font-size: 14px;
+  }
+  .waiting-content .list tbody td span {
+    font-size: 10px;
+  }
+  .waiting-content .list tbody td button {
+    font-size: 10px;
+  }
+  .waiting-content .list tbody .col-time {
+    display: none;
+  }
+
+  .receive-container .order-table1 {
+    width: 100%;
+  }
+
+  #content-container .title {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+  #content-container .order-table1 thead tr th {
+    padding: 5px 0px;
+  }
+  #content-container .order-table1 thead tr th:first-child {
+    padding-left: 0px;
+  }
+  #content-container .order-table1 thead tr th:last-child {
+    padding-left: 0px;
+  }
+  #content-container .order-table1 tbody tr td {
+    padding: 5px 0px;
+  }
+  #content-container .order-table1 tbody tr td:first-child {
+    padding-left: 0px;
+  }
+  #content-container .order-table1 tbody tr td:last-child {
+    padding-left: 0px;
   }
 }
 .dtr-center {
