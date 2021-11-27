@@ -22,10 +22,9 @@ exports.member = (req, res, next) => {
     db.query(sql, (err, result) => {
         if (err) throw err;
         // res.json(result);
-        let sql2 = "select count(`order`.id), `order`.order_status from `order`, volunteer where `order`.volunteer_id = volunteer.account_id group by `order`.order_status";
+        let sql2 = "select count(`order`.id) as numOfOrders, `order`.order_status, volunteer.account_id from `order`, volunteer where `order`.volunteer_id = volunteer.account_id group by `order`.order_status, volunteer.account_id";
         db.query(sql2, (err, orderDone) => {
             if (err) throw err;
-            // res.json(orderDone);
             res.render('admin/member', { layout: 'admin', data: result, orders: orderDone });
         });
     });
@@ -52,7 +51,7 @@ exports.showDoctor = (req, res, next) => {
 /**
  * FETCH API
  */
-exports.getSupportData = (req, res, next) => {
+exports.getSupportDoneData = (req, res, next) => {
     let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
     db.query(sql, (err, result) => {
         if (err) throw err;
@@ -61,6 +60,33 @@ exports.getSupportData = (req, res, next) => {
         }
         // console.log(result);
     });
+}
+
+exports.getSupportData = (req, res, next) => {
+    const curr = new Date();
+    let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
+    var last = first + 6; // last day is the first day + 6
+
+    var firstday = new Date(curr.setDate(first));
+    var lastday = new Date(curr.setDate(last));
+    firstday = firstday.getFullYear() + '-'
+        + (firstday.getMonth() + 1) + '-'
+        + firstday.getDate();
+    lastday = lastday.getFullYear() + '-'
+        + (lastday.getMonth() + 1) + '-'
+        + lastday.getDate();
+
+    let sql = "select count(id) as numOfOrders, `order`.order_status from `order` where `order`.create_time >= ? and `order`.create_time <= ? group by `order`.order_status";
+    db.query(sql, [firstday, lastday], (err, rows) => {
+        if (err) throw err;
+        else {
+            res.json({ data: rows });
+        }
+    });
+
+
+
+    // res.json({ data: someVar });
 }
 exports.chartFilter = (req, res, next) => {
     const type = req.body.filter.split('=')[1];

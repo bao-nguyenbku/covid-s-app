@@ -106,99 +106,107 @@
 /********************
 * CARD MODAL DESIGN
 *********************/
-.card-modal {
-  width: 400px;
-  height: 80%; 
-  overflow-y: auto;
-  position: absolute;
-  left: auto;
-  right: 20px;
-  top: 66px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #fff;
-  border-top: 1px solid rgb(192, 192, 192);
-  display: none;
-  box-shadow: $shadow;
-  border-radius: 10px;
-  padding: 5px;
-  transition: all 0.5s ease-in;
-  .btn-collapse {
-    width: 100%;
-    margin-bottom: 0;
-    margin-top: auto;
-  }
-  .card-modal-close-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 10px;
-    padding-top: 10px;
-  }
-  .card-modal-header {
-    border-bottom: 1px solid rgb(207, 207, 207);
-    .user {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .user-info {
-        justify-content: center;
-        align-items: center;
-      }
-      .user-info-address {
-        margin: 0;
-        margin-top: 30px;
-        text-align: center;
-      }
-    }
-  }
-  .card-modal-body {
-    position: relative;
-    height: max-content;
-    overflow-y: auto;
-    .card-modal-body-title {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .card-modal-body-content {
-      height: max-content;
-      .card-item-container {
-        display: flex;
-        flex-direction: row;
-        background: $back-grey;
-        height: 50px;
-        border-radius: 10px;
-        margin: auto 0;
-        justify-content: center;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 10px;
-        h4 {
-          position: relative;
-          margin: auto 0;
-          margin-left: 10px;
-        }
-        button {
-          height: 40px;
-          i {
-            font-size: 18px;
-            position: relative;
-            margin-top: 5px;
-          }
-          &:last-child {
-            margin-right: 10px;
-          }
-        }
-      }
-      .item-completed {
-        background: rgb(59, 59, 59);
-        h4 {
-          color: #fff;
-        }
-      }
-    }
+// .card-modal {
+//   width: 400px;
+//   height: 80%; 
+//   overflow-y: auto;
+//   position: absolute;
+//   left: auto;
+//   right: 20px;
+//   top: 66px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   background: #fff;
+//   border-top: 1px solid rgb(192, 192, 192);
+//   display: none;
+//   box-shadow: $shadow;
+//   border-radius: 10px;
+//   padding: 5px;
+//   transition: all 0.5s ease-in;
+//   .btn-collapse {
+//     width: 100%;
+//     margin-bottom: 0;
+//     margin-top: auto;
+//   }
+//   .card-modal-close-btn {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-end;
+//     align-items: flex-end;
+//     padding-right: 10px;
+//     padding-top: 10px;
+//   }
+//   .card-modal-header {
+//     border-bottom: 1px solid rgb(207, 207, 207);
+//     .user {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: center;
+//       .user-info {
+//         justify-content: center;
+//         align-items: center;
+//       }
+//       .user-info-address {
+//         margin: 0;
+//         margin-top: 30px;
+//         text-align: center;
+//       }
+//     }
+//   }
+//   .card-modal-body {
+//     position: relative;
+//     height: max-content;
+//     overflow-y: auto;
+//     .card-modal-body-title {
+//       text-align: center;
+//       margin-top: 20px;
+//     }
+//     .card-modal-body-content {
+//       height: max-content;
+//       .card-item-container {
+//         display: flex;
+//         flex-direction: row;
+//         background: $back-grey;
+//         height: 50px;
+//         border-radius: 10px;
+//         margin: auto 0;
+//         justify-content: center;
+//         align-items: center;
+//         justify-content: space-between;
+//         margin-top: 10px;
+//         h4 {
+//           position: relative;
+//           margin: auto 0;
+//           margin-left: 10px;
+//         }
+//         button {
+//           height: 40px;
+//           i {
+//             font-size: 18px;
+//             position: relative;
+//             margin-top: 5px;
+//           }
+//           &:last-child {
+//             margin-right: 10px;
+//           }
+//         }
+//       }
+//       .item-completed {
+//         background: rgb(59, 59, 59);
+//         h4 {
+//           color: #fff;
+//         }
+//       }
+//     }
+//   }
+// }
+#confirm-done-order {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  #button-addon2 {
+    width: 150px;
   }
 }
 .modal-active {

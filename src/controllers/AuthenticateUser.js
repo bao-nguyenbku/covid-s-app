@@ -8,7 +8,8 @@ const authenicateUser = (permission) => {
             next();
         }
         else {
-            res.status(401).send('<h1>You don\'t have permission to access this page</h1>');
+            res.status(401).send(`
+            <h1 style="text-align: center; margin-top: 20%;">Bạn không có quyền truy cập vào trang này, <a href="/">vui lòng quay lại</a></h1>`);
         }
     };
 }

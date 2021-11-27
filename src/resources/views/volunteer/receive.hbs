@@ -6,7 +6,7 @@
             {{!-- <select class="form-select" aria-label="Default select example">
                 <option selected="selected">Khu vực</option>
                 <option value="Quận 1">Quận 1</option>
-               
+
                 <option value="Quận 3">Quận 3</option>
                 <option value="Quận 4">Quận 4</option>
                 <option value="Quận 5">Quận 5</option>
@@ -50,7 +50,7 @@
                     <td>{{formatDate this.create_time}}</td>
                     <td>
                         <div class="receive-btn-area">
-                            <button type="button" onclick="confirm('Bạn chắc chắn sẽ nhận đơn này?')"
+                            <button type="button" onclick="confirm('Bạn chắc chắn sẽ nhận đơn này?'); return false;"
                                 data-id="{{this.order_id}}" class="btn btn-success receive-btn">Nhận</button>
                         </div>
                     </td>
@@ -65,20 +65,23 @@
 <script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.receive-btn').click(function () {
-            const orderId = $(this).data('id');
-            console.log(orderId);
-            $.ajax({
-                type: "post",
-                url: "/receive/confirm",
-                data: { id: orderId },
-                dataType: "json",
-                success: function (res) {
-                    if (res == 200) {
-                        window.location.reload();
+        $('.receive-btn').click(function (e) {
+            e.preventDefault();
+            if (confirm('Bạn có chắc chắn nhận yêu cầu này?')) {
+                const orderId = $(this).data('id');
+                console.log(orderId);
+                $.ajax({
+                    type: "post",
+                    url: "/receive/confirm",
+                    data: { id: orderId },
+                    dataType: "json",
+                    success: function (res) {
+                        if (res == 200) {
+                            window.location.reload();
+                        }
                     }
-                }
-            });
+                });
+            }
         });
     });
 </script>

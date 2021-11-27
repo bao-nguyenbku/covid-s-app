@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
-router.get('/', UserController.showProfile);
+const auth = require('../controllers/AuthenticateUser');
+router.get('/', auth(['V', 'C']), UserController.showProfile);
 
-router.post('/', UserController.updateProfile);
-router.post('/update-avatar', UserController.updateAvatar);
-router.post('/delete-address', UserController.deleteAddress);
+router.post('/', auth(['V', 'C']), UserController.updateProfile);
+router.post('/update-avatar', auth(['V', 'C']), UserController.updateAvatar);
+router.post('/delete-address', auth(['V', 'C']), UserController.deleteAddress);
 module.exports = router;

@@ -129,7 +129,7 @@
   height: 100vh;
   background: #fff;
   padding: 5px 0 0 0;
-
+  box-shadow: $shadow;
   transition: 0.5s;
   z-index: var(--z-fixed);
   .nav__list {

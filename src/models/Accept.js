@@ -6,7 +6,7 @@ const Accept = function (accept) {
     this.published = accept.published;
 };
 Accept.getAll = (result) => {
-    let query = "SELECT order.create_time AS time, order.address AS address,CONCAT(`last_name`,' ', `first_name`) AS `name` FROM `order` JOIN `account` ON order.customer_id = account.id WHERE order_status='Chờ giao hàng' ;";
+    let query = "SELECT order.create_time AS time, order.Quan as quan, order.address AS address,CONCAT(`last_name`,' ', `first_name`) AS `name` FROM `order` JOIN `account` ON order.customer_id = account.id WHERE order_status='Chờ giao hàng' ;";
     db.query(query, (err, res) => {
         if (err) {
             console.log("error: ", err);
