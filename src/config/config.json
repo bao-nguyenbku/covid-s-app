@@ -1,7 +1,7 @@
 {
     "host": "localhost",
-    "user": "Hoai_Nam07",
-    "password": "nam07102001",
-    "port": 3306,
+    "user": "root",
+    "password": "Thienbao4",
+    "port": 3308,
     "database": "covid_support"
 }
