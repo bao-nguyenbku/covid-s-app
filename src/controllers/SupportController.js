@@ -1,5 +1,3 @@
-const e = require('express');
-const mysql = require('mysql');
 const db = require('../config/db/DBconnection');
 
 exports.show = (req, res, next) => {
@@ -43,8 +41,11 @@ exports.create = (req, res, next) => {
             else{
                 address.addressInput = req.body.address;
             }
-            let sql_order = "INSERT INTO `order` (create_time, address, order_status, customer_id)  VALUES (?, ?,'Chờ tiếp nhận', ?)";
-            db.query(sql_order, [createTime, address.addressInput, cusId], (err, result) => {
+            const curAddress = address.addressInput;
+            const district = curAddress.split(',');
+            console.log();
+            let sql_order = "INSERT INTO `order` (create_time, address, order_status, customer_id, district)  VALUES (?, ?,'Chờ tiếp nhận', ?, ?)";
+            db.query(sql_order, [createTime, address.addressInput, cusId, district[district.length - 2].trim()], (err, result) => {
                 if (err) throw err;
                 if (result) {
                     const orderId = result.insertId;
