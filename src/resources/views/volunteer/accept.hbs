@@ -52,13 +52,13 @@
                     <hr>
                     <div class="order-detail-body">
                         <h4>Danh sách sản phẩm cần mua</h4>
-                        <ul>
+                        <ul class="list-group" id="list-receive-orders">
                         </ul>
                     </div>
                     <hr>
                     <div class="order-detail-body-done">
-                        <h4>Đã xong</h4>
-                        <ul>
+                        <h4 style="text-align: center;">Đã xong</h4>
+                        <ul class="list-group" id="list-receive-orders-done">
                         </ul>
                     </div>
                     <hr>
@@ -90,7 +90,6 @@
     $(document).ready(function () {
         $('.button-detail').click(function () {
             const id = $(this).data('id');
-            console.log(id);
             $.ajax({
                 type: 'POST',
                 url: '/receive/accept/details',
@@ -98,7 +97,7 @@
                 dataType: 'json',
                 success: function (res) {
                     if (res) {
-                        console.log(res.orders, res.order_items, res.customer);
+                        // console.log(res.orders, res.order_items, res.customer);
                         $('#order-detail .order-detail-title p:first-child').html(`Mã đơn: <strong>${res.orders[0].id}</strong>`);
 
                         $('#order-detail .order-detail-title p:nth-child(2)').html(`Đã gửi lúc: <strong>${formatDate(res.orders[0].create_time)}</strong>`);
@@ -111,15 +110,34 @@
                     }
                     let li = '';
                     for (let i = 0; i < res.order_items.length; ++i) {
-                        li += `<li>${res.order_items[i].item_name}:  ${res.order_items[i].quantity}</li>`;
+                        li += `<li class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">${res.order_items[i].item_name}: ${res.order_items[i].quantity}
+                        <button style="border: none; background: none; margin: 0; z-index: 100;" type="button" onclick="doneItem(${res.orders[0].id}, this)" class="btn badge bg-primary rounded" >Xong</button></li>`;
+
                     }
 
-                    $('#order-detail .order-detail-body ul').html(li);
-                    // $('#order-detail').append();
+                    $('#order-detail .order-detail-body ul').append(li);
                 }
             });
         });
     })
+</script>
+<script>
+    function doneItem(id, elem) {
+        $(document).ready(function () {
+            const li = elem.parentNode;
+           
+            //console.log($('#list-receive-orders li')[index]);
+            $('#list-receive-orders-done').append(li);
+            $('#list-receive-orders-done li').each(function (e) {
+               
+                let tmp1 = $(this).text().replace("Xong", "");
+                const tmp2 = tmp1.replace(/(\r\n|\n|\r)/gm, "", "").trim();
+                $(this).text(tmp2);
+                $(this).removeClass('list-group-item-danger');
+                $(this).addClass('list-group-item-success');
+            });
+        });
+    }
 </script>
 <script>
     $(document).ready(function () {
@@ -135,7 +153,7 @@
                 data: { data },
                 success: function (res) {
                     if (res.status == 200) {
-                        console.log("Success");
+                        window.location.reload();
                     }
                 }
             });
