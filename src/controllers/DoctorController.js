@@ -73,8 +73,8 @@ class DoctorController {
             });
         }
         else {
-            let sql1 = "insert into doctor (phone_number, descriptions, name, experience, major, support_zone, work_hospital) values (?, ?, ?, ?, ?, ?, ?)";
-            db.query(sql1, [data.phone, data.des, data.name, data.exp, data.major, data.supportZone, data.work_hospital], (err, result) => {
+            let sql1 = "insert into doctor (phone_number, descriptions, name, experience, major, support_zone, work_hospital, image) values (?, ?, ?, ?, ?, ?, ?, ?)";
+            db.query(sql1, [data.phone, data.des, data.name, data.exp, data.major, data.supportZone, data.work_hospital, 'avatar-default.jpg'], (err, result) => {
                 if (err) throw err;
                 res.redirect('/admin/doctor');
             });
