@@ -27,11 +27,12 @@
             {{#if (equal this.account_id ../this.id)}}
               {{#if (equal this.order_status "Chờ giao hàng")}}
                 <td>{{this.numOfOrders}}</td>
-              {{/if}}
-              {{#if (equal this.order_status "Đã hoàn thành")}}
-                <td>{{this.numOfOrders}}</td>
               {{else}}
+                {{#if (equal this.order_status "Đã hoàn thành")}}
+                <td>{{this.numOfOrders}}</td>
+                {{else}}
                 <td>0</td>
+                {{/if}}
               {{/if}}
             {{/if}}
           {{/each}}
