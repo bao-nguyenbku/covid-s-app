@@ -1,22 +1,23 @@
 <div class="title" style="margin-bottom: 0px;">Danh sách đơn yêu cầu đã gửi
+</div>
+<div class="dtr_search_order">
+    <div class="dtr-salign-order">
+        <input id="search-button-order" style="padding: 3px;" type="search" placeholder="Tìm kiếm...">
     </div>
-    <div class="dtr_search_order">
-        <div class="dtr-salign-order">
-            <input id="search-button-order" style="padding: 3px;" type="search" placeholder="Tìm kiếm..."
-                onkeyup="search(this.value)">
-                </div>
-    </div>
+</div>
 {{#if orders}}
 
 <div class="waiting-content">
     <table class="list">
-        <tr>
-            <th>Mã đơn</th>
-            <th class="col-time">Thời gian tạo</th>
-            <th>Nội dung</th>
-            <th>Trạng thái</th>
-            <th></th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Mã đơn</th>
+                <th class="col-time">Thời gian tạo</th>
+                <th>Nội dung</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+        </thead>
         <tbody id="receive-body">
 
             {{#each orders}}
