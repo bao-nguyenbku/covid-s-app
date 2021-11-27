@@ -38,6 +38,10 @@
                     <p>Năm hoạt động</p>
                 </div>
             </div>
+            <div class="feedback-home">
+                    <h4 class="countfect" data-num={{count_feedback.numFeed}}></h4>
+                    <p>Đáng giá</p>
+            </div>
         </div>
     </div>
     <div class="homepage-content-about-us">
@@ -51,3 +55,19 @@
         </div>
     </div>
 </div>
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.feedback-home').click(function () {
+            
+            $.ajax({
+                type: 'get',
+                url: '/feedback',
+                success: function (res) {
+                    window.location.href = "/feedback";
+                    //console.log(res);
+                }
+            });
+        }); 
+});
+</script>

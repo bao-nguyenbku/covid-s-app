@@ -251,3 +251,13 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-11-27 21:08:49
+CREATE TABLE feedback( 
+  feedback_id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  order_id int,
+  customer_id varchar(255), 
+  volunteer_id varchar(255), 
+  feedback_time datetime DEFAULT NULL, 
+  feedback varchar(500), 
+  fbcheck char );
+
+  SELECT * FROM `order` where customer_id = "a2a142f0-4825-11ec-a190-53e797f7b5e3" and id not in (SELECT order_id from feedback);
