@@ -64,93 +64,10 @@
     }
   }
 }
-
-// .receive-container {
-//   position: relative;
-//   .receive-filter {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     .receive-field-select {
-//       width: 200px;
-//     }
-//     padding-bottom: 20px;
-//   }
-//   .receive-tb-container {
-//     position: relative;
-//     overflow-x: auto;
-//     width: 85%;
-//     border-radius: 10px;
-//     margin: 0 auto;
-//     background: #fff;
-//   }
-//   #receive-tb {
-//     position: relative;
-//     margin: 0 auto;
-//     width: 900px;
-//     background: #fff;
-//     tbody {
-//       tr {
-//         td {
-//           border: 1px solid rgb(196, 196, 196);
-//           font-size: 20px;
-//           text-align: center;
-//           padding: 5px;
-//           width: fit-content;
-//           .receive-btn-area {
-//             display: flex;
-//             justify-content: center;
-//             flex-direction: row;
-//             margin: 0 auto;
-//             button {
-//               margin-left: 5px;
-//               margin-right: 5px;
-//               font-size: 14px;
-//             }
-//           }
-//           &:nth-child(3) {
-//             text-align: start;
-//           }
-//         }
-//       }
-//     }
-
-//     thead {
-//       background: rgb(3, 184, 226);
-//       background: linear-gradient(
-//         300deg,
-//         rgba(3, 184, 226, 1) 0%,
-//         rgba(33, 82, 255, 1) 100%
-//       );
-//       tr {
-//         th {
-//           font-size: 16px;
-//           color: #fff;
-//           text-transform: uppercase;
-//           letter-spacing: 0.03em;
-//           text-align: center;
-//           height: 50px;
-//           border: 1px solid rgb(196, 196, 196);
-//           padding: 5px;
-//           width: fit-content;
-//           &:nth-child(4) {
-//             width: 130px;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 1024px) {
-//   .receive-container {
-//     .receive-tb-container {
-//       width: 100%;
-//       #receive-tb {
-//         * {
-//           font-size: 14px;
-//         }
-//       }
-//     }
-//   }
-// }
+.receive-filter {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

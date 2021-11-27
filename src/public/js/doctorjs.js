@@ -1,4 +1,3 @@
-
 function ondetail(id) {
     $.ajax({
         url: "/doctor/detail",
@@ -20,7 +19,6 @@ function ondetail(id) {
         }
     });
 };
-
 
 // function outDetail() {
 //     var dtr = document.getElementById('dtr-detail-profile');
@@ -65,21 +63,19 @@ function sortDT(value) {
 
 
 // Sắp xếp tên theo thứ tự a - z
-
 function asc_sort1(a, b) {
-    a = $(a).children(".dtr-block-title").attr('name').split(' ');
+    a = $(a).children(".dtr-block-title").attr('id').split(' ');
     a = a[a.length - 1];
-    b = $(b).children(".dtr-block-title").attr('name').split(' ');
+    b = $(b).children(".dtr-block-title").attr('id').split(' ');
     b = b[b.length - 1];
     return (a > b) ? 1 : -1;
 }
 // Sắp xếp tên theo thứ tự z - a
 function desc_sort1(a, b) {
-    a = $(a).children(".dtr-block-title").attr('name').split(' ');
+    a = $(a).children(".dtr-block-title").attr('id').split(' ');
     a = a[a.length - 1];
-    b = $(b).children(".dtr-block-title").attr('name').split(' ');
+    b = $(b).children(".dtr-block-title").attr('id').split(' ');
     b = b[b.length - 1];
-
     return (a > b) ? -1 : 1;
 }
 
@@ -118,7 +114,6 @@ function desc_sort3(a, b) {
 //         if(x.text().toLowerCase().search(this.value.toLowerCase()) != -1) x.css('display','block');
 //     }
 // });
-
 function search(value) {
     var sear = $("#doctor-list").children().length, x;
     filterDT($("#dtr-filter-list-re").val());

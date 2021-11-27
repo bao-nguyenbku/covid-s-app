@@ -1,4 +1,3 @@
-
 <div>
     <div class="title">BÁC SĨ TƯ VẤN</div>
     <div class="dtr_search">
@@ -8,7 +7,7 @@
             {{!-- <button><span class="fas fa-search"></span></button> --}}
         </div>
         <div class="dtr-filter">
-            <select id="dtr-sort-list" name="option" onchange="sortDT(this.value)">
+            <select class="form-select" id="dtr-sort-list" name="option" onchange="sortDT(this.value)">
                 <option value="blank">Sắp xếp theo</option>
                 <optgroup label="Tên">
                     <option value="nameSort">A - Z</option>
@@ -23,7 +22,7 @@
                     <option value="experienceSort">Giảm dần</option>
                 </optgroup>
             </select>
-            <select id="dtr-filter-list-re" onchange="filterDT(this.value)">
+            <select class="form-select" id="dtr-filter-list-re" onchange="filterDT(this.value)">
                 <option value="region">Khu vực</option>
                 <option value="Quận 1">Quận 1</option>
                 <option value="Quận 2">Quận 2</option>
@@ -57,14 +56,14 @@
 <div id="doctor-list" class="dtr-container overflow-auto">
     {{#each data}}
     <div name="{{this.support_zone}}" class="dtr-block">
-        <div id='{{this.name}}' name="{{this.name}}" class="dtr-block-title">
-            <h4 class="dtr-name">Bác sĩ <strong>{{this.name}}</strong></h4>
+        <div id='{{this.name}}' name="doctorname" class="dtr-block-title">
+            <h4 class="dtr-name"><strong>{{this.name}}</strong></h4>
 
             <button class="dtr-detail-btn btn btn-light" name="{{this.id}}" onclick="ondetail(this.name)"
                 data-bs-toggle="modal" data-bs-target="#exampleModal">Chi tiết</button>
         </div>
         <div class="dtr-block-body">
-            <img class="dtr-photo" src="/upload/bacsi.png" alt="Bác sĩ" title="ảnh bác sĩ">
+            <img class="dtr-photo" src="/upload/doctor/{{this.image}}" alt="Bác sĩ" title="ảnh bác sĩ">
             <div class="dtr-detail">
                 <span name="{{this.major}}" class="far fa-id-card">
                     <p>Chuyên khoa {{this.major}}</p>
@@ -76,7 +75,7 @@
                     <p>{{this.phone_number}}</p>
                 </span>
                 <span name="{{this.experience}}" class="fas fa-award">
-                    <p>{{this.experience}}</p>
+                    <p>{{this.experience}} năm kinh nghiệm</p>
                 </span>
             </div>
         </div>
@@ -101,10 +100,10 @@
                 {{!-- Body of modal --}}
 
                 <div class="modal-body" id="dtr-detail-profile">
-                    <div class="img-file-dtr">
-                        <img src="upload/bacsi.png">
+                    {{!-- <div class="img-file-dtr">
+                        <img src="">
                     </div>
-                    <hr>
+                    <hr> --}}
                     <div class="info-dtr">
                         <p>Tên bác sĩ: <strong id="Doctorname"></strong></p>
                         <p>Nơi công tác: <strong id="work_hospital"></strong></p>
@@ -113,7 +112,7 @@
                         {{!-- <p>Email: <strong id="email"></strong></p> --}}
                         {{!-- <p>Chức vụ: <strong id="job_title"></strong></p> --}}
                         <p>Khu vực hỗ trợ: <strong id="support_zone"></strong></p>
-                        <p>Mô tả: <strong id="descriptions"></strong></p>
+                        <p style="text-align: justify;">Mô tả: <strong id="descriptions"></strong></p>
                     </div>
                 </div>
 
@@ -124,7 +123,6 @@
             </div>
         </div>
     </div>
-
     {{!-- Modal detail of doctor --}}
     {{!-- <div class="dtr-profile-modal" id="">
         <div class="img-file-dtr">

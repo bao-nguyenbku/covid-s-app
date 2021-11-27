@@ -1,4 +1,6 @@
+{{#if (equal session.user null)}}
 {{>headerNoLogIn}}
+{{/if}}
 <div class="homepage-container">
     <div class="homepage-content">
         <div class="homepage-title">
@@ -7,8 +9,12 @@
                 Hiệu quả - nhanh chóng - tận tâm
             </div>
             <div class="homepage-log-in">
-                <button type="button" class="btn btn-primary btn-lg btn-custom"><a href="/login">Tham gia ngay</a></button>
+                {{#if (equal session.user null)}}
+                <button type="button" class="btn btn-primary btn-lg btn-custom"><a href="/login">Tham gia
+                        ngay</a></button>
+                {{/if}}
             </div>
+
         </div>
     </div>
     <div class="achievement-container">

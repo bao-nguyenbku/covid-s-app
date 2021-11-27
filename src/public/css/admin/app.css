@@ -129,5 +129,20 @@
     padding: 10px;
   }
 }
+.image-preview {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+#image-preview-1, #image-preview-2 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: 1px dashed #bdbdbd;
+}
 
 /*# sourceMappingURL=app.css.map */

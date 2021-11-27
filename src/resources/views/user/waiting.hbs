@@ -1,4 +1,5 @@
 <div class="title">Danh sách đơn yêu cầu đã gửi</div><br>
+{{#if orders}}
 <div class="waiting-content">
     <table class="list">
         <tr>
@@ -49,8 +50,18 @@
             </tr>
         </tbody>
     </table>
-</div><br>
+</div>
+<br>
+
 <p class="note">*Đội tình nguyễn đã nhận yêu cầu của bạn, chúng tôi sẽ sớm liên lạc với bạn.</p>
+{{else}}
+<h2 class="note">Hiện tại bạn chưa có yêu cầu nào</h2>
+{{/if}}
+
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -86,13 +97,14 @@
 
                     </ul>
                 </div>
+                <p class="note">Bạn có thể sửa yêu cầu này khi chưa có tình nguyện viên nhận</p>
             </div>
 
             {{!-- End body of modal --}}
 
             <div class="modal-footer">
-                {{!-- <button type="button" class="btn bg-gradient-secondary">Chỉnh sửa</button> --}}
-                <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button>
+                <div id="btn-edit-detail-order"></div>
+                <div><button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button></div>
             </div>
         </div>
     </div>
@@ -124,14 +136,22 @@
 
                         $('#order-detail .order-detail-title p:nth-child(2)').html(`Đã gửi lúc: <strong>${formatDate(res.orders[0].create_time)}</strong>`);
 
-                        $('#order-detail .order-detail-title p:nth-child(3)').html(`Địa chỉ nhận: <span class="badge bg-gradient-dark">${res.orders[0].address}</span>`);
+                        $('#order-detail .order-detail-title p:nth-child(3)').html(`Địa chỉ nhận: <p><strong>${res.orders[0].address}</strong></p>`);
 
                         if (res.orders[0].order_status == "Chờ tiếp nhận") {
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-warning">${res.orders[0].order_status}</span>`);
-
+                            $('#btn-edit-detail-order').html(`
+                                <button type="button" class="btn bg-gradient-secondary">
+                                    <a href="/waiting/delete-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
+                                    Xóa</a></button>
+                                <button type="button" class="btn bg-gradient-secondary">
+                                    <a href="/waiting/update-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
+                                    Chỉnh sửa</a></button>
+                                `)
                         }
                         else {
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-info">${res.orders[0].order_status}</span>`);
+                            $('#btn-edit-detail-order').html(`<button type="button" style="display:none;" class="btn bg-gradient-secondary">Chỉnh sửa</button>`)
                         }
 
                         // Volunteer info
