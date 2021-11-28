@@ -13,6 +13,7 @@ exports.feedback = (req, res, next) => {
     let sql = "SELECT * FROM feedback where fbcheck='Y';";
     db.query(sql, (err, re) =>{
         //res.render('login', { message: "Đăng ký tài khoản tình nguyện viên thành công. Quản trị viên sẽ liên lạc với bạn" });
-        res.render('feedback', {feedback: re});
+        //res.render('feedback', {feedback: re});
+        res.json({feed:re});
     });
 }
