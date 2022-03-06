@@ -2,7 +2,7 @@
   animation: transitionIn 1s;
 }
 .homepage-content {
-  background-image: url('/img/homepage_background_2.jpg');
+  background-image: url("/img/homepage_background_2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -28,10 +28,6 @@
 .achievement-container {
   background: #fff;
   padding-top: 30px;
-  // background-image: url('/img/Reminders.png');
-  // background-repeat: no-repeat;
-  // background-size: 45%;
-  // background-position-x: right;
   h1 {
     background-clip: text;
     -webkit-background-clip: text;
@@ -40,18 +36,7 @@
     font-size: 40px;
     text-align: center;
   }
-  // .img-back {
-  //   position: relative;
-  //   background-image: url('/img/Reminders.png');
-  //   background-size: 100%;
-  //   background-repeat: no-repeat;
-
-  //   height: 100%;
-  //   width: 50%;
-  //   margin-left: auto;
-  //   margin-right: 0;
-  // }
-  height: 700px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   .achievement-content {
@@ -65,8 +50,11 @@
       grid-column-gap: 30px;
       grid-row-gap: 30px;
       width: 100%;
-      margin-top: 60px;
-      .ach-1, .ach-2, .ach-3, .ach-4 {
+      margin-top: 30px;
+      .ach-1,
+      .ach-2,
+      .ach-3,
+      .ach-4 {
         text-align: center;
         height: 200px;
         display: flex;
@@ -160,11 +148,7 @@
     text-align: center;
     border: none;
     background: rgb(3, 184, 226);
-    background: linear-gradient(
-      300deg,
-      rgba(3, 184, 226, 1) 0%,
-      rgba(33, 82, 255, 1) 100%
-    );
+    background: linear-gradient(300deg, rgba(3, 184, 226, 1) 0%, rgba(33, 82, 255, 1) 100%);
     box-shadow: $back-blue-shadow;
     a {
       text-decoration: none;
@@ -180,12 +164,13 @@
 }
 .homepage-content-img {
   width: 40%;
-  height: 600px;
+  height: 100%;
   position: absolute;
   right: 3%;
-  height: 500px;
   background-image: url(/img/meeting_2.png);
-  border-radius: 5%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 10px;
   margin-right: 0;
 }
 
@@ -230,7 +215,8 @@
     h1 {
       font-size: 30px;
     }
-    .content-block {
+    .content-block,
+    .feedback-home {
       div {
         p {
           font-size: 20px !important;
@@ -263,5 +249,35 @@
         }
       }
     }
+  }
+  .feedback-home {
+    margin-top: 5px;
+    h4 {
+      font-size: 60px !important;
+    }
+    p {
+      font-size: 15px !important;
+    }
+  }
+}
+
+.feedback-home {
+  height: 200px;
+  margin-top: 30px;
+  width: 100%;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  .countfect {
+    font-size: 70px;
+    margin: 0;
+    margin-bottom: 6px;
+  }
+  p {
+    font-size: 26px;
   }
 }

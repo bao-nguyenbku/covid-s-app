@@ -28,7 +28,6 @@ Accept.get_list = (result)=>{
         console.log("data1: ", data[0]);
         result(data);
     });
-  };
+};
 */
 module.exports = Accept;
-

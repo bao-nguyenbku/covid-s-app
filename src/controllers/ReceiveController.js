@@ -9,11 +9,6 @@ exports.show = (req, res, next) => {
         res.render('volunteer/receive', { result });
     });
 
-
-
-
-
-    // res.render('volunteer/receive');
 }
 
 exports.confirm = (req, res, next) => {
@@ -24,9 +19,9 @@ exports.confirm = (req, res, next) => {
     db.query(sql, [req.session.user.phone_number, 'V'], (err, volunteerId) => {
         if (err) throw err;
         if (volunteerId.length > 0) {
-            
+
             const volId = volunteerId[0].id;
-             const orderId = req.body.id;
+            const orderId = req.body.id;
             console.log(volId);
             sql = "update `order` set order_status = 'Chờ giao hàng', volunteer_id = ?, receive_time = ? where `order`.id = ?;";
             db.query(sql, [volId, receiveTime, orderId], (err, result) => {
@@ -35,6 +30,24 @@ exports.confirm = (req, res, next) => {
             });
         }
     });
-   
+
+
+}
+exports.feedback = (req, res, next) => {
+    let sql = "select id from `account` where phone_number = ? and role = ?;";
+    const today = new Date();
+    let receiveTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+
+    db.query(sql, [req.session.user.phone_number, 'V'], (err, volunteerId) => {
+        if (err) throw err;
+        if (volunteerId.length > 0) {
+            const volId = volunteerId[0].id;
+            const orderId = req.body.id;
+            let sql1 = "SELECT * FROM `feedback` where fbcheck='Y' and volunteer_id = ?;";
+            db.query(sql1, [volId], (err, re) => {
+                res.render('volunteer/feedback', { feedback: re });
+            });
+        }
+    });
 
 }

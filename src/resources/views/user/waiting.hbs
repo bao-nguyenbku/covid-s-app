@@ -104,13 +104,15 @@
 
                     </ul>
                 </div>
+                <div class="order-feedback">
+                </div>
                 <p class="note">Bạn có thể sửa yêu cầu này khi chưa có tình nguyện viên nhận</p>
             </div>
 
             {{!-- End body of modal --}}
 
             <div class="modal-footer">
-                <div id="btn-edit-detail-order"></div>
+                <div id="btn-edit-detail-order"></div> 
                 <div><button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button></div>
             </div>
         </div>
@@ -155,17 +157,28 @@
                                     <a href="/waiting/update-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
                                     Chỉnh sửa</a></button>
                                 `)
+                            $('.order-feedback').html(`<button type="button" style="display:none;">Chỉnh sửa</button>`);
                         }
                         else if(res.orders[0].order_status == "Đã hoàn thành"){
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-success">${res.orders[0].order_status}</span>`);
-                            $('#btn-edit-detail-order').html(`
-                                <button type="button" class="btn bg-gradient-secondary" style="display:none;">
-                                    <a href="/waiting/delete-order?id=${res.orders[0].id}" style="color:white; text-decoration:none;">
-                                    Xóa</a></button>`)
+                            $('#btn-edit-detail-order').html(`<button type="button" style="display:none;" class="btn bg-gradient-secondary">Chỉnh sửa</button>
+                                `);
+                            $('.order-feedback').html(
+                                `<hr>
+                                    <h4 style="text-align:center;">Đánh giá</h4>
+                                    <form action="/waiting/feedback?id=${res.orders[0].id}&cus=${res.orders[0].customer_id}&vol=${res.orders[0].volunteer_id}"
+                                        style="padding-left:5%;" method="post">
+                                    <div><input type="text" id="feedback" name="feedback">
+                                    <button type="submit" class="btn_feedback btn-primary">
+                                        Đánh giá</button></div>
+                                </form> 
+                            `);
+                                
                         }
                         else {
                             $('#order-detail .order-detail-title p:nth-child(4)').html(`Tình trạng: <span class="badge bg-gradient-info">${res.orders[0].order_status}</span>`);
                             $('#btn-edit-detail-order').html(`<button type="button" style="display:none;" class="btn bg-gradient-secondary">Chỉnh sửa</button>`)
+                            $('.order-feedback').html(`<button type="button" style="display:none;">Chỉnh sửa</button>`);
                         }
 
                         // Volunteer info

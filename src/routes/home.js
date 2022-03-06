@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const HomeController = require('../controllers/HomeController');
 
-router.get('/', (req, res, next) => {
-    // res.json(user);
-   res.render('index');
-    
-});
+router.get('/feedback', HomeController.feedback);
+router.get('/', HomeController.show);
+
+
 
 module.exports = router;

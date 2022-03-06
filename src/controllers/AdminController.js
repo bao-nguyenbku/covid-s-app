@@ -57,6 +57,7 @@ exports.getSupportDoneData = (req, res, next) => {
     let sql = "select count(id) from `order`; select order_status, count(order_status) from `order` group by order_status;";
     db.query(sql, (err, result) => {
         if (err) throw err;
+        
         if (result) {
             res.json({ data: result, code: 200 });
         }
@@ -65,30 +66,25 @@ exports.getSupportDoneData = (req, res, next) => {
 }
 
 exports.getSupportData = (req, res, next) => {
-    const curr = new Date();
-    let first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
-    var last = first + 6; // last day is the first day + 6
+    // const curr = new Date();
+    // console.log(curr.getDate(), curr.getDay());
+    // let first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+    // var last = first + 6; // last day is the first day + 6
+    // var firstday = new Date(curr.setDate(first));
+    // var lastday = new Date(curr.setDate(last));
+    // firstday = firstday.getFullYear() + '-'
+    //     + (firstday.getMonth() + 1) + '-'
+    //     + firstday.getDate();
 
-    var firstday = new Date(curr.setDate(first));
-    var lastday = new Date(curr.setDate(last));
-    firstday = firstday.getFullYear() + '-'
-        + (firstday.getMonth() + 1) + '-'
-        + firstday.getDate();
-    lastday = lastday.getFullYear() + '-'
-        + (lastday.getMonth() + 1) + '-'
-        + lastday.getDate();
-
-    let sql = "select count(id) as numOfOrders, `order`.order_status from `order` where `order`.create_time >= ? and `order`.create_time <= ? group by `order`.order_status";
-    db.query(sql, [firstday, lastday], (err, rows) => {
+    // lastday = lastday.getFullYear() + '-'
+    //     + (lastday.getMonth() + 1) + '-'
+    //     + lastday.getDate();
+    
+    let sql = "select count(id) as numOfOrders, order_status from `order` group by order_status";
+    db.query(sql, (err, rows) => {
         if (err) throw err;
-        else {
-            res.json({ data: rows });
-        }
+        res.json({ data: rows }); 
     });
-
-
-
-    // res.json({ data: someVar });
 }
 exports.chartFilter = (req, res, next) => {
     const type = req.body.filter.split('=')[1];

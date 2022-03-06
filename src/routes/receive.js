@@ -15,6 +15,8 @@ router.post('/accept/check-list', auth(['V']), acceptController.checkList);
 
 router.post('/accept/details', auth(['V']), acceptController.showDetail);
 
+router.get('/feedback', auth(['V']), receiveController.feedback);
+
 
 
 module.exports = router;

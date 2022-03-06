@@ -38,16 +38,127 @@
                     <p>Năm hoạt động</p>
                 </div>
             </div>
+            <div class="feedback-home" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <h4 class="countfect" data-num={{count_feedback.numFeed}}></h4>
+                    <p>Đánh giá</p>
+            </div>
         </div>
+        {{!-- feedback here --}}
     </div>
     <div class="homepage-content-about-us">
         <div class="homepage-content-about-us-title">
             <div class="wow fadeInRight" data-wow-delay="0.5s" id="about-us">Chúng tôi là ai?</div>
             <div id="about-us-content">
-                Chào mừng bạn đến với <span id="s">COVID-S, website chuyên cung cấp các dịch vụ hỗ trợ F0 đang cách ly tại Thành phố Hồ Chí Minh</span>.Tại đây, bạn sẽ nhận được những dịch vụ hỗ trợ tốt nhất, nhanh chóng và tận tâm nhất. Ngoài ra, đây còn là noi8 chào đón các tình nguyện viên có lòng tốt muốn tham gia vào chiến dịch hỗ trợ F0 đang cách ly của chúng tôi.
+                Chào mừng bạn đến với <span id="s">COVID-S, website chuyên cung cấp các dịch vụ hỗ trợ F0 đang cách ly
+                    tại Thành phố Hồ Chí Minh</span>.Tại đây, bạn sẽ nhận được những dịch vụ hỗ trợ tốt nhất, nhanh
+                chóng và tận tâm nhất. Ngoài ra, đây còn là noi8 chào đón các tình nguyện viên có lòng tốt muốn tham gia
+                vào chiến dịch hỗ trợ F0 đang cách ly của chúng tôi.
             </div>
         </div>
         <div class="homepage-content-img">
         </div>
     </div>
 </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đánh giá</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+
+            {{!-- Body of modal --}}
+
+            <table class="list">
+        <thead>
+            <tr>
+                <th>Mã đánh giá</th>
+                <th>Thời gian</th>
+                <th>Nội dung</th>
+            </tr>
+        </thead>
+        <tbody id="receive-body">
+
+            {{!-- {{#each feedback}}
+            <tr>
+                <td>{{this.feedback_id}}</td>
+                <td>{{formatDate this.feedback_time}}</td>
+                <td>
+                    {{this.feedback}}
+                </td>
+            </tr>
+            {{/each}} --}}
+            
+        </tbody>
+    </table>
+
+            {{!-- End body of modal --}}
+
+            <div class="modal-footer">
+                <div id="btn-edit-detail-order"></div> 
+                <div><button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Đóng</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.feedback-home').click(function () {
+            $.ajax({
+                type: 'get',
+                url: '/feedback',
+                success: function (res) {
+                    if (res) {
+
+                        let li = '';
+                        for (let i = 0; i < res.feed.length; ++i) {
+                            li += `<tr><td>${res.feed[i].feedback_id}</td> 
+                                        <td>${formatDate(res.feed[i].feedback_time)}</td>
+                                        <td>${res.feed[i].feedback}</td>
+                                        </tr>`;
+                        }
+
+                        $('#receive-body').html(li);
+
+                    }
+
+
+                }
+            });
+        });
+        
+});
+function formatDate(date) {
+        if (date) {
+            let option = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+            return new Date(date).toLocaleDateString("vi-VN", option);
+        }
+    }
+</script>
+
+{{!-- $('.feedback-home').click(function () {
+            
+            $.ajax({
+                type: 'get',
+                url: '/feedback',
+                success: function (res) {
+                    window.location.href = "/feedback";
+                    //console.log(res);
+                }
+            });
+        });  --}}

@@ -10,7 +10,7 @@ exports.show = (req, res, next) => {
         db.query(sql, [req.session.user.phone_number], (err, re) => {
             if (err) throw err;
             const id = re[0].id;
-            let sql2 = "SELECT * FROM `order` where customer_id = ?;";
+            let sql2 = "SELECT * FROM `order` where customer_id = ? and id not in (SELECT order_id from feedback where fbcheck='Y' or fbcheck='N');";
             db.query(sql2, [id], (err, orders) => {
                 if (err) throw err;
                 if (orders.length > 0) {
@@ -92,7 +92,24 @@ exports.delete = (req, res, next) => {
         res.redirect('/waiting');
     });
 }
-
+exports.feedback = (req, res, next) => {
+    if (req.body.feedback){
+    const today = new Date();
+    let createTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    let sql = "INSERT INTO `feedback` (`order_id`, `customer_id`, `volunteer_id`, `feedback_time`, `feedback`, `fbcheck`) VALUES (?,?,?,?,?,'Y')"
+    db.query(sql, [req.query.id,req.query.cus, req.query.vol,createTime, req.body.feedback], (err, result) => {
+        if (err) throw err;
+        res.redirect('/waiting');
+    });
+    }
+    else{
+        let sql = "INSERT INTO `feedback` (`order_id`,`fbcheck`) VALUES (?,'N')"
+        db.query(sql,[req.query.id], (err, result) => {
+            if (err) throw err;
+            res.redirect('/waiting');
+        });
+    }
+}
 // class WaitingController {
 //     show(req, res, next) {
 //         res.send("SHOW  - " + req.params.id);

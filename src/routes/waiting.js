@@ -9,5 +9,6 @@ router.get('/update-order',  auth(['C']), waitingController.updateDetail);
 
 router.post('/order-details',  auth(['C']), waitingController.showDetail);
 router.get('/delete-order',  auth(['C']), waitingController.delete);
+router.post('/feedback',  auth(['C']), waitingController.feedback);
 
 module.exports = router;   

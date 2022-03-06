@@ -681,7 +681,7 @@ body {
 .achievement-container {
   background: #fff;
   padding-top: 30px;
-  height: 700px;
+  height: 800px;
   display: flex;
   flex-direction: column;
 }
@@ -705,9 +705,12 @@ body {
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 30px;
 }
-.achievement-container .achievement-content .content-block .ach-1, .achievement-container .achievement-content .content-block .ach-2, .achievement-container .achievement-content .content-block .ach-3, .achievement-container .achievement-content .content-block .ach-4 {
+.achievement-container .achievement-content .content-block .ach-1,
+.achievement-container .achievement-content .content-block .ach-2,
+.achievement-container .achievement-content .content-block .ach-3,
+.achievement-container .achievement-content .content-block .ach-4 {
   text-align: center;
   height: 200px;
   display: flex;
@@ -716,12 +719,18 @@ body {
   align-items: center;
   border-radius: 10px;
 }
-.achievement-container .achievement-content .content-block .ach-1 h4, .achievement-container .achievement-content .content-block .ach-2 h4, .achievement-container .achievement-content .content-block .ach-3 h4, .achievement-container .achievement-content .content-block .ach-4 h4 {
+.achievement-container .achievement-content .content-block .ach-1 h4,
+.achievement-container .achievement-content .content-block .ach-2 h4,
+.achievement-container .achievement-content .content-block .ach-3 h4,
+.achievement-container .achievement-content .content-block .ach-4 h4 {
   font-size: 70px;
   margin: 0;
   margin-bottom: 6px;
 }
-.achievement-container .achievement-content .content-block .ach-1 p, .achievement-container .achievement-content .content-block .ach-2 p, .achievement-container .achievement-content .content-block .ach-3 p, .achievement-container .achievement-content .content-block .ach-4 p {
+.achievement-container .achievement-content .content-block .ach-1 p,
+.achievement-container .achievement-content .content-block .ach-2 p,
+.achievement-container .achievement-content .content-block .ach-3 p,
+.achievement-container .achievement-content .content-block .ach-4 p {
   font-size: 26px;
   margin: 0;
 }
@@ -816,12 +825,13 @@ body {
 
 .homepage-content-img {
   width: 40%;
-  height: 600px;
+  height: 100%;
   position: absolute;
   right: 3%;
-  height: 500px;
   background-image: url(/img/meeting_2.png);
-  border-radius: 5%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 10px;
   margin-right: 0;
 }
 
@@ -864,7 +874,8 @@ body {
   .achievement-content h1 {
     font-size: 30px;
   }
-  .achievement-content .content-block div p {
+  .achievement-content .content-block div p,
+.achievement-content .feedback-home div p {
     font-size: 20px !important;
   }
 }
@@ -892,7 +903,38 @@ body {
   .achievement-content .content-block div h4 {
     font-size: 60px !important;
   }
+
+  .feedback-home {
+    margin-top: 5px;
+  }
+  .feedback-home h4 {
+    font-size: 60px !important;
+  }
+  .feedback-home p {
+    font-size: 15px !important;
+  }
 }
+.feedback-home {
+  height: 200px;
+  margin-top: 30px;
+  width: 100%;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+.feedback-home .countfect {
+  font-size: 70px;
+  margin: 0;
+  margin-bottom: 6px;
+}
+.feedback-home p {
+  font-size: 26px;
+}
+
 .profile-container {
   margin: auto 0;
   padding: 0;
@@ -1414,7 +1456,7 @@ select {
   border: 1px solid #afafaf;
 }
 
-.dtr-salign-order > input:hover {
+.dtr-salign-order > input:hover, #feedback:hover {
   border: 1px solid #767676;
 }
 
@@ -1433,6 +1475,32 @@ select {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+
+/* detail */
+#text-feedback {
+  width: 80%;
+}
+
+#feedback {
+  height: 40px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #afafaf;
+}
+
+.btn_feedback {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 @media screen and (max-width: 744px) {
@@ -1489,6 +1557,7 @@ select {
     margin-bottom: 10px;
   }
 }
+/* feedback */
 .dtr-center {
   text-align: center;
   margin: 10px;
