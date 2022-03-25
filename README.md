@@ -1,12 +1,11 @@
 # COVID-S WEB APPLICATION
 <img align="left" alt="" src="https://img.shields.io/badge/Version-beta-brightgreen" />
+
 <br />
 
 ## MÔ TẢ DỰ ÁN
-
 Đây là website hỗ trợ bệnh nhân mắc COVID-19. Trong quá trình bị cách ly, họ có thể gửi yêu cầu mua các vật dụng cần thiết thông qua website. Đội tình nguyện viên sẽ tiếp nhận và thực hiện cho họ. Ngoài ra, bệnh nhân cũng có thể xem thông tin các bác sĩ mà website tổng hợp để có thể liên lạc khi cần thiết.<br />
 ### **Hiện tại website chưa được public, chúng tôi sẽ cố gắng triển khai trong thời gian sớm nhất.**<br /> <br />
-
 ## CÔNG NGHỆ SỬ DỤNG
 
 <img src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
@@ -31,45 +30,44 @@ Vào folder src/database, import file "covid_support.sql" vào DBMS mySQL (Xin l
 2. Sau khi hiển thị `Database is connected` trong console, vào trình duyệt nhập url: `localhost:3060`, truy cập ứng dụng thành công.<br>
 ## Giao diện
 ### **1. Giao diện dành cho người dùng (bệnh nhân)**<br><br>
-<p align='center'>Đây là giao diện trang chủ khi chưa đăng nhập<p/>
+<p align='center'>Đây là giao diện trang chủ khi chưa đăng nhập</p>
 <img src='src/screenshots/1.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện trang đăng nhập<p/>
+<p align='center'>Giao diện trang đăng nhập</p>
 <img src='src/screenshots/2.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện trang đăng ký tình nguyện viên<p/>
+<p align='center'>Giao diện trang đăng ký tình nguyện viên</p>
 <img src='src/screenshots/3.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện gửi yêu cầu tiếp tế của bệnh nhân sau khi đăng nhập<p/>
+<p align='center'>Giao diện gửi yêu cầu tiếp tế của bệnh nhân sau khi đăng nhập</p>
 <img src='src/screenshots/4.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện các đơn yêu cầu và trạng thái<p/>
+<p align='center'>Giao diện các đơn yêu cầu và trạng thái</p>
 <img src='src/screenshots/5.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện thông tin bác sĩ tư vấn<p/>
+<p align='center'>Giao diện thông tin bác sĩ tư vấn</p>
 <img src='src/screenshots/6.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện thông tin của một yêu cầu đã gửi<p/>
+<p align='center'>Giao diện thông tin của một yêu cầu đã gửi</p>
 <img src='src/screenshots/8.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện thông tin cá nhân<p/>
+<p align='center'>Giao diện thông tin cá nhân</p>
 <img src='src/screenshots/9.png' style='border-radius: 10px'/><br><hr>
 
 ### **2. Giao diện dành cho tình nguyện viên**<br><br>
-<p align='center'>Giao diện các yêu cầu bệnh nhân đã gửi<p/>
+<p align='center'>Giao diện các yêu cầu bệnh nhân đã gửi</p>
 <img src='src/screenshots/15.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện các yêu cầu đã nhận<p/>
+<p align='center'>Giao diện các yêu cầu đã nhận</p>
 <img src='src/screenshots/14.png' style='border-radius: 10px'/><br><hr>
-<p align='center'>Giao diện thông tin của một yêu cầu<p/>
+<p align='center'>Giao diện thông tin của một yêu cầu</p>
 <img src='src/screenshots/16.png' style='border-radius: 10px'/><br><hr>
 
 ### **3. Giao diện dành cho quản lý hệ thống**<br><br>
-<p align='center'>Giao diện quản lý chính<p/>
+<p align='center'>Giao diện quản lý chính</p>
 <img src='src/screenshots/10.png' style='border-radius: 10px'/><br><hr>
 
-<p align='center'>Giao diện danh sách các yêu cầu đã gửi của bệnh nhân<p/>
+<p align='center'>Giao diện danh sách các yêu cầu đã gửi của bệnh nhân</p>
 <img src='src/screenshots/11.png' style='border-radius: 10px'/><br><hr>
 
-<p align='center'>Giao diện danh sách bác sĩ tư vấn<p/>
+<p align='center'>Giao diện danh sách bác sĩ tư vấn</p>
 <img src='src/screenshots/12.png' style='border-radius: 10px'/><br><hr>
 
-<p align='center'>Giao diện danh sách các tình nguyện viên<p/>
+<p align='center'>Giao diện danh sách các tình nguyện viên</p>
 <img src='src/screenshots/13.png' style='border-radius: 10px'/><br><hr>
-
-<p align='center'>Giao diện danh sách các tình nguyện viên<p/>
+<p align='center'>Giao diện danh sách các tình nguyện viên</p>
 <img src='src/screenshots/17.png' style='border-radius: 10px'/><br><hr>
 
 ## THÀNH VIÊN NHÓM
@@ -77,5 +75,4 @@ Vào folder src/database, import file "covid_support.sql" vào DBMS mySQL (Xin l
 - Thuý Ngân: https://github.com/thuyngan1501
 - Như Ý: https://github.com/Ayanami2603
 - Minh Chuẩn: https://github.com/lechuan01
-
 **<p align='center'>ZTeam make with ❤</p>**

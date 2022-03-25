@@ -7,7 +7,7 @@ const route = require('./routes');
 const upload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const port = 3060;
+const port = process.env.PORT || 3060;
 // Body-parser
 app.use(
     express.urlencoded({
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.use(upload());
 
 //--- Template engine ----------
-app.engine('hbs', expresshbs({
+app.engine('hbs', expresshbs.engine({
     extname: '.hbs',
     defaultLayout: 'layout',
     layoutsDir: __dirname + '/resources/views/layouts/',
