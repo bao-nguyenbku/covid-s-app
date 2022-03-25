@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "14.17.5"
-  },
   "scripts": {
     "start": "node index.js",
     "stop": "taskkill -f -im node.exe",
