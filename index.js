@@ -7,7 +7,7 @@ const route = require('./routes');
 const upload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const port = process.env.PORT || 3060;
+
 // Body-parser
 app.use(
     express.urlencoded({
@@ -84,4 +84,4 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Route to pages
 route(app);
 
-app.listen(port, () => console.log(`Server is listening at port: ${port}`));
+app.listen(process.env.PORT || 3060, () => console.log('Server is listening'));
