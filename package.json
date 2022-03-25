@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect src/index.js",
+    "start": "node src/index.js",
     "stop": "taskkill -f -im node.exe",
     "scss": "sass src/resources/scss/app.scss:src/public/css/app.css src/resources/scss/admin/app.scss:src/public/css/admin/app.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
