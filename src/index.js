@@ -14,7 +14,8 @@ app.use(
         extended: true,
     })
 );
-// app.use(express.json());
+
+app.use(express.json());
 app.use(cookieParser());
 // For store data in session
 app.use(session({

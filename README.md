@@ -1,6 +1,5 @@
 # COVID-S WEB APPLICATION
 <img align="left" alt="" src="https://img.shields.io/badge/Version-beta-brightgreen" />
-
 <br />
 
 ## MÔ TẢ DỰ ÁN
@@ -8,20 +7,19 @@
 ### **Hiện tại website chưa được public, chúng tôi sẽ cố gắng triển khai trong thời gian sớm nhất.**<br /> <br />
 ## CÔNG NGHỆ SỬ DỤNG
 
-<img src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
-<img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
-<img src='https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white'/>
-<img src='https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white'/>
-<img src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>
-<img src='https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white'/>
-<img src='https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white'/>
-<img src='https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white'/>
-<img src='https://img.shields.io/badge/Express.js-404D59?style=for-the-badge'/>
-
-
-
+<img align="left" src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>
+<img align="left" src='https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white'/>
+<img align="left" src='https://img.shields.io/badge/Express.js-404D59?style=for-the-badge'/>
+<br><br><br>
 
 ## Hướng dẫn chạy ứng dụng:
+
 **Lưu ý: máy tính cần cài đặt nodejs** <br /><br />
 Vào folder src/database, import file "covid_support.sql" vào DBMS mySQL (Xin lỗi vì sự bất tiện này) <br />
 1. Tại folder gốc của dự án (covid-s-project) chạy lệnh `npm start` trong terminal.
@@ -69,6 +67,40 @@ Vào folder src/database, import file "covid_support.sql" vào DBMS mySQL (Xin l
 <img src='src/screenshots/13.png' style='border-radius: 10px'/><br><hr>
 <p align='center'>Giao diện danh sách các tình nguyện viên</p>
 <img src='src/screenshots/17.png' style='border-radius: 10px'/><br><hr>
+
+## ACCOUNT CÓ SẴN TRONG DATABASE
+-------------------------------
+### **Admin**
+```
+Username: 0936010095
+Password: admin
+```
+-------------------------------
+### **Tình nguyện viên**
+```
+Username: 123456789
+Password: 1234
+```
+-------------------------------
+### **Bệnh nhân**
+```
+Username: 0936010094
+Password: 123
+```
+-------------------------------
+### **Bệnh nhân**
+```
+Username: 012345678
+Password: ngan
+```
+-------------------------------
+### **Tình nguyện viên**
+```
+Username: 1234567890
+Password: lechuan
+```
+-------------------------------
+
 
 ## THÀNH VIÊN NHÓM
 - Hoài Nam: https://github.com/HoaiNam071001
