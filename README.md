@@ -1,5 +1,5 @@
 # COVID-S WEB APPLICATION
-<img align="left" alt="" src="https://img.shields.io/badge/Version-beta-brightgreen" />
+<img align="left" alt="" src="https://img.shields.io/badge/Version-dev-brightgreen" />
 <br />
 
 ## MÔ TẢ DỰ ÁN
@@ -19,10 +19,10 @@ Video demo: Coming soon...
 <img align="left" src='https://img.shields.io/badge/Express.js-404D59?style=for-the-badge'/>
 <br><br><br>
 
-## Hướng dẫn chạy ứng dụng:
+## HƯỚNG DẪN CHẠY ỨNG DỤNG
 
-**Lưu ý: máy tính cần cài đặt nodejs** <br /><br />
-Vào folder src/database, import file "covid_support.sql" vào DBMS mySQL (Xin lỗi vì sự bất tiện này) <br />
+**Lưu ý: máy tính cần cài đặt nodejs và xampp hoặc mySQL** <br /><br />
+
 1. Sử dụng XAMPP hoặc mySQL để import database từ `database/covids.sql`
 2. Tại folder gốc của dự án (covid-s-project) chạy lệnh `npm start` trong terminal.
     Theo mặc định port chạy ứng dụng là 3060 (có thể đổi port tại file index.js trong covid-s-project nếu bị xung đột)
@@ -104,7 +104,8 @@ Password: lechuan
 -------------------------------
 
 
-## THÀNH VIÊN NHÓM
+## THÀNH VIÊN NHÓM ZTeam
+- Thiên Bảo (leader): https://github.com/bao-nguyenbku
 - Hoài Nam: https://github.com/HoaiNam071001
 - Thuý Ngân: https://github.com/thuyngan1501
 - Như Ý: https://github.com/Ayanami2603
