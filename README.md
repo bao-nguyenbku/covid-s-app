@@ -1,6 +1,6 @@
 # COVID-S WEB APPLICATION
-<img align="left" alt="" src="https://img.shields.io/badge/Version-dev-brightgreen" />
-<br />
+
+![shield](https://img.shields.io/badge/Version-dev-brightgreen)
 
 ## MÔ TẢ DỰ ÁN
 Đây là website hỗ trợ bệnh nhân mắc COVID-19. Trong quá trình bị cách ly, họ có thể gửi yêu cầu mua các vật dụng cần thiết thông qua website. Đội tình nguyện viên sẽ tiếp nhận và thực hiện cho họ. Ngoài ra, bệnh nhân cũng có thể xem thông tin các bác sĩ mà website tổng hợp để có thể liên lạc khi cần thiết.<br />
@@ -8,20 +8,20 @@
 Video demo: Coming soon...
 ## CÔNG NGHỆ SỬ DỤNG
 
-<img align="left" src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>
-<img align="left" src='https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white'/>
-<img align="left" src='https://img.shields.io/badge/Express.js-404D59?style=for-the-badge'/>
-<br><br><br>
+![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+![](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+<br><br>
 
 ## HƯỚNG DẪN CHẠY ỨNG DỤNG
 
-**Lưu ý: máy tính cần cài đặt nodejs và xampp hoặc mySQL** <br /><br />
+**Lưu ý: máy tính cần cài đặt nodejs và xampp hoặc mySQL workbenchs** <br /><br />
 
 1. Sử dụng XAMPP hoặc mySQL để import database từ `database/covids.sql`
 2. Tại folder gốc của dự án (covid-s-project) chạy lệnh `npm start` trong terminal.
@@ -71,7 +71,7 @@ Video demo: Coming soon...
 <img src='screenshots/17.png' style='border-radius: 10px'/><br><hr>
 
 ## ACCOUNT CÓ SẴN TRONG DATABASE
--------------------------------
+
 ### **Admin**
 ```
 Username: 0936010095
@@ -82,27 +82,26 @@ Password: admin
 ```
 Username: 123456789
 Password: 1234
+
+Username: 1234567890
+Password: lechuan
 ```
 -------------------------------
 ### **Bệnh nhân**
 ```
 Username: 0936010094
 Password: 123
-```
--------------------------------
-### **Bệnh nhân**
-```
+
 Username: 012345678
 Password: ngan
 ```
 -------------------------------
-### **Tình nguyện viên**
-```
-Username: 1234567890
-Password: lechuan
-```
--------------------------------
 
+## CẦN CẢI THIỆN
+
+1. Tối ưu code, tối ưu hiệu năng xử lý dữ liệu
+2. Cập nhật lại một số giao diện
+3. Tăng trải nghiệm người dùng (Không load lại trang đối với một số tính năng nhỏ như gửi yêu cầu tiếp tế,...)
 
 ## THÀNH VIÊN NHÓM ZTeam
 - Thiên Bảo (leader): https://github.com/bao-nguyenbku
