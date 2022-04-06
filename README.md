@@ -5,7 +5,7 @@
 ## MÔ TẢ DỰ ÁN
 Đây là website hỗ trợ bệnh nhân mắc COVID-19. Trong quá trình bị cách ly, họ có thể gửi yêu cầu mua các vật dụng cần thiết thông qua website. Đội tình nguyện viên sẽ tiếp nhận và thực hiện cho họ. Ngoài ra, bệnh nhân cũng có thể xem thông tin các bác sĩ mà website tổng hợp để có thể liên lạc khi cần thiết.<br />
 ### **Hiện tại website chưa được public, chúng tôi sẽ cố gắng triển khai trong thời gian sớm nhất.**<br /> <br />
-Video demo: Coming soon...
+### Video demo: https://youtu.be/AH7tFXVFTLw
 ## CÔNG NGHỆ SỬ DỤNG
 
 ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
