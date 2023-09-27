@@ -1,0 +1,7 @@
+node_modules
+tsconfig.json
+yarn.lock
+tailwind.config.ts
+next.config.js
+*.d.ts
+.next

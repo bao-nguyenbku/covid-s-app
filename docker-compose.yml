@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    container_name: "covid-s-postgres"
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: baonguyen
+      POSTGRES_PASSWORD: baonguyen
+      POSTGRES_DB: covid-s
+    ports:
+      - "5432:5432"
