@@ -2,12 +2,10 @@
 
 import React from 'react'
 import Link from 'next/link'
-import {  useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import Loading from '@/components/ui/loading-indicator'
 import { Session } from 'next-auth'
 import UserItem from './user-item'
-
-type Props = {}
 
 type Status = 'loading' | 'authenticated' | 'unauthenticated'
 const renderItems = (session: Session | null, status: Status) => {
@@ -31,11 +29,13 @@ const renderItems = (session: Session | null, status: Status) => {
       return null
   }
 }
-export default function NavigationBar(props: Props) {
+export default function NavigationBar() {
   const { data: session, status } = useSession()
   return (
     <nav className='h-fit py-3 flex items-center justify-between z-20'>
-      <Link className='text-xl font-bold z-[inherit]' href='/'>Covid Support</Link>
+      <Link className='text-xl font-bold z-[inherit]' href='/'>
+        Covid Support
+      </Link>
       {renderItems(session, status)}
     </nav>
   )

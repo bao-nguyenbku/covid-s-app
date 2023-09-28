@@ -1,3 +1,32 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "no-use-before-define": "error",
+    "no-unused-vars": "error",
+    "prefer-const": "error",
+    "no-duplicate-imports": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "no-unused-expressions": "warn",
+    "spaced-comment": "warn",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react-hooks/exhaustive-deps": "off"
+  }
 }

@@ -13,11 +13,12 @@ export default function DoctorCard({ data }: Props) {
       <div className='divider my-2' />
       <div className='flex'>
         <div className='avatar'>
-          <div className='w-36'>
+          <div className='w-36 relative'>
             <Image
               src={data.image}
               alt='doctor-thumbnail'
               fill
+              sizes='(max-width: 768px) 50vw, 33vw'
               className='rounded-xl border-base-300 border-2 border-solid'
             />
           </div>

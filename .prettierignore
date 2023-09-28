@@ -5,3 +5,8 @@ tailwind.config.ts
 next.config.js
 *.d.ts
 .next
+.cache
+package-lock.json
+public
+next-env.d.ts
+next.config.ts

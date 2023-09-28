@@ -1,38 +1,52 @@
 'use client'
-import { useRef } from "react"
+import { useRef } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { CreateSupplyForm } from '@/types'
 
 export default function SelectAddress() {
   const modalId = 'create-supply-modal'
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const { register } = useFormContext<CreateSupplyForm>()
   return (
     <div className='flex gap-2'>
       <select
         className='select w-full max-w-xs input-bordered'
-        defaultValue={1}
+        {...register('province', {
+          required: 'Bạn hãy chọn Tỉnh/Thành phố'
+        })}
       >
-        <option value={1} disabled>
+        <option value={''} disabled>
           Chọn Tỉnh/Thành phố
         </option>
-        <option value={2}>Hồ Chí Minh</option>
+        <option value={'2'}>Hồ Chí Minh</option>
       </select>
-      <select className='select w-full max-w-xs input-bordered'>
-        <option disabled selected>
+      <select
+        className='select w-full max-w-xs input-bordered'
+        defaultValue={'3'}
+        {...register('district')}
+      >
+        <option disabled value={1}>
           Chọn Quận/Huyện
         </option>
-        <option>Quận 1</option>
-        <option>Quận 2</option>
-        <option>Quận 3</option>
+        <option value={2}>Quận 1</option>
+        <option value={3}>Quận 2</option>
+        <option value={4}>Quận 3</option>
       </select>
-      <select className='select w-full max-w-xs input-bordered'>
-        <option disabled selected>
+      <select
+        className='select w-full max-w-xs input-bordered'
+        defaultValue={1}
+        {...register('ward')}
+      >
+        <option disabled value={1}>
           Chọn Phường
         </option>
-        <option>Phường A</option>
-        <option>Phường B</option>
-        <option>Phường C</option>
+        <option value={2}>Phường A</option>
+        <option value={3}>Phường B</option>
+        <option value={4}>Phường C</option>
       </select>
       <input
         type='text'
+        {...register('street')}
         placeholder='Số 100, đường Trần Hưng Đạo'
         className='input w-full max-w-xs input-bordered'
       />
@@ -69,7 +83,12 @@ export default function SelectAddress() {
             />
           </div>
         </div>
-        <div className='modal-backdrop' onClick={() => (document?.getElementById(modalId) as HTMLDialogElement)?.close()}/>
+        <div
+          className='modal-backdrop'
+          onClick={() =>
+            (document?.getElementById(modalId) as HTMLDialogElement)?.close()
+          }
+        />
       </dialog>
     </div>
   )

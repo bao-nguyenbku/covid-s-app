@@ -2,7 +2,7 @@ import DoctorCard from '@/components/doctor-card'
 import DoctorFilter from '@/components/doctor-filter'
 import { getDoctors } from '@/services/doctor'
 
-export default async function DoctorPage(props: any) {
+export default async function DoctorPage() {
   const doctors = await getDoctors()
   return (
     <section className='px-20 flex flex-col'>
