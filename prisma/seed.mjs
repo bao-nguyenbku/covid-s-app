@@ -35,7 +35,8 @@ const doctors = [
     workPlace: 'Bệnh viện Đại học Y Dược',
     department: 'Tai Mũi Họng',
     phoneNumber: '0934024965',
-    image: 'https://cdn.bookingcare.vn/fr/w1200/2019/09/11/121012giao-su-pham-kien-huu.jpg'
+    image:
+      'https://cdn.bookingcare.vn/fr/w1200/2019/09/11/121012giao-su-pham-kien-huu.jpg',
   },
   {
     fullname: 'Trần Ngọc Ánh',
@@ -43,9 +44,33 @@ const doctors = [
     workPlace: 'Bệnh viện Da liễu Tp Hồ Chí Minh',
     department: 'Da liễu',
     phoneNumber: '0957829525',
-    image: 'https://vivita.vn/wp-content/uploads/2022/09/bs-tran-ngoc-anh-chuyen-khoa-da-lieu.jpg'
+    image:
+      'https://vivita.vn/wp-content/uploads/2022/09/bs-tran-ngoc-anh-chuyen-khoa-da-lieu.jpg',
   },
 ]
+
+const users = [
+  {
+    fullname: 'User 100',
+    email: 'user_100@gmail.com',
+    role: 'PATIENT',
+    phoneNumber: '012345678',
+    password: '12345678',
+  },
+]
+
+// Generate User
+async function generateUser() {
+  console.log('Deleting Users...')
+  await prisma.user.deleteMany()
+  console.log('Deleted Users')
+  console.log('Creating Users...')
+  await prisma.user.createMany({
+    data: users,
+  })
+  console.log('Created Users...')
+}
+
 // Generate District
 async function createDistricts() {
   try {
@@ -73,8 +98,7 @@ async function createDoctors() {
       let startIdx = Math.round(Math.random() * districtList.length)
       let endIdx = Math.round(Math.random() * districtList.length)
       if (startIdx > endIdx) [startIdx, endIdx] = [endIdx, startIdx]
-      if (endIdx - startIdx > 4)
-        endIdx = startIdx + 4
+      if (endIdx - startIdx > 4) endIdx = startIdx + 4
       return districtList
         .map((item) => ({ id: item.id }))
         .slice(startIdx, endIdx + 1)
@@ -103,7 +127,11 @@ async function createDoctors() {
     await prisma.$disconnect()
   }
 }
+
+
+
 async function generateData() {
+  await generateUser()
   await createDistricts()
   await createDoctors()
 }

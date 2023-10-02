@@ -1,9 +1,11 @@
 'use client'
+
 import SelectAddress from '@/components/select-address'
 import { useForm, useFieldArray, FormProvider } from 'react-hook-form'
 import { Delete } from 'lucide-react'
 import { cn } from '@/lib'
 import { CreateSupplyForm } from '@/types'
+import createSupply from '@/services/sypply'
 
 export default function CreateSupplyRequest() {
   const formHandler = useForm<CreateSupplyForm>({
@@ -19,25 +21,27 @@ export default function CreateSupplyRequest() {
     register,
     unregister,
     control,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = formHandler
   const { fields, remove, append } = useFieldArray({
     name: 'products',
     control,
     shouldUnregister: true,
   })
-  console.log(errors)
+
   const onSubmit = async (data: CreateSupplyForm) => {
-    console.log(data)
+    await createSupply(data)
+    reset()
   }
   return (
-    <div className='z-10 max-w-7xl w-full mx-auto'>
-      <h1 className='font-bold text-2xl text-center'>Gửi yêu cầu tiếp tế</h1>
+    <div className='z-10 max-w-7xl w-full mx-auto py-20'>
+      <h1 className='font-bold text-3xl text-center'>Gửi yêu cầu tiếp tế</h1>
       <FormProvider {...formHandler}>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
           <div className='flex flex-col mt-10'>
-            <h2 className='font-bold text-2xl mb-4'>Địa chỉ</h2>
+            <h2 className='font-bold text-2xl mb-4'>Thông tin người nhận</h2>
             <SelectAddress />
           </div>
           <div className='divider' />
@@ -75,7 +79,6 @@ export default function CreateSupplyRequest() {
                     <input
                       {...register(`products.${index}.quantity`, {
                         required: 'Quantity should not be empty',
-                        deps: ['1'],
                       })}
                       className={cn(
                         'input input-bordered',
@@ -133,7 +136,11 @@ export default function CreateSupplyRequest() {
               Thêm mới
             </button>
           </div>
-          <button className='btn btn-primary mx-auto' type='submit'>
+
+          <button className='btn btn-primary mx-auto' type='submit' disabled={isSubmitting}>
+            {isSubmitting ? (
+              <span className='loading loading-spinner'></span>
+            ) : null}
             Gửi yêu cầu
           </button>
         </form>

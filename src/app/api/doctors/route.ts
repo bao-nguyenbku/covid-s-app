@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma-client'
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
   try {
     const result = await prisma.doctor.findMany({
       include: {
@@ -10,14 +10,13 @@ export async function GET(req: NextRequest, res: NextResponse) {
     })
     return NextResponse.json(result)
   } catch (error) {
-    NextResponse.json(JSON.stringify(error), {
+    return NextResponse.json(JSON.stringify(error), {
       status: 400,
     })
-    throw error
   }
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
     const data = await req.json()
   } catch (error) {

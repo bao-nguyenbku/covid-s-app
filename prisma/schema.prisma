@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,9 +8,24 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String
+  id          String    @id @default(uuid())
+  fullname    String
+  email       String
+  phoneNumber String    @unique @default(cuid())
+  password    String
+  dateOfBirth String    @default("")
+  image       String?   @default("https://res.cloudinary.com/dfmvkj36q/image/upload/v1696166590/covid-support/avatar-3814049_1280_jlrczv.png")
+  role        UserRole
+  Address     Address[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Supply      Supply[]
+}
+
+enum UserRole {
+  PATIENT
+  ADMIN
+  VOLUNTEER
 }
 
 model Doctor {
@@ -31,4 +43,41 @@ model District {
   id      String   @id @default(uuid())
   name    String
   doctors Doctor[]
+}
+
+model Address {
+  id       String   @id @default(uuid())
+  province String
+  district String
+  ward     String
+  street   String
+  userId   String
+  user     User     @relation(fields: [userId], references: [id])
+  Supply   Supply[]
+}
+
+enum SupplyStatus {
+  NEW
+  ON_DELIVERY
+  COMPLETED
+}
+
+model Supply {
+  id        String       @id @default(uuid())
+  address   Address      @relation(fields: [addressId], references: [id])
+  addressId String
+  user      User         @relation(fields: [userId], references: [id])
+  userId    String
+  status    SupplyStatus @default(NEW)
+  products  Product[]
+}
+
+model Product {
+  id       String @id @default(uuid())
+  name     String
+  quantity String
+  note     String
+
+  Supply   Supply? @relation(fields: [supplyId], references: [id])
+  supplyId String?
 }

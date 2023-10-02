@@ -1,18 +1,50 @@
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/ui/image'
+import { cn } from '@/lib'
 
-type Props = {}
+const getActiveClass = (pathname: string, expectPath: string) => {
+  return pathname.includes(expectPath) ? 'btn-neutral' : 'btn-ghost'
+}
 
-export default function UserItem(props: Props) {
+const items = [
+  {
+    link: '/supplies/create',
+    label: 'Gửi yêu cầu tiếp tế',
+  },
+  {
+    link: '/supplies/history',
+    label: 'Yêu cầu đã gửi',
+  },
+  {
+    link: '/doctors',
+    label: 'Bác sĩ tư vấn',
+  },
+]
+export default function UserItem() {
   const { data: session } = useSession()
+  const pathname = usePathname()
+
   return (
     <ul className='flex items-center justify-between w-full flex-1 ml-10 z-[inherit]'>
       <ul className='flex gap-4 items-center font-semibold'>
-        <Link href='/supplies/create' className='btn btn-ghost'>Gửi yêu cầu tiếp tế</Link>
-        <Link href='/supplies' className='btn btn-ghost'>Yêu cầu đã gửi</Link>
-        <Link href='/doctors' className='btn btn-ghost'>Bác sĩ tư vấn</Link>
+        {items.map((item) => {
+          return (
+            <Link
+              href={item.link}
+              key={item.link}
+              className={cn(
+                'btn',
+                getActiveClass(pathname, item.link),
+                'transition-colors duration-300'
+              )}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </ul>
       <div className='dropdown'>
         <label
@@ -20,9 +52,9 @@ export default function UserItem(props: Props) {
           tabIndex={0}
         >
           <div className='avatar'>
-            <div className='w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 relative'>
+            <div className='w-8 rounded-full ring-2 ring-primary ring-offset-base-100 ring-offset-2 relative'>
               <Image
-                src={(session && session.user.image) as string}
+                src={(session && session.user?.image) as string}
                 alt='user-avatar'
                 fill
               />

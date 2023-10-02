@@ -4,9 +4,12 @@ import { getDoctors } from '@/services/doctor'
 
 export default async function DoctorPage() {
   const doctors = await getDoctors()
+  if (!doctors) {
+    return null
+  }
   return (
-    <section className='px-20 flex flex-col'>
-      <h1 className='text-4xl mt-8 font-bold text-center'>Bác sĩ tư vấn</h1>
+    <section className='px-20 flex flex-col py-20'>
+      <h1 className='text-3xl font-bold text-center'>Bác sĩ tư vấn</h1>
       <div className='ml-auto'>
         <DoctorFilter />
       </div>

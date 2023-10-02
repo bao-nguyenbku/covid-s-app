@@ -1,5 +1,9 @@
+import { NEXTAUTH_SECRET } from '@/constants'
 import { AuthOptions } from 'next-auth'
-import CredentialProvider from 'next-auth/providers/credentials';
+import { getToken } from 'next-auth/jwt'
+import CredentialProvider from 'next-auth/providers/credentials'
+import { NextRequest } from 'next/server'
+import prisma from './prisma-client'
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -10,7 +14,7 @@ export const authOptions: AuthOptions = {
         password: { label: 'password' },
       },
       async authorize(credentials) {
-        //credentials:  {
+        // credentials:  {
         //   redirect: 'false',
         //   phoneNumber: 'baonguyen@gmail.com',
         //   password: '12345678',
@@ -18,19 +22,23 @@ export const authOptions: AuthOptions = {
         //   callbackUrl: 'http://localhost:3000/signin',
         //   json: 'true'
         // }
-        if (!credentials) 
-          return null;
-        const user = {
-          id: Math.random().toString(),
-          name: 'Bảo Nguyễn',
-          phoneNumber: '0934858354',
-          image:
-            'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-        }
-        if (user) {
-          return user
-        } else {
+        if (!credentials) return null
+        const { phoneNumber, password } = credentials
+        const user = await prisma.user.findUnique({
+          where: {
+            phoneNumber,
+            password,
+          },
+        })
+        if (!user) {
           return null
+        }
+
+        return {
+          id: user.id,
+          name: user.fullname,
+          image: user.image,
+          phoneNumber: user.phoneNumber,
         }
       },
     }),
@@ -57,4 +65,8 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt',
   },
+}
+
+export const getUserInfo = async (req: NextRequest) => {
+  return getToken({ req, secret: NEXTAUTH_SECRET })
 }

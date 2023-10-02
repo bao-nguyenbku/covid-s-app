@@ -1,52 +1,70 @@
 'use client'
-import { useRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { CreateSupplyForm } from '@/types'
+import hcm from '@/assets/ho-chi-minh.json'
 
+const modalId = 'create-supply-modal'
 export default function SelectAddress() {
-  const modalId = 'create-supply-modal'
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  const { register } = useFormContext<CreateSupplyForm>()
+  const { register, watch } = useFormContext<CreateSupplyForm>()
+  const selectedDistrict = watch('district')
+
   return (
     <div className='flex gap-2'>
       <select
         className='select w-full max-w-xs input-bordered'
         {...register('province', {
-          required: 'Bạn hãy chọn Tỉnh/Thành phố'
+          required: 'Bạn hãy chọn Tỉnh/Thành phố',
         })}
+        defaultValue={hcm.codename}
       >
         <option value={''} disabled>
           Chọn Tỉnh/Thành phố
         </option>
-        <option value={'2'}>Hồ Chí Minh</option>
+        <option value={hcm.codename}>{hcm.name}</option>
       </select>
       <select
         className='select w-full max-w-xs input-bordered'
-        defaultValue={'3'}
-        {...register('district')}
+        defaultValue={hcm.codename}
+        {...register('district', {
+          required: 'Bạn hãy chọn Quận/Huyện',
+        })}
       >
-        <option disabled value={1}>
+        <option disabled value={''}>
           Chọn Quận/Huyện
         </option>
-        <option value={2}>Quận 1</option>
-        <option value={3}>Quận 2</option>
-        <option value={4}>Quận 3</option>
+        {hcm.districts.map((district) => {
+          return (
+            <option key={district.code} value={district.codename}>
+              {district.name}
+            </option>
+          )
+        })}
       </select>
       <select
         className='select w-full max-w-xs input-bordered'
-        defaultValue={1}
-        {...register('ward')}
+        defaultValue={''}
+        {...register('ward', {
+          required: 'Bạn hãy chọn Phường',
+        })}
       >
-        <option disabled value={1}>
+        <option disabled value={''}>
           Chọn Phường
         </option>
-        <option value={2}>Phường A</option>
-        <option value={3}>Phường B</option>
-        <option value={4}>Phường C</option>
+        {hcm.districts
+          .find((item) => item.codename === selectedDistrict)
+          ?.wards.map((ward) => {
+            return (
+              <option key={ward.code} value={ward.codename}>
+                {ward.name}
+              </option>
+            )
+          })}
       </select>
       <input
         type='text'
-        {...register('street')}
+        {...register('street', {
+          required: 'Bạn hãy nhập số nhà, tên đường, khu chung cư,...'
+        })}
         placeholder='Số 100, đường Trần Hưng Đạo'
         className='input w-full max-w-xs input-bordered'
       />

@@ -1,20 +1,18 @@
 'use client'
 
-import React, { FormEvent, FormEventHandler } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { MoveLeft } from 'lucide-react'
 import { signIn } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
 interface UserInput {
   phoneNumber: number
   password: string
 }
 
-export default function SigninPage(props: Props) {
+export default function SigninPage() {
   const { register, handleSubmit } = useForm<UserInput>()
   const router = useRouter()
   const onSubmit = handleSubmit(async (data) => {
@@ -22,6 +20,14 @@ export default function SigninPage(props: Props) {
       redirect: false,
       ...data,
     })
+    if (!response) {
+      console.log('Unknown Error')
+      return
+    }
+    if (response.error) {
+      console.log(response.error)
+      return
+    }
     if (response?.ok) {
       router.replace('/')
       return
@@ -29,7 +35,7 @@ export default function SigninPage(props: Props) {
   })
 
   return (
-    <div className='border-2 border-base-200 border-solid w-[500px] max-w-3xl p-9 flex flex-col rounded-3xl shadow-2xl shadow-slate-200'>
+    <div className='border-2 border-base-200 border-solid w-[500px] max-w-3xl p-9 flex flex-col rounded-3xl shadow-2xl shadow-slate-200 z-10 bg-white'>
       <Link href='/' className='btn btn-ghost w-fit normal-case'>
         <MoveLeft />
         Back to Home

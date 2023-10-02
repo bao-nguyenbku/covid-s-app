@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/prisma-client";
+import { NextRequest, NextResponse } from 'next/server'
+import prisma from '@/lib/prisma-client'
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
@@ -9,6 +9,4 @@ export async function GET(req: NextRequest, res: NextResponse) {
     throw error
   }
 }
-export async function POST(req: NextRequest, res: NextResponse) {
-  
-}
+export async function POST(req: NextRequest, res: NextResponse) {}
